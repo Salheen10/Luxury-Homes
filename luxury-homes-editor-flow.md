@@ -20,7 +20,11 @@ Placement: **Editor › SEO Content › Luxury Homes**, a separate section like 
    - Hero: small heading, H1, intro, button text, hero image.
    - Areas section: heading and text. The cards fill themselves from published areas.
    - About (can be hidden), FAQ (can be hidden), Contact call to action (can be hidden).
-4. **Areas**: filters (All, Published, Draft, Pinned) and cards. Each card shows the name, status, Pinned badge, type and place, its listings source (farm area), and the URL. If that farm area was set to Inactive, the card shows a red "Farm area inactive" badge. Drag to reorder. The ⋯ menu has Edit, Pin / Unpin, Publish / Set as Draft, Duplicate and Delete.
+4. **Areas**:
+   - **Farm area** (single select dropdown) comes first. It lists all farm areas with price range, property types, number of area pages and an Active / Inactive badge. Only **Active** ones can be picked; the first Active one is selected by default. **Add Area** works only with an Active farm area selected and adds areas from its places.
+   - The cards show only the areas of the selected farm area ("3 of 3 in this farm area").
+   - If any area page uses an Inactive farm area, a warning lists them with a link to open the page and move it.
+   - Filters (All, Published, Draft, Pinned) and cards. Each card shows the name, status, Pinned badge, type and place, its listings source (farm area), and the URL. If that farm area was set to Inactive, the card shows a red "Farm area inactive" badge. Drag to reorder. The ⋯ menu has Edit, Pin / Unpin, Publish / Set as Draft, Duplicate and Delete.
 
 ## Screen 2: New / Edit area
 
@@ -28,7 +32,7 @@ Header: **Pinned** and **Published** toggles.
 
 | Field | Rule |
 |---|---|
-| Listings source * | **One farm area**, shown as a list with name, price range, property types and size. Only farm areas set to **Active** can be picked; Inactive ones are shown greyed out with an "Inactive" badge. On a new area the first Active farm area is selected by default, so the place dropdown has data right away. Changing the farm area clears a place that is not in it. |
+| Listings source | **Read-only.** The farm area chosen on the Luxury Homes page, with its price range, property types and Active badge. If that farm area is Inactive, the form shows an error and "Move to {Active farm area}" options; moving keeps the place if it is in the new farm area, otherwise clears it. |
 | Area type * | Switch with three options: **City**, **County** or **Community** (default City). Changing the type clears the place. |
 | City / County / Community * | Search field like the IDX Configuration pickers, labelled after the chosen type. It lists only values of that type from the selected farm area. **Single select**: the chosen value shows as one pill with ✕, and picking another value replaces it. One page per place. |
 | Page name, H1, URL | **Automatic, not editable.** Name = the place (counties get "County"). H1 = "{Place} Luxury Homes for Sale". URL = /luxury-homes/{place}. |

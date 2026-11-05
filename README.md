@@ -8,7 +8,7 @@ Clickable prototype of the **Luxury Homes** section in the ListaCRM Microsite ed
 What it shows:
 - Luxury Homes is **SEO configuration only**, built on the farm areas in IDX Configuration. Listings come from the farm areas; nothing about listings is set here.
 - Editable content of the /luxury-homes page (hero, areas section, about, FAQ, call to action).
-- Area pages: a listings source (one Active farm area), then an Area type (City, County or Community) and one place of that type, both single select. Name, H1 and URL are automatic. Content, pin (max 6), order and publish.
+- Area pages: choose an Active farm area first, then Add Area with an Area type (City, County or Community) and one place of that type, both single select. Name, H1 and URL are automatic. Content, pin (max 6), order and publish.
 - A disclaimer, the farm area behind each page, and a publish checklist.
 
 Tip: Shift-click any Upload button to attach a demo image.
