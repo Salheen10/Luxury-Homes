@@ -10,25 +10,33 @@ Luxury Homes is **SEO configuration only**, built on the **farm areas** in IDX C
 - It sets up the pages: which places get a page, the content of each page, the /luxury-homes page content, and the order and pins.
 - To change which listings show, the agent edits the farm areas in IDX Configuration.
 
-Placement: **Editor › SEO Content › Luxury Homes**, a separate section like City Pages and Counties. The design follows IDX Configuration (info banner, stat cards, cards, an Edit-farm-area style form).
+Placement: **Editor › SEO Content › Luxury Homes** (NEW badge), a separate section like City Pages and Counties.
+
+Design source: Figma "CRM Dashboard", node 14193:401588 (final). The prototype follows it: header with Preview and Publish, the editor nav from the design, and one Luxury Homes card. Icons are the design's own SVGs in `assets/icons/`.
 
 ## Screen 1: Luxury Homes
 
-1. **Disclaimer banner** (always shown): "SEO configuration only. Luxury Homes is built on your farm areas in IDX Configuration. The listings on these pages come from your farm areas: the same places, price range and property types. Here you only set up the pages… To change which listings show, edit your farm areas." Link: **Go to IDX Configuration**.
-2. **Stats**: Area pages, Published, Pinned (of 6), Active farm area: the name of each farm area set to Active (for example "Central Florida Luxury · $1M+"), or "None active" in red.
-3. **Page content** (/luxury-homes). Rows that expand in place, each with Cancel / Save:
-   - Hero: small heading, H1, intro, button text, hero image.
-   - Areas section: heading and text. The cards fill themselves from published areas.
-   - About (can be hidden), FAQ (can be hidden), Contact call to action (can be hidden).
-4. **Areas**:
-   - **Farm area** (single select dropdown) comes first. It lists all farm areas with price range, property types, number of area pages and an Active / Inactive badge. Only **Active** ones can be picked; the first Active one is selected by default. **Add Area** works only with an Active farm area selected and adds areas from its places.
-   - The cards show only the areas of the selected farm area ("3 of 3 in this farm area").
-   - If any area page uses an Inactive farm area, a warning lists them with a link to open the page and move it.
-   - Filters (All, Published, Draft, Pinned) and cards. Each card shows the name, status, Pinned badge, type and place, its listings source (farm area), and the URL. If that farm area was set to Inactive, the card shows a red "Farm area inactive" badge. Drag to reorder. The ⋯ menu has Edit, Pin / Unpin, Publish / Set as Draft, Duplicate and Delete.
+Header of the card: **Luxury Homes** with **Cancel** (red outline) and **Save** (dark).
 
-## Screen 2: New / Edit area
+1. **Notice** (yellow, always shown): "SEO configuration only. Luxury Homes is built on your farm areas in IDX Configuration…" with the link **Go to IDX Configuration**.
+2. **Auto** line: "Page title: {Place} Luxury Homes for Sale · URL: listahomes.com/luxury-homes/{place}".
+3. **Stats**: Luxury Pages, Published, Pinned (of 6), Active farm areas (names of the farm areas set to Active, or "None active" in red).
+4. Link: "How are luxury pages displayed on my microsite?"
+5. **Page content** (accordions, each with Cancel / Save Change):
+   - **Hero** (badge Required until complete): Label *, Title *, Description *, CTA text 1 *, CTA text 2 *, Hero image *.
+   - **Contact call to action** (Editable): Label *, Title *, Description *, CTA text 1 *, CTA text 2 *.
+   - **News Letter** (Editable): Label *, Title *, Description *, Button text *.
+6. **Configuration** (collapsible):
+   - **Farm area *** single select: lists all farm areas with price range, property types, number of luxury pages and Active / Inactive. Only **Active** ones can be picked; the first Active one is selected by default. The chosen value shows its price range badge (for example "$1M – Any").
+   - Stats for the selected farm area: Luxury Pages, Published, Pinned.
+   - **Luxury Pages** with the green **Add Page** button (works only with an Active farm area) and the help text.
+   - If a luxury page uses an Inactive farm area, a warning lists it with a link to open it.
+   - Tabs **All / Published / Draft / Pinned** and "x of y in this farm area".
+   - Cards in 3 columns: name and ⋯ menu (Edit, Pin / Unpin, Publish / Set as Draft, Duplicate, Delete), badges (Published or Draft, Pinned, Farm area inactive or "n to fix"), type and place, "Listings source: {farm area}", URL. Drag cards to reorder.
 
-Header: **Pinned** and **Published** toggles.
+## Screen 2: New / Edit luxury page (Add Page)
+
+Not in the Figma file; it uses the same design tokens (inputs, accordions, badges, buttons). Header: back arrow, "Luxury Homes / {place}", Cancel and Save. Form header: **Pinned** and **Published** toggles.
 
 | Field | Rule |
 |---|---|

@@ -132,7 +132,7 @@ input,textarea,select{font-family:inherit}
 .pick.open{border-color:var(--green)}
 .pick input{flex:1;border:0;outline:0;background:transparent;font-size:14px;padding-left:12px;color:#1A1D23;height:100%}
 .pick input::placeholder{color:var(--muted4)}
-.pick .chev{color:var(--muted);font-size:13px}
+.pick .dn{width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center}
 .plist{position:absolute;left:0;right:0;top:46px;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 10px 26px rgba(0,0,0,.08);z-index:30;max-height:240px;overflow:auto;padding:4px}
 .plist button{display:flex;align-items:center;gap:10px;width:100%;padding:7px 10px;font-size:13px;text-align:left;border-radius:6px}
 .plist button:hover{background:var(--green-bg)}
@@ -287,6 +287,146 @@ pre.code{background:#1A1D23;color:#D7F5D6;border-radius:8px;padding:10px;font-si
 .drawer td,.drawer th{border:1px solid var(--line);padding:5px 7px;text-align:left;vertical-align:top}
 .drawer th{background:#FAFAFA}
 .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--dark);color:#fff;padding:10px 16px;border-radius:8px;font-size:13px;z-index:80;box-shadow:0 6px 20px rgba(0,0,0,.2);max-width:600px;text-align:center}
+
+/* ===== Figma: CRM Dashboard / Luxury Homes (node 14193:401588) ===== */
+:root{--t-title:#1A1D23;--t-desc:#595959;--n100:#FDFDFD;--n200:#F7F7F7;--n500:#EBEBEB;--n600:#E6E6E6;--n800:#A3A3A3;
+  --p50:#F4FFF6;--p100:#EBF7ED;--p700:#278637;--btn-green:#3BB54A;--action:#303030;--sec-border:#F4F4F4;
+  --warn-bg:#FFFAE6;--warn:#BF9900;--warn200:#FFF7D9;--err100:#FFEBEB;--err600:#A60000;--err-bg:#FCEDED;--err-font:#9C0000;--err500:#BB0000;
+  --blue100:#EAEAFF;--blue600:#130070;--in-border:#EEEEEE}
+.ico{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.ico img{display:block}
+/* page header */
+.ehead{display:flex;align-items:center;gap:16px;margin-bottom:8px}
+.back{width:32px;height:32px;padding:4px;border-radius:4px;background:var(--n500);display:flex;align-items:center;justify-content:center;margin:0}
+.ehead h1{font-size:16px;font-weight:700;line-height:22px;color:var(--t-title)}
+.ehead p{font-size:14px;line-height:20px;color:var(--t-desc);margin-top:4px}
+.ehead .acts{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.ehead .row{gap:12px}
+.hbtn{width:130px;height:44px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;gap:4px;font-size:14px;font-weight:500;line-height:20px}
+.hbtn.sec{background:var(--n100);border:1px solid var(--sec-border);color:#303030}
+.hbtn.pri{background:var(--btn-green);color:var(--n100)}
+.lastpub{font-size:12px;color:var(--t-desc);margin:0}
+.editor{gap:2px}
+/* editor nav */
+.enav{width:193px;background:var(--n100);border-radius:0;padding:0 0 24px}
+.enav .g{height:43px;display:flex;align-items:flex-end;padding:16px 16px 8px;font-size:10px;font-weight:600;color:var(--n800);text-transform:uppercase;border:0;margin:0;line-height:normal}
+.enav .dv{height:16px;display:flex;align-items:center;padding:0 10.5px}
+.enav .dv:after{content:"";height:1px;flex:1;background:var(--n600)}
+.enav button{height:38px;padding:8px 16px;gap:8px;font-size:12px;font-weight:400;line-height:20px;color:#2C2C2C}
+.enav button.on{background:var(--p100);font-weight:600}
+.nb{height:18px;border-radius:12px;padding:2px 6px;display:inline-flex;align-items:center;gap:4px;font-size:10px;line-height:normal;flex-shrink:0}
+.nb img{width:8.75px;height:10.75px}
+.nb.lock{background:var(--warn200);color:var(--warn)}
+.nb.grey{background:var(--n600);color:#222}
+.nb.red{background:var(--err100);color:var(--err600)}
+.nb.new{background:var(--btn-green);color:#fff}
+/* main card */
+.content{background:var(--n100);border-radius:12px;padding:16px;display:block}
+.content>.wrapc{display:flex;flex-direction:column;gap:16px}
+.lh-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.lh-head h2{font-size:16px;font-weight:600;color:var(--t-title);line-height:21px;display:flex;align-items:center;gap:8px}
+.lh-head h2 .crumb{color:var(--t-desc);font-weight:400;font-size:14px}
+.lh-head .r{display:flex;gap:8px;align-items:center}
+.fbtn{height:32px;min-width:78px;padding:4px 8px;border-radius:8px;font-size:12px;font-weight:500;line-height:20px;display:inline-flex;align-items:center;justify-content:center;gap:4px;white-space:nowrap}
+.fbtn.out-red{background:var(--n100);border:1px solid var(--err500);color:var(--err500)}
+.fbtn.dark{background:var(--action);color:var(--n100)}
+.fbtn.sec{background:var(--n100);border:1px solid var(--sec-border);color:#303030}
+.fbtn.green{background:var(--btn-green);color:var(--n100);width:80px;min-width:80px}
+.fbtn.save-ch{width:96px}
+.fbtn[disabled]{background:var(--n500);color:#7F7F7F;cursor:not-allowed}
+.iconbtn{width:32px;height:32px;border-radius:4px;background:var(--n500);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+/* overview */
+.ov{display:flex;flex-direction:column;gap:12px}
+.notice{background:var(--warn-bg);border:1px solid var(--warn);border-radius:10px;padding:12px 16px;display:flex;gap:12px;align-items:flex-start;font-size:12px;line-height:normal;color:var(--t-title)}
+.notice p{flex:1}
+.notice a{color:var(--warn);font-weight:600;text-decoration:underline;white-space:nowrap;cursor:pointer}
+.autobox{background:var(--n100);border:1px dashed #E6E6E6;border-radius:8px;padding:10px 12px;display:flex;gap:8px;align-items:center;font-size:12px;color:var(--t-title)}
+.autob{background:var(--blue100);color:var(--blue600);font-size:10px;font-weight:600;border-radius:999px;padding:2px 8px}
+.st-row{display:flex;gap:12px}
+.st{background:var(--n200);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;flex:1;min-width:0}
+.st small{font-size:12px;color:var(--t-desc);text-transform:uppercase;white-space:nowrap}
+.st b{font-size:16px;font-weight:700;color:var(--t-title)}
+.st.wide{flex:0 0 260px}
+.st.wide b{font-size:14px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.st-row.sm .st{height:70px}
+.glink{font-size:12px;font-weight:600;color:var(--p700);text-decoration:underline;cursor:pointer;align-self:flex-start}
+/* form card */
+.fcard{background:var(--n100);border:1px solid var(--in-border);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:16px}
+.pc{display:flex;flex-direction:column;gap:8px}
+.pc>h3,.secttl{font-size:14px;font-weight:600;color:var(--t-title);line-height:normal}
+.pc>p,.secdesc{font-size:12px;color:var(--t-desc);line-height:normal}
+.acc2{background:var(--n200);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:10px}
+.acc2-h{display:flex;gap:10px;align-items:center;cursor:pointer;user-select:none}
+.acc2-h b{flex:1;font-size:14px;font-weight:600;color:var(--t-title);line-height:normal}
+.acc2-h .sum{font-size:12px;color:var(--t-desc);font-weight:400;margin-left:8px}
+.chev{width:14px;height:14px;display:inline-flex;align-items:center;justify-content:center;transform:rotate(-90deg);transition:transform .15s}
+.chev img{width:9.5px;height:5.4px}
+.open>.acc2-h .chev,.cfg.open>.cfg-h .chev{transform:none}
+.acc2-b{display:flex;flex-direction:column;gap:10px}
+.fb{font-size:10px;font-weight:600;border-radius:999px;padding:2px 8px;white-space:nowrap;display:inline-flex;align-items:center;gap:4px;line-height:normal}
+.fb.edit,.fb.pub{background:var(--p50);color:var(--p700)}
+.fb.req,.fb.err{background:var(--err-bg);color:var(--err-font)}
+.fb.pin{background:var(--warn-bg);color:var(--warn)}
+.fb.pin img{width:7.5px;height:10.5px}
+.fb.draft,.fb.off{background:var(--n200);color:var(--t-desc);border:1px solid #EEE}
+.fb.grey{background:var(--n200);color:var(--t-title)}
+.fb.auto{background:var(--blue100);color:var(--blue600)}
+.fld{display:flex;flex-direction:column;gap:4px}
+.fld>label{font-size:14px;line-height:20px;color:var(--t-title)}
+.fin{width:100%;background:var(--n100);border:1px solid var(--in-border);border-radius:8px;padding:8px;font-size:12px;line-height:24px;color:var(--t-title);outline:none}
+textarea.fin{height:90px;padding:10px 8px;resize:vertical}
+.fin:focus{border-color:var(--btn-green)}
+.fin.err{border-color:var(--err500)}
+.frow{display:flex;gap:10px}.frow>*{flex:1;min-width:0}
+.ffoot{display:flex;gap:8px;justify-content:flex-end}
+/* configuration */
+.cfg{border:1px solid var(--n600);border-radius:12px;padding:24px 20px;display:flex;flex-direction:column;gap:16px}
+.cfg-h{display:flex;gap:8px;align-items:center;cursor:pointer;user-select:none}
+.cfg-h b{font-size:14px;font-weight:600;color:var(--t-title)}
+.flbl{font-size:12px;font-weight:600;color:var(--t-title)}
+.fsel{background:var(--n100);border:1px solid var(--in-border);border-radius:8px;padding:10px 12px;display:flex;gap:8px;align-items:center;cursor:pointer;width:100%;text-align:left}
+.fsel .v{font-size:14px;color:var(--t-title);white-space:nowrap}
+.fsel .sp{flex:1}
+.fsel .dn{width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center}
+.fsel .dn img{width:9.06px;height:5.11px}
+.fsel.open{border-color:var(--btn-green)}
+.fhint{font-size:12px;color:var(--t-desc)}
+.lp-head{display:flex;gap:10px;align-items:center}
+.lp-head b{flex:1;font-size:14px;font-weight:600;color:var(--t-title)}
+.lp-desc{font-size:10px;color:var(--t-desc);line-height:normal}
+.ftabs-row{display:flex;gap:8px;align-items:center}
+.ftabs{background:var(--n200);border-radius:8px;padding:2px 4px;display:flex;gap:4px}
+.ftabs button{height:32px;padding:6px 12px;border-radius:4px;font-size:14px;line-height:20px;background:#F4F4F4;color:var(--t-desc)}
+.ftabs button.on{background:var(--n100);color:var(--t-title)}
+.ftabs-row .r{margin-left:auto;font-size:12px;color:var(--t-desc)}
+.pcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pcard{background:var(--n100);border:1px solid var(--in-border);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;cursor:pointer;position:relative}
+.pcard:hover{box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.pcard.drag-over{outline:2px dashed var(--btn-green)}
+.pcard .hd{display:flex;gap:6px;align-items:center}
+.pcard .hd b{flex:1;font-size:14px;font-weight:700;color:var(--t-title);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.pcard .bd{display:flex;gap:6px;flex-wrap:wrap}
+.pcard .ty{font-size:12px;color:var(--t-title)}
+.pcard .src{font-size:12px;color:var(--t-desc)}
+.pcard .src b{font-weight:600;color:var(--t-title)}
+.pcard .src.bad{color:var(--err500)}
+.pcard .u{font-size:10px;color:var(--t-desc)}
+.more{width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center;border-radius:4px}
+.more:hover{background:var(--n200)}
+.more img{width:9.67px;height:1.67px}
+.kebab .menu{top:22px}
+.warnline{background:var(--warn-bg);border:1px solid var(--warn);border-radius:10px;padding:10px 14px;font-size:12px;line-height:1.5;color:var(--t-title)}
+.warnline .addlink{color:var(--warn);font-weight:600}
+.empty2{grid-column:1/-1;font-size:12px;color:var(--t-desc);text-align:center;padding:22px;border:1px dashed #E6E6E6;border-radius:10px}
+/* page form: same tokens */
+.f>label,.lbl{font-size:14px;line-height:20px;color:var(--t-title);margin-bottom:4px}
+.in,.ta,select.in{background:var(--n100);border-color:var(--in-border);color:var(--t-title)}
+.form{background:var(--n100);border:1px solid var(--in-border);border-radius:10px;padding:14px;gap:20px}
+.form-h .t,.g-title{font-size:14px;font-weight:600;color:var(--t-title)}
+.g-sub,.hint{color:var(--t-desc)}
+.ccard{border-color:var(--in-border);border-radius:10px;background:var(--n100)}
+.locked{background:var(--n100);border:1px dashed #E6E6E6}
+.tgl.on{background:var(--btn-green)}
 </style>
 </head>
 <body>
@@ -320,13 +460,12 @@ pre.code{background:#1A1D23;color:#D7F5D6;border-radius:8px;padding:10px;font-si
     </div>
     <div class="wrap">
       <div class="ehead">
-        <button class="back" title="Back to Microsites">←</button>
-        <div><h1>Editor</h1><p>Customize the Sterling (Team) template</p></div>
+        <button class="back" title="Back to Microsites"><span class="ico" style="width:24px;height:24px"><img src="assets/icons/arrow-left-02.svg" width="11.5" height="17.5" alt="" style="transform:rotate(90deg) scaleX(-1)"></span></button>
+        <div style="flex:1"><h1>Editor</h1><p>Customize the Sterling (Team) template</p></div>
         <div class="acts">
           <div class="row">
-            <button class="btn white" id="btnPreview">◎ Preview</button>
-            <button class="btn red" id="btnUnpub">⊘ Unpublish</button>
-            <button class="btn green" id="btnPub">↗ Publish</button>
+            <button class="hbtn sec" id="btnPreview"><span class="ico" style="width:16px;height:16px"><img src="assets/icons/share-03.svg" width="13" height="13" alt=""></span>Preview</button>
+            <button class="hbtn pri" id="btnPub"><span class="ico" style="width:16px;height:16px"><img src="assets/icons/share-01.svg" width="14.33" height="13.67" alt=""></span>Publish</button>
           </div>
           <div class="lastpub" id="lastPub">Last published November 4, 2026 at 01:58 PM</div>
         </div>
@@ -376,11 +515,9 @@ function mkArea(o){
 }
 const S={
   page:{
-    hero:{eyebrow:'Listahomes · Central Florida',h1:'Central Florida Luxury Homes',intro:'Explore luxury homes for sale across Central Florida, from lakefront estates in Windermere to resort homes in Golden Oak.',img:{n:'luxury-homes-hero.jpg',g:5},btn:'Search luxury homes'},
-    areas:{h2:'Featured communities',sub:'Pick a community to see its luxury homes for sale and a short local guide.'},
-    about:{on:true,h2:'Luxury living in Central Florida',body:'Central Florida luxury homes range from lakefront estates on the Butler Chain of Lakes to golf course homes and resort communities near the theme parks.'},
-    faq:{on:true,items:[{q:'Which homes show on these pages?',a:'Active homes for sale that match our luxury search criteria in each area.'},{q:'How often are listings updated?',a:'Listings come from Stellar MLS and refresh several times a day.'}]},
-    cta:{on:true,text:'Looking for a luxury home in Central Florida? Talk to our team.',btn:'Contact us'},
+    hero:{label:'Listahomes · Central Florida',title:'Central Florida Luxury Homes',desc:'Explore luxury homes for sale across Central Florida, from lakefront estates in Windermere to resort homes in Golden Oak.',cta1:'Search luxury homes',cta2:'Talk with our team',img:null},
+    cta:{label:'Listahomes · Central Florida',title:'Central Florida Luxury Homes',desc:'Explore luxury homes for sale across Central Florida, from lakefront estates in Windermere to resort homes in Golden Oak.',cta1:'Talk with our team',cta2:'Talk with our team'},
+    news:{label:'Newsletter',title:'New luxury listings in your inbox',desc:'Get new luxury homes in Central Florida by email as soon as they are listed.',btn:'Subscribe'},
   },
   areas:[
     mkArea({farmId:'f1',type:'city',place:'Windermere',published:true,pinned:true,tagline:'Lakefront estates on the Butler Chain of Lakes',hero:{n:'windermere-hero.jpg',g:0},card:{n:'windermere-card.jpg',g:0},alt:'Lakefront estate on the Butler Chain of Lakes in Windermere',aboutH2:'Living in Windermere',aboutBody:'Windermere sits on the Butler Chain of Lakes in southwest Orange County. Homes range from gated lakefront estates with private docks to newer custom builds on wooded lots, about 20 minutes from downtown Orlando.',guideH2:'Windermere community guide',guide:[{h3:'Lakes and boating',body:'The Butler Chain links 11 lakes. Many lakefront homes include boat docks and lifts.'},{h3:'Getting around',body:'SR 429 and the Turnpike connect Windermere to Orlando, Disney and the airport.'}],faq:[{q:'Which county is Windermere in?',a:'Windermere is in Orange County, Florida.'}],cta:'Thinking about a luxury home in Windermere? Talk to our team.'}),
@@ -390,7 +527,7 @@ const S={
     mkArea({farmId:'f2',type:'county',place:'Lake',tagline:'Hills, lakes and estate lots west of Orlando'}),
     mkArea({farmId:'f2',type:'city',place:'Clermont',tagline:'Rolling hills and lakes in Lake County',aboutBody:'Clermont sits in the rolling hills of south Lake County, with lakes, trails and estate homes on large lots west of Orlando.',hero:{n:'clermont-hero.jpg',g:4},card:{n:'clermont-card.jpg',g:4},alt:'Estate home on a hill above a lake in Clermont'}),
   ],
-  view:'home', farmSel:(FARMS.find(f=>f.active)||{}).id||'', draft:null, row:null, filter:'all', menuFor:null, pick:null, pickQ:'', dirty:false,
+  view:'home', cfgOpen:true, farmSel:(FARMS.find(f=>f.active)||{}).id||'', draft:null, row:'p-cta', filter:'all', menuFor:null, pick:null, pickQ:'', dirty:false,
 };
 
 /* helpers */
@@ -430,23 +567,44 @@ function checks(a){
 const blocking=a=>checks(a).filter(c=>!c.ok&&c.lvl==='err');
 
 /* nav */
-const NAV=[['IDX Request',[['IDX Request Status']]],['Global Settings',[['Settings'],['Contact Information'],['Meta Pixel'],['Domain'],['IDX Configuration']]],['Color Settings',[['Color Theme']]],['Core Pages',[['Homepage'],['Search & Listing Results','MLS'],['Property Detail','MLS'],['City Detail','MLS'],['Counties Detail','MLS'],['About'],['Agents'],['Contact Us'],['Market Reports']]],['Lead Generation',[['Home Valuation'],['Relocation']]],['Content & Trust',[['Privacy Policy'],['FAQ'],['Terms & Conditions'],['Testimonials'],["Buyer's Guide"],["Seller's Guide"],['Blog / Market Updates']]],['SEO Content',[['Property Types','SEO'],['City Pages','SEO'],['ZIP Codes','SEO'],['Counties','SEO'],['Luxury Homes','NEW']]]];
-$('#enav').innerHTML=NAV.map(([g,it])=>`<div class="g">${g}</div>`+it.map(([n,t])=>`<button class="${n==='Luxury Homes'?'on':''}" data-nav="${esc(n)}"><span class="t">${esc(n)}</span>${t?`<span class="tag ${t==='NEW'?'new':''}">${t==='MLS'?'🔒 MLS':t}</span>`:''}</button>`).join('')).join('');
+const NAV=[
+  ['IDX',[['IDX']]],
+  ['Global setting',[['Setting'],['IDX Configuration'],['Contact Information'],['Domain'],['Meta Pixel']]],
+  ['Color setting',[['Color Theme']]],
+  ['Core Pages',[['Homepage'],['Search Page','lock'],['Listing Results','mls'],['Property Detail','mls'],['About Team'],['Team Member Profiles'],['Contact Us'],['Privacy Policy & Te...','seo-red']]],
+  ['Lead Generation',[['Home Valuation'],['Relocation']]],
+  ['Content & Trust',[['FAQ','seo-red'],['Testimonials'],["Buyer's Guide"],["Seller's Guide"],['Blog / Market Updates'],['Property Subtypes','lock']]],
+  ['SEO Content',[['Property Types','seo'],['City Pages','seo'],['ZIP Codes','seo'],['Counties','seo'],['Luxury Homes','new']]],
+];
+function navBadge(t){
+  if(t==='lock') return `<span class="nb lock"><img src="assets/icons/lock-warning.svg" alt="">Lock</span>`;
+  if(t==='mls') return `<span class="nb grey"><img src="assets/icons/lock-neutral.svg" alt="">MLS</span>`;
+  if(t==='seo') return `<span class="nb grey"><img src="assets/icons/lock-neutral.svg" alt="">SEO</span>`;
+  if(t==='seo-red') return `<span class="nb red"><img src="assets/icons/lock-error.svg" alt="">SEO</span>`;
+  if(t==='new') return `<span class="nb new">NEW</span>`;
+  return '';
+}
+$('#enav').innerHTML=NAV.map(([g,it],gi)=>(gi?'<div class="dv"></div>':'')+`<div class="g">${esc(g)}</div>`+it.map(([n,t])=>`<button class="${n==='Luxury Homes'?'on':''}" data-nav="${esc(n)}"><span class="t">${esc(n)}</span>${navBadge(t)}</button>`).join('')).join('');
 $('#enav').onclick=e=>{const b=e.target.closest('[data-nav]'); if(!b)return; if(b.dataset.nav==='IDX Configuration') toast('Opens IDX Configuration, where farm areas are managed (not part of this prototype).'); else if(b.dataset.nav!=='Luxury Homes') toast('Only Luxury Homes is clickable in this prototype.')};
 
 /* shared bits */
+const CHEV='<span class="chev"><img src="assets/icons/arrow-right-01.svg" width="9.5" height="5.4" alt=""></span>';
 function row(key,title,summary,badge,body){
   const open=S.row===key;
-  return `<div class="rowc ${open?'open':''}"><div class="rowc-h" data-row="${key}"><span class="chev">▶</span><b>${title}</b><span class="sum">${open?'':esc(summary)}</span>${badge}</div>${open?`<div class="rowc-b">${body()}</div>`:''}</div>`;
+  return `<div class="acc2 ${open?'open':''}"><div class="acc2-h" data-row="${key}">${CHEV}<b>${title}${!open&&summary?`<span class="sum">${esc(summary)}</span>`:''}</b>${badge}</div>${open?`<div class="acc2-b">${body()}</div>`:''}</div>`;
 }
-const ED='<span class="badge b-edit">✎ Editable</span>';
-function onOff(on){return on?ED:'<span class="badge b-off">Hidden</span>'}
+const ED='<span class="fb edit">Editable</span>';
+const REQ='<span class="fb req">Required</span>';
+function onOff(on){return on?ED:'<span class="fb off">Hidden</span>'}
+function fld(bind,label,opt={}){const v=getPath(bindRoot(bind),bindPath(bind)); const bad=opt.req&&!String(v||'').trim();
+  return `<div class="fld"><label>${label}${opt.req?' *':''}</label>${opt.area?`<textarea class="fin ${bad?'err':''}" data-bind="${bind}" placeholder="${esc(opt.ph||'')}">${esc(v)}</textarea>`:`<input class="fin ${bad?'err':''}" data-bind="${bind}" value="${esc(v)}" placeholder="${esc(opt.ph||'')}">`}</div>`}
+function figFoot(){return `<div class="ffoot"><button class="fbtn sec" data-row="">Cancel</button><button class="fbtn dark save-ch" data-act="saveRow">Save Change</button></div>`}
 function bindRoot(b){return b.startsWith('p:')?S.page:S.draft}
 function bindPath(b){return b.slice(2)}
 function inp(bind,ph=''){return `<input class="in" data-bind="${bind}" value="${esc(getPath(bindRoot(bind),bindPath(bind)))}" placeholder="${esc(ph)}">`}
 function ta(bind,ph='',h=76){return `<textarea class="ta" style="min-height:${h}px" data-bind="${bind}" placeholder="${esc(ph)}">${esc(getPath(bindRoot(bind),bindPath(bind)))}</textarea>`}
 function tglRow(bind,label){const on=getPath(bindRoot(bind),bindPath(bind)); return `<div class="tglw" style="margin-bottom:12px"><button class="tgl sm ${on?'on':''}" data-toggle="${bind}"></button>${label}</div>`}
-function rowFoot(){return `<div class="foot"><button class="btn out-red sm" data-row="">Cancel</button><button class="btn dark sm" data-act="saveRow">Save</button></div>`}
+function rowFoot(){return figFoot()}
 function imgField(bind,label,hint){
   const img=getPath(bindRoot(bind),bindPath(bind));
   return `<div class="f"><label>${label}</label><div class="img-up"><div class="th" style="${img?`background:${bgOf(img)} center/cover`:''}">${img?'':'IMG'}</div><div class="meta">${img?`<b>${esc(img.n)}</b>`:'<b style="color:var(--muted3)">No image yet</b>'}${hint}</div>${img?`<button class="btn ghost" style="color:var(--red)" data-rmimg="${bind}">Remove</button>`:''}<button class="btn white sm" data-upimg="${bind}">Upload</button></div></div>`;
@@ -462,68 +620,82 @@ function farmBanner(){
   return `<div class="disc"><span class="di">i</span><div><b>SEO configuration only.</b> Luxury Homes is built on your <b>farm areas</b> in IDX Configuration. The listings on these pages come from your farm areas: the same places, price range and property types. Here you only set up the pages: which places get a page, their content and their order. To change which listings show, edit your farm areas.</div><a data-act="goIdx">Go to IDX Configuration</a></div>`;
 }
 
-/* ===== HOME ===== */
+/* ===== HOME (Figma 14193:401651) ===== */
+function farmBanner(){
+  return `<div class="notice"><span class="ico" style="width:18px;height:18px"><img src="assets/icons/help-circle.svg" width="16.1" height="16.1" alt=""></span><p><b>SEO configuration only</b>. Luxury Homes is built on your <b>farm areas</b> in IDX Configuration. The listings on these pages come from your farm areas: the same places, price range and property types. Here you only set up the pages: which places get a page, their content and their order. To change which listings show, edit your farm areas.</p><a data-act="goIdx">Go to IDX Configuration</a></div>`;
+}
 function farmSelect(){
   const cur=farmById(S.farmSel), open=S.pick==='farm';
   const cnt=id=>S.areas.filter(a=>a.farmId===id).length;
-  return `<div class="f pickw farmsel" data-pickw="farm"><label>Farm area<span class="req">*</span></label>
-    <div class="pick sel ${open?'open':''}" data-pickopen="farm"><span class="selv ${cur?'':'ph'}">${cur?`${esc(cur.name)} <span class="tagt">${esc(cur.range)}</span> <span class="tagt">${cnt(cur.id)} area page${cnt(cur.id)===1?'':'s'}</span>`:'Select a farm area'}</span><span class="chev">⌄</span></div>
-    ${open?`<div class="plist">${FARMS.map(x=>`<button class="${S.farmSel===x.id?'on':''}" data-farmsel="${x.id}" ${x.active?'':'disabled'}><span class="rd"></span><span style="flex:1;${x.active?'':'opacity:.5'}">${esc(x.name)}<span class="c" style="display:block;margin:2px 0 0">${esc(x.range)} · ${esc(x.types)} · ${cnt(x.id)} area page${cnt(x.id)===1?'':'s'}</span></span><span class="badge ${x.active?'b-pub':'b-off'}">${x.active?'Active':'Inactive'}</span></button>`).join('')}</div>`:''}
-    <div class="hint">Single select. Only Active farm areas can be picked. Add Area uses the places of this farm area, and its listings appear on those pages.</div>
+  return `<div class="fld pickw" data-pickw="farm" style="gap:6px"><span class="flbl">Farm area *</span>
+    <div class="fsel ${open?'open':''}" data-pickopen="farm"><span class="v">${cur?esc(cur.name):'Select a farm area'}</span>${cur?`<span class="fb grey">${esc(cur.range)}</span>`:''}<span class="sp"></span><span class="dn"><img src="assets/icons/arrow-right-01-sm.svg" width="9.06" height="5.11" alt=""></span></div>
+    ${open?`<div class="plist" style="top:64px">${FARMS.map(x=>`<button class="${S.farmSel===x.id?'on':''}" data-farmsel="${x.id}" ${x.active?'':'disabled'}><span class="rd"></span><span style="flex:1;${x.active?'':'opacity:.5'}">${esc(x.name)}<span class="c" style="display:block;margin:2px 0 0">${esc(x.range)} · ${esc(x.types)} · ${cnt(x.id)} luxury page${cnt(x.id)===1?'':'s'}</span></span><span class="fb ${x.active?'pub':'off'}">${x.active?'Active':'Inactive'}</span></button>`).join('')}</div>`:''}
+    <span class="fhint">Single select. Only Active farm areas can be picked. Add Area uses the places of this farm area, and its listings appear on those pages.</span>
   </div>`;
 }
-
+function heroBad(){const h=S.page.hero; return !h.img||!h.label.trim()||!h.title.trim()||!h.desc.trim()}
 function renderHome(){
   const P=S.page, all=S.areas, pb=pub();
   const f=S.filter, inFarm=all.filter(a=>a.farmId===S.farmSel); const list=ordered(inFarm.filter(a=>f==='all'||(f==='published'&&a.published)||(f==='draft'&&!a.published)||(f==='pinned'&&a.pinned)));
   const onInactive=all.filter(a=>a.farmId&&!farmOf(a));
   const activeFarms=FARMS.filter(x=>x.active);
-  return `
-  <div class="c-title"><h2>Luxury Homes</h2></div>
-  ${farmBanner()}
-  <div class="stats">
-    <div class="stat"><small>Area pages</small><b>${all.length}</b></div>
-    <div class="stat"><small>Published</small><b>${pb.length} of ${all.length}</b></div>
-    <div class="stat"><small>Pinned</small><b>${pinnedCount()} of 6</b></div>
-    <div class="stat"><small>Active farm area${activeFarms.length===1?'':'s'}</small>${activeFarms.length?activeFarms.map(x=>`<b class="fname" title="${esc(x.name)}">${esc(x.name)}</b>`).join(''):'<b style="color:var(--red)">None active</b>'}</div>
-  </div>
-  <span class="ulink" data-act="help">How are luxury pages displayed on my microsite?</span>
-
-  <div class="block">
-    <div class="sec-h"><div><h3>Page content</h3><p>The /luxury-homes page. Every section is editable and goes live with the next Publish.</p></div><span class="small-t">${SITE}/luxury-homes</span></div>
-    ${row('p-hero','Hero',P.hero.h1,ED,()=>`<div class="grid2"><div class="f"><label>Small heading</label>${inp('p:hero.eyebrow')}</div><div class="f"><label>Button text</label>${inp('p:hero.btn')}</div></div>
-      <div class="f"><label>Page title (H1)<span class="req">*</span></label>${inp('p:hero.h1')}</div>
-      <div class="f"><label>Intro</label>${ta('p:hero.intro')}</div>
-      ${imgField('p:hero.img','Hero image','Required. 1920 x 800, JPG or WebP.')}${rowFoot()}`)}
-    ${row('p-areas','Areas section',P.areas.h2+' · '+pb.length+' cards',ED,()=>`<div class="f"><label>Heading (H2)</label>${inp('p:areas.h2')}</div><div class="f"><label>Text under the heading</label>${ta('p:areas.sub','',56)}</div>
-      <div class="locked"><span class="badge b-auto">Auto</span> One card per published area, pinned areas first, then the order of the cards below.</div>${rowFoot()}`)}
-    ${row('p-about','About',P.about.on?P.about.h2:'Hidden',onOff(P.about.on),()=>`${tglRow('p:about.on','Show this section')}<div class="f"><label>Heading (H2)</label>${inp('p:about.h2')}</div><div class="f"><label>Text</label>${ta('p:about.body','',100)}${fhWarn(P.about.body)}</div>${rowFoot()}`)}
-    ${row('p-faq','FAQ',P.faq.on?P.faq.items.length+' questions':'Hidden',onOff(P.faq.on),()=>`${tglRow('p:faq.on','Show this section')}${faqEditor('p:faq.items')}${rowFoot()}`)}
-    ${row('p-cta','Contact call to action',P.cta.on?P.cta.text:'Hidden',onOff(P.cta.on),()=>`${tglRow('p:cta.on','Show this section')}<div class="f"><label>Text</label>${ta('p:cta.text','',56)}</div><div class="f"><label>Button text</label>${inp('p:cta.btn')}</div>${rowFoot()}`)}
+  const fpub=inFarm.filter(a=>a.published).length;
+  const canAdd=!!farmById(S.farmSel)?.active;
+  return `<div class="wrapc">
+  <div class="lh-head"><h2>Luxury Homes</h2><div class="r"><button class="fbtn out-red" data-act="pageCancel">Cancel</button><button class="fbtn dark" data-act="pageSave">Save</button></div></div>
+  <div class="ov">
+    ${farmBanner()}
+    <div class="autobox"><span class="autob">Auto</span><span>Page title: <b style="font-weight:600">{Place} Luxury Homes for Sale</b> · URL: ${SITE}/luxury-homes/{place}</span></div>
+    <div class="st-row">
+      <div class="st"><small>Luxury Pages</small><b>${all.length}</b></div>
+      <div class="st"><small>Published</small><b>${pb.length} of ${all.length}</b></div>
+      <div class="st"><small>Pinned</small><b>${pinnedCount()} of 6</b></div>
+      <div class="st wide"><small>Active farm area${activeFarms.length===1?'':'s'}</small>${activeFarms.length?activeFarms.map(x=>`<b title="${esc(x.name)}">${esc(x.name)}</b>`).join(''):'<b style="color:var(--err500)">None active</b>'}</div>
+    </div>
+    <span class="glink" data-act="help">How are luxury pages displayed on my microsite?</span>
   </div>
 
-  <div class="block">
-    <div class="sec-h"><div><h3>Areas</h3><p>First choose a farm area, then add areas from its places. Each area gets its own page at /luxury-homes/{place}. Drag cards to set the order, pin up to 6 to show them first and in the site menu.</p></div><button class="btn dark sm" data-act="add" ${farmById(S.farmSel)?.active?'':'disabled'}>Add Area</button></div>
-    ${farmSelect()}
-    ${onInactive.length?`<div class="warn-box" style="margin:-4px 0 12px">${onInactive.length} area page${onInactive.length>1?'s use':' uses'} an Inactive farm area: ${onInactive.map(a=>`<b>${esc(a.name)}</b> (${esc(farmById(a.farmId).name)})`).join(', ')}. ${onInactive.length>1?'They have':'It has'} no listings and cannot be published. Set the farm area to Active in IDX Configuration, or open the page and move it to an Active farm area. <button class="addlink" data-open="${onInactive[0].id}">Open ${esc(onInactive[0].name)}</button></div>`:''}
-    <div class="filters">${['all','published','draft','pinned'].map(k=>`<button class="${f===k?'on':''}" data-filter="${k}">${k[0].toUpperCase()+k.slice(1)}</button>`).join('')}<span class="r">${list.length} of ${inFarm.length} in this farm area</span></div>
-    <div class="cards">${list.map(areaCard).join('')}<div class="addcard" data-act="add"><b>+</b>Add Area</div></div>
+  <div class="fcard">
+    <div class="pc">
+      <h3>Page content</h3>
+      <p>What visitors read on ${SITE}/luxury-homes/{place}.</p>
+      ${row('p-hero','Hero','',heroBad()?REQ:ED,()=>`${fld('p:hero.label','Label',{req:1})}${fld('p:hero.title','Title',{req:1})}${fld('p:hero.desc','Description',{req:1,area:1})}<div class="frow">${fld('p:hero.cta1','CTA text 1',{req:1})}${fld('p:hero.cta2','CTA text 2',{req:1})}</div>${imgField('p:hero.img','Hero image *','Required. 1920 x 800, JPG or WebP.')}${figFoot()}`)}
+      ${row('p-cta','Contact call to action','',ED,()=>`${fld('p:cta.label','Label',{req:1})}${fld('p:cta.title','Title',{req:1})}${fld('p:cta.desc','Description',{req:1,area:1})}<div class="frow">${fld('p:cta.cta1','CTA text 1',{req:1})}${fld('p:cta.cta2','CTA text 2',{req:1})}</div>${figFoot()}`)}
+      ${row('p-news','News Letter','',ED,()=>`${fld('p:news.label','Label',{req:1})}${fld('p:news.title','Title',{req:1})}${fld('p:news.desc','Description',{req:1,area:1})}${fld('p:news.btn','Button text',{req:1})}${figFoot()}`)}
+    </div>
+
+    <div class="cfg ${S.cfgOpen?'open':''}">
+      <div class="cfg-h" data-act="cfgToggle">${CHEV}<b>Configuration</b></div>
+      ${S.cfgOpen?`
+      ${farmSelect()}
+      <div class="st-row sm" style="gap:8px">
+        <div class="st"><small>Luxury Pages</small><b>${inFarm.length}</b></div>
+        <div class="st"><small>Published</small><b>${fpub} of ${inFarm.length}</b></div>
+        <div class="st"><small>Pinned</small><b>${pinnedCount()} of 6</b></div>
+      </div>
+      <div class="lp-head"><b>Luxury Pages</b><button class="fbtn green" data-act="add" ${canAdd?'':'disabled'}>Add Page</button></div>
+      <p class="lp-desc">First choose a farm area, then add areas from its places. Each area gets its own page at /luxury-homes/{place}. Drag cards to set the order, pin up to 6 to show them first and in the site menu.</p>
+      ${onInactive.length?`<div class="warnline">${onInactive.length} luxury page${onInactive.length>1?'s use':' uses'} an Inactive farm area: ${onInactive.map(a=>`<b>${esc(a.name)}</b> (${esc(farmById(a.farmId).name)})`).join(', ')}. No listings and cannot be published. Set the farm area to Active in IDX Configuration, or open the page and move it. <button class="addlink" data-open="${onInactive[0].id}">Open ${esc(onInactive[0].name)}</button></div>`:''}
+      <div class="ftabs-row"><div class="ftabs">${['all','published','draft','pinned'].map(k=>`<button class="${f===k?'on':''}" data-filter="${k}">${k[0].toUpperCase()+k.slice(1)}</button>`).join('')}</div><span class="r">${list.length} of ${inFarm.length} in this farm area</span></div>
+      <div class="pcards">${list.length?list.map(areaCard).join(''):`<div class="empty2">No luxury pages here yet. Press Add Page to create one from this farm area's places.</div>`}</div>`:''}
+    </div>
+  </div>
   </div>`;
 }
 function areaCard(a){
   const blk=blocking(a).length, farm=farmOf(a);
-  return `<div class="acard" draggable="true" data-drag="${a.id}" data-open="${a.id}">
-    <div class="top1"><span class="handle" title="Drag to reorder">⋮⋮</span><span class="nm">${esc(a.name||'Untitled area')}</span>
-      <div class="kebab"><button data-menu="${a.id}">⋯</button>${S.menuFor===a.id?`<div class="menu">
-        <button data-edit="${a.id}">✎ Edit</button>
-        <button data-pin="${a.id}">📌 ${a.pinned?'Unpin':'Pin'}</button>
-        <button data-pubtog="${a.id}">${a.published?'⊘ Set as Draft':'↗ Publish'}</button>
-        <button data-dup="${a.id}">⧉ Duplicate</button>
-        <button class="rm" data-del="${a.id}">🗑 Delete</button></div>`:''}</div></div>
-    <div class="bdg"><span class="badge ${a.published?'b-pub':'b-draft'}">${a.published?'Published':'Draft'}</span>${a.pinned?'<span class="badge b-pin">📌 Pinned</span>':''}${a.farmId&&!farm?'<span class="badge b-err">Farm area inactive</span>':(!a.published&&blk?`<span class="badge b-err">${blk} to fix</span>`:'')}</div>
-    <div class="geo">${a.place?GEO_LABEL[a.type]+' · '+esc(a.name):'No place picked'}</div>
-    <div class="farm-l">${farm?'Listings source: <b>'+esc(farm.name)+'</b>':a.farmId?'<span style="color:var(--red)">Listings source '+esc(farmById(a.farmId).name)+' is Inactive</span>':'<span style="color:var(--red)">No listings source picked</span>'}</div>
-    <div class="url">${SITE}${esc(areaUrl(a))}</div>
+  return `<div class="pcard" draggable="true" data-drag="${a.id}" data-open="${a.id}" title="Drag to reorder">
+    <div class="hd"><b>${esc(a.name||'Untitled page')}</b>
+      <div class="kebab"><button class="more" data-menu="${a.id}" aria-label="More"><img src="assets/icons/more-horizontal.svg" width="9.67" height="1.67" alt=""></button>${S.menuFor===a.id?`<div class="menu">
+        <button data-edit="${a.id}">Edit</button>
+        <button data-pin="${a.id}">${a.pinned?'Unpin':'Pin'}</button>
+        <button data-pubtog="${a.id}">${a.published?'Set as Draft':'Publish'}</button>
+        <button data-dup="${a.id}">Duplicate</button>
+        <button class="rm" data-del="${a.id}">Delete</button></div>`:''}</div></div>
+    <div class="bd"><span class="fb ${a.published?'pub':'draft'}">${a.published?'Published':'Draft'}</span>${a.pinned?`<span class="fb pin"><span class="ico" style="width:12px;height:12px"><img src="assets/icons/pin-02.svg" width="7.5" height="10.5" alt=""></span>Pinned</span>`:''}${a.farmId&&!farm?'<span class="fb err">Farm area inactive</span>':(!a.published&&blk?`<span class="fb err">${blk} to fix</span>`:'')}</div>
+    <div class="ty">${a.place?GEO_LABEL[a.type]+' · '+esc(a.name):'No place picked'}</div>
+    <div class="src ${farm?'':'bad'}">${farm?'Listings source: <b>'+esc(farm.name)+'</b>':a.farmId?'Listings source '+esc(farmById(a.farmId).name)+' is Inactive':'No listings source picked'}</div>
+    <div class="u">${SITE}${esc(areaUrl(a))}</div>
   </div>`;
 }
 
@@ -537,7 +709,7 @@ function placePicker(){
   const a=S.draft, f=farmById(a.farmId), t=a.type, open=S.pick==='place', q=open?S.pickQ.toLowerCase():'';
   const vals=farmValues(f,t).filter(v=>!q||v.toLowerCase().includes(q));
   return `<div class="f pickw" data-pickw="place"><label>${GEO_LABEL[t]}<span class="req">*</span></label>
-    <div class="pick ${open?'open':''}" data-pickopen="place"><input data-pickq="place" placeholder="Search ${PLURAL[t]}" value="${open?esc(S.pickQ):''}" autocomplete="off"><span class="chev">⌄</span></div>
+    <div class="pick ${open?'open':''}" data-pickopen="place"><input data-pickq="place" placeholder="Search ${PLURAL[t]}" value="${open?esc(S.pickQ):''}" autocomplete="off"><span class="dn"><img src="assets/icons/arrow-right-01-sm.svg" width="9.06" height="5.11" alt=""></span></div>
     ${open?`<div class="plist">${!f?'<div class="none">Pick the listings source (farm area) first.</div>':vals.length?vals.map(v=>`<button class="${a.place===v?'on':''}" data-pickval="${t}|${esc(v)}"><span class="rd"></span>${esc(v)}</button>`).join(''):`<div class="none">No ${PLURAL[t]} in this farm area${q?' match':''}. Add it to the farm area in IDX Configuration first.</div>`}</div>`:''}
     ${a.place?`<div class="pills"><span class="pill">${esc(a.place)}<button data-unpick="1" title="Remove">✕</button></span></div>`:''}
     <div class="hint">Single select: one ${GEO_LABEL[t].toLowerCase()} from ${f?esc(f.name):'the selected farm area'}. Picking another one replaces it.</div>
@@ -547,49 +719,49 @@ function renderArea(){
   const a=S.draft, isNew=!S.areas.some(x=>x.id===a.id), dup=dupOf(a), farm=farmOf(a);
   const cs=checks(a), blk=cs.filter(c=>!c.ok&&c.lvl==='err');
   return `
-  <div class="c-title"><button class="backbtn" data-act="back">‹</button><h2>Luxury Homes</h2><span class="small-t">/ ${esc(a.name||'New area')}</span></div>
+  <div class="wrapc"><div class="lh-head"><h2><button class="iconbtn" data-act="back" title="Back to Luxury Homes"><span class="ico" style="width:24px;height:24px"><img src="assets/icons/arrow-left-02.svg" width="11.5" height="17.5" alt="" style="transform:rotate(90deg) scaleX(-1)"></span></button>Luxury Homes <span class="crumb">/ ${esc(a.name||'New page')}</span></h2><div class="r"><button class="fbtn out-red" data-act="back">Cancel</button><button class="fbtn dark" data-act="save">Save</button></div></div>
   <div class="two">
    <div class="form">
-    <div class="form-h"><span class="t">${isNew?'New area':'Edit area'}</span>
+    <div class="form-h"><span class="t">${isNew?'New luxury page':'Edit luxury page'}</span>
       <span class="tglw">Pinned <button class="tgl sm ${a.pinned?'on':''}" data-act="pinDraft" ${!a.pinned&&pinnedCount(a.id)>=6?'disabled':''}></button></span>
       <span class="tglw">Published <button class="tgl ${a.published?'on':''}" data-act="pubDraft"></button></span></div>
 
     <div><div class="g-title">Listings source</div><div class="g-sub">Set by the farm area you chose on the Luxury Homes page.</div>
-      ${(()=>{const fa=farmById(a.farmId); return fa?`<div class="farmopt on ro ${fa.active?'':'off'}"><span class="fn"><b>${esc(fa.name)}</b><small>${esc(fa.range)} · ${esc(fa.types)} · ${fa.county.length} counties, ${fa.city.length} cities</small></span><span class="badge ${fa.active?'b-pub':'b-off'}">${fa.active?'Active':'Inactive'}</span></div>`:''})()}
-      ${a.farmId&&!farmOf(a)?`<div class="err-t" style="margin-bottom:8px">${esc(farmById(a.farmId).name)} is Inactive, so this page has no listings. Move it to an Active farm area, or set the farm area to Active in IDX Configuration.</div><div class="farms">${FARMS.filter(x=>x.active).map(x=>`<button class="farmopt" data-farm="${x.id}"><span class="rd"></span><span class="fn"><b>Move to ${esc(x.name)}</b><small>${esc(x.range)} · ${esc(x.types)}</small></span><span class="badge b-pub">Active</span></button>`).join('')}</div>`:''}
+      ${(()=>{const fa=farmById(a.farmId); return fa?`<div class="farmopt on ro ${fa.active?'':'off'}"><span class="fn"><b>${esc(fa.name)}</b><small>${esc(fa.range)} · ${esc(fa.types)} · ${fa.county.length} counties, ${fa.city.length} cities</small></span><span class="fb ${fa.active?'pub':'off'}">${fa.active?'Active':'Inactive'}</span></div>`:''})()}
+      ${a.farmId&&!farmOf(a)?`<div class="err-t" style="margin-bottom:8px">${esc(farmById(a.farmId).name)} is Inactive, so this page has no listings. Move it to an Active farm area, or set the farm area to Active in IDX Configuration.</div><div class="farms">${FARMS.filter(x=>x.active).map(x=>`<button class="farmopt" data-farm="${x.id}"><span class="rd"></span><span class="fn"><b>Move to ${esc(x.name)}</b><small>${esc(x.range)} · ${esc(x.types)}</small></span><span class="fb pub">Active</span></button>`).join('')}</div>`:''}
     </div>
 
     <div><div class="g-title">Area</div><div class="g-sub">Choose City, County or Community, then pick one from the selected farm area. The page is named after it.</div>
       ${typeSwitch()}${placePicker()}
       ${dup?`<div class="err-t">${esc(dup.name)} already has a page. One page per place.</div>`:''}
       ${a.place&&a.farmId&&!placeInFarm(a)?`<div class="err-t">${esc(a.name)} is not in ${esc(farmById(a.farmId).name)}. Pick a place from this farm area.</div>`:''}
-      <div class="locked" style="margin-top:4px"><span class="badge b-auto">Auto</span> Page title: <b>${esc(h1Of(a))}</b> · URL: ${SITE}${esc(areaUrl(a))}</div></div>
+      <div class="locked" style="margin-top:4px"><span class="fb auto">Auto</span> Page title: <b>${esc(h1Of(a))}</b> · URL: ${SITE}${esc(areaUrl(a))}</div></div>
 
     <div><div class="g-title">Page content</div><div class="g-sub">What visitors read on ${SITE}${esc(areaUrl(a))}.</div>
-      ${row('a-hero','Hero',h1Of(a),(!a.hero||!a.card||a.alt.trim().length<10)?'<span class="badge b-err">Required</span>':ED,()=>`<div class="f"><div class="lbl-row"><label>Page title (H1)</label><span class="badge b-auto">Auto</span></div><input class="in" readonly value="${esc(h1Of(a))}"><div class="hint">Always the place name + “Luxury Homes for Sale”.</div></div>
+      ${row('a-hero','Hero',h1Of(a),(!a.hero||!a.card||a.alt.trim().length<10)?'<span class="fb req">Required</span>':ED,()=>`<div class="f"><div class="lbl-row"><label>Page title (H1)</label><span class="fb auto">Auto</span></div><input class="in" readonly value="${esc(h1Of(a))}"><div class="hint">Always the place name + “Luxury Homes for Sale”.</div></div>
         <div class="f"><label>Tagline (hero and card)</label>${inp('d:tagline','One short line about the place')}${fhWarn(a.tagline)}</div>
         <div class="grid2">${imgField('d:hero','Hero image','1920 x 800')}${imgField('d:card','Card image','800 x 500')}</div>
         <div class="f"><label>Image alt text<span class="req">*</span></label>${inp('d:alt','Describe what the photo shows')}</div>${rowFoot()}`)}
-      ${row('a-about','About the area',a.aboutH2||(a.aboutBody?a.aboutBody.slice(0,60):'Empty'),a.aboutBody.trim().length<60?'<span class="badge b-err">Required</span>':ED,()=>`<div class="f"><label>Heading (H2)</label>${inp('d:aboutH2','Living in '+(a.name||'this area'))}</div><div class="f"><div class="lbl-row"><label>Text<span class="req">*</span></label><span class="cnt ${a.aboutBody.length<60?'bad':'ok'}">${a.aboutBody.length} characters</span></div>${ta('d:aboutBody','',110)}<div class="hint">Describe the place and the homes, not who lives there (Fair Housing).</div>${fhWarn(a.aboutBody)}</div>${rowFoot()}`)}
+      ${row('a-about','About the area',a.aboutH2||(a.aboutBody?a.aboutBody.slice(0,60):'Empty'),a.aboutBody.trim().length<60?'<span class="fb req">Required</span>':ED,()=>`<div class="f"><label>Heading (H2)</label>${inp('d:aboutH2','Living in '+(a.name||'this area'))}</div><div class="f"><div class="lbl-row"><label>Text<span class="req">*</span></label><span class="cnt ${a.aboutBody.length<60?'bad':'ok'}">${a.aboutBody.length} characters</span></div>${ta('d:aboutBody','',110)}<div class="hint">Describe the place and the homes, not who lives there (Fair Housing).</div>${fhWarn(a.aboutBody)}</div>${rowFoot()}`)}
       ${row('a-guide','Community guide',a.guide.length?a.guide.length+' topics':'Optional',ED,()=>`<div class="f"><label>Heading (H2)</label>${inp('d:guideH2',(a.name||'Area')+' community guide')}</div>${a.guide.map((g,i)=>`<div class="rep"><div class="rep-h"><span>Topic ${i+1} (H3)</span>${repActs('d:guide',i,a.guide.length)}</div><input class="in" data-bind="d:guide.${i}.h3" value="${esc(g.h3)}" placeholder="Heading" style="margin-bottom:6px"><textarea class="ta" data-bind="d:guide.${i}.body" placeholder="Text">${esc(g.body)}</textarea>${fhWarn(g.body)}</div>`).join('')}<button class="addlink plus" data-additem="d:guide:guide">Add topic</button>${rowFoot()}`)}
       ${row('a-faq','FAQ',a.faq.length?a.faq.length+' questions':'Optional',ED,()=>`${faqEditor('d:faq')}${rowFoot()}`)}
       ${row('a-cta','Contact call to action',a.cta||'Default text',ED,()=>`<div class="f"><label>Text</label>${ta('d:cta','Thinking about a luxury home in '+(a.name||'this area')+'? Talk to our team.',56)}<div class="hint">The button goes to your Contact Us page.</div></div>${rowFoot()}`)}
-      ${row('a-layout','Section order',a.sections.filter(s=>s.on).length+' of 8 on','<span class="badge b-edit">✎ Order</span>',secLayout)}
+      ${row('a-layout','Section order',a.sections.filter(s=>s.on).length+' of 8 on','<span class="fb edit">Order</span>',secLayout)}
     </div>
 
-    <div class="formfoot"><span class="msg">${S.dirty?'Unsaved changes':'No changes'}${a.published?' · Saving updates the live page':' · Drafts are not on the site'}</span><button class="btn out-red sm" data-act="back">Cancel</button><button class="btn dark sm" data-act="save">Save</button></div>
+    <div class="fhint">${S.dirty?'Unsaved changes.':'No changes.'} ${a.published?'Saving updates the live page.':'Drafts are not on the site.'}</div>
    </div>
 
    <aside class="aside">
      <div class="ccard src"><h4>Listings source</h4>
-       ${farm?`<div class="srcname">${esc(farm.name)} <span class="badge b-pub">Active</span></div>
+       ${farm?`<div class="srcname">${esc(farm.name)} <span class="fb pub">Active</span></div>
          <div class="srcline">Farm area in IDX Configuration</div>
          <p>This page shows the Active listings in <b>${esc(a.name||'the place you pick')}</b> that match this farm area: its price range (${esc(farm.range)}) and property types. Nothing about listings is set here.</p>`
        :`<p>${a.farmId?`<b style="color:var(--red)">${esc(farmById(a.farmId).name)} is Inactive.</b> The page has no listings until it is Active.`:'Pick an Active farm area. The listings on this page come from it.'}</p>`}
        <button class="addlink" data-act="goIdx">Edit farm areas in IDX Configuration</button></div>
-     <div class="ccard"><h4>Before you publish ${blk.length?`<span class="badge b-err">${blk.length} to fix</span>`:'<span class="badge b-pub">Ready</span>'}</h4><div class="checklist">${cs.map(c=>`<div class="${c.ok?'ok':c.lvl==='warn'?'wn':'no'}"><i>${c.ok?'✓':c.lvl==='warn'?'⚠':'✕'}</i><span>${esc(c.t)}</span></div>`).join('')}</div></div>
+     <div class="ccard"><h4>Before you publish ${blk.length?`<span class="fb err">${blk.length} to fix</span>`:'<span class="fb pub">Ready</span>'}</h4><div class="checklist">${cs.map(c=>`<div class="${c.ok?'ok':c.lvl==='warn'?'wn':'no'}"><i>${c.ok?'✓':c.lvl==='warn'?'⚠':'✕'}</i><span>${esc(c.t)}</span></div>`).join('')}</div></div>
    </aside>
-  </div>`;
+  </div></div>`;
 }
 function secLayout(){
   const s=S.draft.sections;
@@ -659,6 +831,9 @@ $('#content').addEventListener('click',e=>{
   const a=S.draft;
   switch(d.act){
     case 'help': openHelp(); break;
+    case 'cfgToggle': S.cfgOpen=!S.cfgOpen; render(); break;
+    case 'pageSave': S.row=null; toast('Luxury Homes saved. Goes live with the next Publish.'); render(); break;
+    case 'pageCancel': S.row=null; toast('Changes discarded.'); render(); break;
     case 'goIdx': toast('Opens IDX Configuration › Farm areas (not part of this prototype).'); break;
     case 'add': if(!farmById(S.farmSel)?.active){toast('Choose an Active farm area first.');break} openArea(mkArea({type:'city',farmId:S.farmSel})); break;
     case 'saveRow': S.row=null; toast(S.view==='area'?'Section updated. Press Save to keep the area changes.':'Saved. Goes live with the next Publish.'); render(); break;
@@ -689,15 +864,14 @@ $('#content').addEventListener('dragend',()=>{dragId=null;document.querySelector
 /* header */
 $('#btnPreview').onclick=()=>toast('Opens the Microsite preview (not part of this prototype).');
 $('#btnPub').onclick=()=>{const p=pub().length,d=S.areas.length-p; confirmBox('Publish the Microsite?',`All saved changes go live. Luxury Homes: /luxury-homes and ${p} area page${p===1?'':'s'}${d?`; ${d} draft${d>1?'s stay':' stays'} hidden`:''}.`,'Publish',()=>{$('#lastPub').textContent='Last published November 5, 2026 at '+new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'}); toast('Microsite published.')},false)};
-$('#btnUnpub').onclick=()=>toast('Prototype: Unpublish takes the whole Microsite offline. Not simulated.');
 document.querySelector('.back').onclick=()=>toast('Back to Microsites (not part of this prototype).');
 
 function openHelp(){
   $('#layer').innerHTML=`<div class="ovl" data-x="close"></div><div class="drawer"><div class="dh"><b>How Luxury Homes works</b><button class="btn ghost" data-x="close">Close ✕</button></div><div class="db">
   <p>Editor › SEO Content › <b>Luxury Homes</b>. A separate section, like City Pages and Counties.</p>
   <h4>Built on your farm areas</h4><p>Luxury Homes is <b>SEO configuration only</b>. It does not choose listings. Each area page shows the Active listings in its place that match the farm area covering it in IDX Configuration (places, price range, property types). To change the listings, edit the farm area.</p>
-  <h4>1. The /luxury-homes page</h4><p>Hero, Areas section heading, About, FAQ and call to action. Sections can be hidden. The Areas section fills itself with one card per published area.</p>
-  <h4>2. Add an area</h4><ol><li><b>Listings source</b>: one <b>Active</b> farm area. Inactive farm areas are shown but cannot be picked.</li><li><b>Area type</b>: City, County or Community.</li><li><b>Place</b>: search and pick one value of that type from the farm area (single select). The page name is the place, the H1 is always “{Place} Luxury Homes for Sale”, the URL is /luxury-homes/{place}.</li><li><b>Page content</b>: Hero (tagline, images, alt), About, Community guide, FAQ, CTA, Section order.</li><li><b>Pinned</b> and <b>Published</b> toggles, then <b>Save</b>.</li></ol>
+  <h4>1. The /luxury-homes page</h4><p>Page content: Hero, Contact call to action and News Letter. Configuration: pick the farm area, then manage its luxury pages.</p>
+  <h4>2. Add Page</h4><ol><li><b>Listings source</b>: one <b>Active</b> farm area. Inactive farm areas are shown but cannot be picked.</li><li><b>Area type</b>: City, County or Community.</li><li><b>Place</b>: search and pick one value of that type from the farm area (single select). The page name is the place, the H1 is always “{Place} Luxury Homes for Sale”, the URL is /luxury-homes/{place}.</li><li><b>Page content</b>: Hero (tagline, images, alt), About, Community guide, FAQ, CTA, Section order.</li><li><b>Pinned</b> and <b>Published</b> toggles, then <b>Save</b>.</li></ol>
   <h4>3. Manage areas</h4><p>⋯ menu: Edit, Pin, Publish or Set as Draft, Duplicate, Delete. Drag cards to set the order. Pinned (max 6) come first and show in the site menu.</p>
   <h4>4. Publish</h4><p>An area can be published only when the checklist is green. A place that is not in an active farm area cannot be published. Fair Housing wording only warns.</p>
   <h4>Field rules</h4><table><tr><th>Field</th><th>Rule</th></tr><tr><td>Listings source</td><td>Required. One Active farm area.</td></tr><tr><td>Area type</td><td>Required. Single select: City, County or Community.</td></tr><tr><td>Place</td><td>Required. Single select: one value of that type from the chosen farm area. One page per place.</td></tr><tr><td>Hero / card image</td><td>Required. 1920×800, 800×500.</td></tr><tr><td>Alt text</td><td>Required, 10+ characters.</td></tr><tr><td>About text</td><td>Required, 60+ characters.</td></tr><tr><td>Guide, FAQ</td><td>Optional. Each item needs both parts.</td></tr></table>
