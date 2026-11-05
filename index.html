@@ -137,6 +137,14 @@ input,textarea,select{font-family:inherit}
 .plist .ck{width:16px;height:16px;border:1.5px solid #CFCFCF;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;flex-shrink:0}
 .plist .on .ck{background:var(--green);border-color:var(--green)}
 .plist .c{margin-left:auto;color:var(--muted4);font-size:11.5px}
+.pick.sel{cursor:pointer;padding-left:12px}
+.selv{flex:1;font-size:14px;color:#1A1D23;display:flex;align-items:center;gap:8px}
+.selv.ph{color:var(--muted4)}
+.tagt{font-size:10.5px;background:#EEE;color:var(--ink4);border-radius:10px;padding:1px 7px}
+.plist .grp{font-size:11px;font-weight:600;color:var(--muted4);text-transform:uppercase;padding:8px 10px 4px}
+.plist .rd{width:16px;height:16px;border-radius:50%;border:1.5px solid #CFCFCF;flex-shrink:0;position:relative}
+.plist .on .rd{border-color:var(--green)}
+.plist .on .rd:after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--green)}
 .plist .none{padding:10px;font-size:12px;color:var(--muted3)}
 .pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .pill{background:#EEEEEE;color:var(--ink4);border-radius:9999px;padding:2px 6px 2px 8px;font-size:12px;display:inline-flex;align-items:center;gap:4px;height:22px}
@@ -500,13 +508,14 @@ function areaCard(a){
 }
 
 /* ===== AREA EDITOR ===== */
-function picker(key,label,opts,placeholder){
-  const a=S.draft, sel=(a.type===key&&a.place?[a.place]:[]), open=S.pick===key, q=open?S.pickQ.toLowerCase():'';
-  const items=Object.entries(opts).filter(([v])=>!q||v.toLowerCase().includes(q));
-  return `<div class="f pickw" data-pickw="${key}"><label>${label}</label>
-    <div class="pick ${open?'open':''}" data-pickopen="${key}"><input data-pickq="${key}" placeholder="${placeholder}" value="${open?esc(S.pickQ):''}" autocomplete="off"><span class="chev">⌄</span></div>
-    ${open?`<div class="plist">${items.length?items.map(([v,farm])=>`<button class="${sel.includes(v)?'on':''}" data-pickval="${key}|${esc(v)}"><span class="ck">${sel.includes(v)?'✓':''}</span>${esc(v)}<span class="c">${esc(farm)}</span></button>`).join(''):`<div class="none">${S.draft.farmId?`No ${GEO_LABEL[key].toLowerCase()} in this farm area${q?' matches':''}. Add it to the farm area in IDX Configuration first.`:'Pick the listings source (farm area) first.'}</div>`}</div>`:''}
-    ${sel.length?`<div class="pills">${sel.map(v=>`<span class="pill">${esc(v)}<button data-unpick="${key}|${esc(v)}" title="Remove">✕</button></span>`).join('')}</div>`:''}
+function placePicker(){
+  const a=S.draft, f=farmById(a.farmId), open=S.pick==='place', q=open?S.pickQ.toLowerCase():'';
+  const groups=['county','city','community'].map(t=>[t,farmValues(f,t).filter(v=>!q||v.toLowerCase().includes(q)||placeName(t,v).toLowerCase().includes(q))]).filter(([,v])=>v.length);
+  const val=a.place?a.name:'';
+  return `<div class="f pickw" data-pickw="place"><label>Area<span class="req">*</span></label>
+    <div class="pick sel ${open?'open':''}" data-pickopen="place">${open?`<input data-pickq="place" placeholder="Search counties, cities and communities" value="${esc(S.pickQ)}" autocomplete="off">`:`<span class="selv ${val?'':'ph'}">${val?esc(val)+` <span class="tagt">${GEO_LABEL[a.type]}</span>`:(f?'Select a county, city or community':'Pick the listings source first')}</span>`}<span class="chev">⌄</span></div>
+    ${open?`<div class="plist">${!f?'<div class="none">Pick the listings source (farm area) first.</div>':groups.length?groups.map(([t,vals])=>`<div class="grp">${GEO_LABEL[t]==='City'?'Cities':GEO_LABEL[t]==='County'?'Counties':'Communities'}</div>`+vals.map(v=>{const on=a.type===t&&a.place===v; return `<button class="${on?'on':''}" data-pickval="${t}|${esc(v)}"><span class="rd"></span>${esc(placeName(t,v))}</button>`}).join('')).join(''):`<div class="none">Nothing in this farm area${q?' matches':''}. Add it to the farm area in IDX Configuration first.</div>`}</div>`:''}
+    <div class="hint">One place only: a county, a city or a community from ${f?esc(f.name):'the selected farm area'}.</div>
   </div>`;
 }
 function renderArea(){
@@ -525,9 +534,8 @@ function renderArea(){
         <div class="hint">Inactive farm areas cannot be used. Set a farm area to Active in IDX Configuration to use it here.</div>
         ${a.farmId&&!farmOf(a)?`<div class="err-t">${esc(farmById(a.farmId).name)} is Inactive, so this page has no listings. Pick an Active farm area or set it to Active in IDX Configuration.</div>`:''}</div></div>
 
-    <div><div class="g-title">Area</div><div class="g-sub">Pick one county, city or community from the selected farm area. The page is named after it.</div>
-      <div class="f"><label>Area type<span class="req">*</span></label><div class="segm">${['county','city','community'].map(t=>`<button class="${a.type===t?'on':''}" data-gtype="${t}">${GEO_LABEL[t]}</button>`).join('')}</div></div>
-      ${picker(a.type,GEO_LABEL[a.type]+'<span class="req">*</span>',farmOptions(a),{county:'Search counties in this farm area',city:'Search cities in this farm area',community:'Search communities in this farm area'}[a.type])}
+    <div><div class="g-title">Area</div><div class="g-sub">Single select: one county, city or community from the selected farm area. The page is named after it.</div>
+      ${placePicker()}
       ${dup?`<div class="err-t">${esc(dup.name)} already has a page. One page per place.</div>`:''}
       ${a.place&&a.farmId&&!placeInFarm(a)?`<div class="err-t">${esc(a.name)} is not in ${esc(farmById(a.farmId).name)}. Pick a place from this farm area.</div>`:''}
       <div class="locked" style="margin-top:4px"><span class="badge b-auto">Auto</span> Page title: <b>${esc(h1Of(a))}</b> · URL: ${SITE}${esc(areaUrl(a))}</div></div>
@@ -610,10 +618,8 @@ $('#content').addEventListener('click',e=>{
   if(d.dup){const s=find(d.dup); S.menuFor=null; const c=mkArea(Object.assign(JSON.parse(JSON.stringify(s)),{id:++uid,place:'',published:false,pinned:false})); openArea(c); toast('Content copied. Pick the place for the new area.'); return}
   if(d.del){const a=find(d.del); S.menuFor=null; confirmBox('Delete '+esc(a.name)+'?',a.published?'This page is live. It will be removed from the site and the sitemap and its URL will redirect to /luxury-homes. This cannot be undone.':'This draft and its content will be deleted. This cannot be undone.','Delete',()=>{S.areas=S.areas.filter(x=>x!==a);toast(a.name+' deleted.');render()}); return}
   if(d.open&&!e.target.closest('.kebab,.handle')){openArea(find(d.open));return}
-  if(d.pickval){const [k,v]=d.pickval.split('|'); const a=S.draft; setPlace(a,k,a.place===v?'':v); S.pick=null; S.pickQ=''; dirty(); render(); return}
+  if(d.pickval){const [k,v]=d.pickval.split('|'); setPlace(S.draft,k,v); S.pick=null; S.pickQ=''; dirty(); render(); return}
   if(d.farm){const a=S.draft; if(a.farmId!==d.farm){a.farmId=d.farm; if(a.place&&!placeInFarm(a))setPlace(a,a.type,''); S.pick=null; dirty(); render()} return}
-  if(d.gtype){const a=S.draft; if(a.type!==d.gtype){setPlace(a,d.gtype,''); S.pick=null; dirty(); render()} return}
-  if(d.unpick){setPlace(S.draft,S.draft.type,''); dirty(); render(); return}
   if(d.toggle){const r=bindRoot(d.toggle),p=bindPath(d.toggle); setPath(r,p,!getPath(r,p)); if(r===S.draft)dirty(); render(); return}
   if(d.upimg){upload(d.upimg,e.shiftKey);return}
   if(d.rmimg){setPath(bindRoot(d.rmimg),bindPath(d.rmimg),null); if(S.draft)dirty(); render(); return}
@@ -663,10 +669,10 @@ function openHelp(){
   <p>Editor › SEO Content › <b>Luxury Homes</b>. A separate section, like City Pages and Counties.</p>
   <h4>Built on your farm areas</h4><p>Luxury Homes is <b>SEO configuration only</b>. It does not choose listings. Each area page shows the Active listings in its place that match the farm area covering it in IDX Configuration (places, price range, property types). To change the listings, edit the farm area.</p>
   <h4>1. The /luxury-homes page</h4><p>Hero, Areas section heading, About, FAQ and call to action. Sections can be hidden. The Areas section fills itself with one card per published area.</p>
-  <h4>2. Add an area</h4><ol><li><b>Listings source</b>: one <b>Active</b> farm area. Inactive farm areas are shown but cannot be picked.</li><li><b>Area type</b>: County, City or Community. One only.</li><li><b>Place</b>: one value from that farm area. The page name is the place, the H1 is always “{Place} Luxury Homes for Sale”, the URL is /luxury-homes/{place}.</li><li><b>Page content</b>: Hero (tagline, images, alt), About, Community guide, FAQ, CTA, Section order.</li><li><b>Pinned</b> and <b>Published</b> toggles, then <b>Save</b>.</li></ol>
+  <h4>2. Add an area</h4><ol><li><b>Listings source</b>: one <b>Active</b> farm area. Inactive farm areas are shown but cannot be picked.</li><li><b>Area</b>: single select. One county, city or community from that farm area, in one list grouped by type. The page name is the place, the H1 is always “{Place} Luxury Homes for Sale”, the URL is /luxury-homes/{place}.</li><li><b>Page content</b>: Hero (tagline, images, alt), About, Community guide, FAQ, CTA, Section order.</li><li><b>Pinned</b> and <b>Published</b> toggles, then <b>Save</b>.</li></ol>
   <h4>3. Manage areas</h4><p>⋯ menu: Edit, Pin, Publish or Set as Draft, Duplicate, Delete. Drag cards to set the order. Pinned (max 6) come first and show in the site menu.</p>
   <h4>4. Publish</h4><p>An area can be published only when the checklist is green. A place that is not in an active farm area cannot be published. Fair Housing wording only warns.</p>
-  <h4>Field rules</h4><table><tr><th>Field</th><th>Rule</th></tr><tr><td>Listings source</td><td>Required. One Active farm area.</td></tr><tr><td>Area type</td><td>Required. County, City or Community.</td></tr><tr><td>Place</td><td>Required. One value from the chosen farm area. One page per place.</td></tr><tr><td>Hero / card image</td><td>Required. 1920×800, 800×500.</td></tr><tr><td>Alt text</td><td>Required, 10+ characters.</td></tr><tr><td>About text</td><td>Required, 60+ characters.</td></tr><tr><td>Guide, FAQ</td><td>Optional. Each item needs both parts.</td></tr></table>
+  <h4>Field rules</h4><table><tr><th>Field</th><th>Rule</th></tr><tr><td>Listings source</td><td>Required. One Active farm area.</td></tr><tr><td>Area</td><td>Required. Single select: one county, city or community from the chosen farm area. One page per place.</td></tr><tr><td>Hero / card image</td><td>Required. 1920×800, 800×500.</td></tr><tr><td>Alt text</td><td>Required, 10+ characters.</td></tr><tr><td>About text</td><td>Required, 60+ characters.</td></tr><tr><td>Guide, FAQ</td><td>Optional. Each item needs both parts.</td></tr></table>
   <h4>Demo tip</h4><p>Shift-click any Upload button to attach a demo image without choosing a file.</p></div></div>`;
   $('#layer').onclick=e=>{if(e.target.dataset.x==='close')$('#layer').innerHTML=''};
 }

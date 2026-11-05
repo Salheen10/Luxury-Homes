@@ -29,8 +29,7 @@ Header: **Pinned** and **Published** toggles.
 | Field | Rule |
 |---|---|
 | Listings source * | **One farm area**, shown as a list with name, price range, property types and size. Only farm areas set to **Active** can be picked; Inactive ones are shown greyed out with an "Inactive" badge. Changing the farm area clears a place that is not in it. |
-| Area type * | **One** of County, City or Community. Switching the type clears the place. |
-| Place * | **One** value from the **selected farm area** only. One page per place. |
+| Area * | **Single select.** One dropdown with search that lists the selected farm area's places grouped under Counties, Cities and Communities. Picking one sets both the place and its type (shown as a small tag next to the value). One page per place. |
 | Page name, H1, URL | **Automatic, not editable.** Name = the place (counties get "County"). H1 = "{Place} Luxury Homes for Sale". URL = /luxury-homes/{place}. |
 
 **Page content** rows: Hero (H1 read-only, tagline, hero 1920×800, card 800×500, alt text), About the area (60+ characters, Fair Housing warning), Community guide (H3 topics), FAQ, Contact call to action, Section order (on/off and move; Hero first, disclaimer last, "Homes for sale (from the farm area)" always on).
