@@ -512,21 +512,18 @@ function areaCard(a){
 
 /* ===== AREA EDITOR ===== */
 const PLURAL={county:'counties',city:'cities',community:'communities'};
-function typePicker(){
-  const a=S.draft, open=S.pick==='type';
-  return `<div class="f pickw" data-pickw="type"><label>Area type<span class="req">*</span></label>
-    <div class="pick sel ${open?'open':''}" data-pickopen="type"><span class="selv ${a.type?'':'ph'}">${a.type?GEO_LABEL[a.type]:'Select City, County or Community'}</span><span class="chev">⌄</span></div>
-    ${open?`<div class="plist">${['city','county','community'].map(t=>`<button class="${a.type===t?'on':''}" data-picktype="${t}"><span class="rd"></span>${GEO_LABEL[t]}<span class="c">${farmValues(farmById(a.farmId),t).length} in this farm area</span></button>`).join('')}</div>`:''}
-  </div>`;
+function typeSwitch(){
+  const a=S.draft;
+  return `<div class="f"><label>Area type<span class="req">*</span></label><div class="segm">${['city','county','community'].map(t=>`<button class="${a.type===t?'on':''}" data-picktype="${t}">${GEO_LABEL[t]}</button>`).join('')}</div></div>`;
 }
 function placePicker(){
   const a=S.draft, f=farmById(a.farmId), t=a.type, open=S.pick==='place', q=open?S.pickQ.toLowerCase():'';
-  const label=t?GEO_LABEL[t]:'Place';
-  const vals=t?farmValues(f,t).filter(v=>!q||v.toLowerCase().includes(q)):[];
-  const blocked=!f?'Pick the listings source first':!t?'Pick the area type first':'';
-  return `<div class="f pickw" data-pickw="place"><label>${label}<span class="req">*</span></label>
-    <div class="pick sel ${open?'open':''} ${blocked?'dis':''}" ${blocked?'':'data-pickopen="place"'}>${open?`<input data-pickq="place" placeholder="Search ${PLURAL[t]} in this farm area" value="${esc(S.pickQ)}" autocomplete="off">`:`<span class="selv ${a.place?'':'ph'}">${a.place?esc(a.name):blocked||('Select a '+label.toLowerCase())}</span>`}<span class="chev">⌄</span></div>
-    ${open?`<div class="plist">${vals.length?vals.map(v=>`<button class="${a.place===v?'on':''}" data-pickval="${t}|${esc(v)}"><span class="rd"></span>${esc(placeName(t,v))}</button>`).join(''):`<div class="none">No ${PLURAL[t]} in this farm area${q?' match':''}. Add it to the farm area in IDX Configuration first.</div>`}</div>`:''}
+  const vals=farmValues(f,t).filter(v=>!q||v.toLowerCase().includes(q));
+  return `<div class="f pickw" data-pickw="place"><label>${GEO_LABEL[t]}<span class="req">*</span></label>
+    <div class="pick ${open?'open':''}" data-pickopen="place"><input data-pickq="place" placeholder="Search ${PLURAL[t]}" value="${open?esc(S.pickQ):''}" autocomplete="off"><span class="chev">⌄</span></div>
+    ${open?`<div class="plist">${!f?'<div class="none">Pick the listings source (farm area) first.</div>':vals.length?vals.map(v=>`<button class="${a.place===v?'on':''}" data-pickval="${t}|${esc(v)}"><span class="rd"></span>${esc(v)}</button>`).join(''):`<div class="none">No ${PLURAL[t]} in this farm area${q?' match':''}. Add it to the farm area in IDX Configuration first.</div>`}</div>`:''}
+    ${a.place?`<div class="pills"><span class="pill">${esc(a.place)}<button data-unpick="1" title="Remove">✕</button></span></div>`:''}
+    <div class="hint">Single select: one ${GEO_LABEL[t].toLowerCase()} from ${f?esc(f.name):'the selected farm area'}. Picking another one replaces it.</div>
   </div>`;
 }
 function renderArea(){
@@ -545,8 +542,8 @@ function renderArea(){
         <div class="hint">Inactive farm areas cannot be used. Set a farm area to Active in IDX Configuration to use it here.</div>
         ${a.farmId&&!farmOf(a)?`<div class="err-t">${esc(farmById(a.farmId).name)} is Inactive, so this page has no listings. Pick an Active farm area or set it to Active in IDX Configuration.</div>`:''}</div></div>
 
-    <div><div class="g-title">Area</div><div class="g-sub">Choose City, County or Community, then pick one from the selected farm area. Both are single select. The page is named after it.</div>
-      <div class="grid2" style="align-items:start">${typePicker()}${placePicker()}</div>
+    <div><div class="g-title">Area</div><div class="g-sub">Choose City, County or Community, then pick one from the selected farm area. The page is named after it.</div>
+      ${typeSwitch()}${placePicker()}
       ${dup?`<div class="err-t">${esc(dup.name)} already has a page. One page per place.</div>`:''}
       ${a.place&&a.farmId&&!placeInFarm(a)?`<div class="err-t">${esc(a.name)} is not in ${esc(farmById(a.farmId).name)}. Pick a place from this farm area.</div>`:''}
       <div class="locked" style="margin-top:4px"><span class="badge b-auto">Auto</span> Page title: <b>${esc(h1Of(a))}</b> · URL: ${SITE}${esc(areaUrl(a))}</div></div>
@@ -630,6 +627,7 @@ $('#content').addEventListener('click',e=>{
   if(d.del){const a=find(d.del); S.menuFor=null; confirmBox('Delete '+esc(a.name)+'?',a.published?'This page is live. It will be removed from the site and the sitemap and its URL will redirect to /luxury-homes. This cannot be undone.':'This draft and its content will be deleted. This cannot be undone.','Delete',()=>{S.areas=S.areas.filter(x=>x!==a);toast(a.name+' deleted.');render()}); return}
   if(d.open&&!e.target.closest('.kebab,.handle')){openArea(find(d.open));return}
   if(d.picktype){const a=S.draft; if(a.type!==d.picktype)setPlace(a,d.picktype,''); S.pick=null; dirty(); render(); return}
+  if(d.unpick){setPlace(S.draft,S.draft.type,''); dirty(); render(); return}
   if(d.pickval){const [k,v]=d.pickval.split('|'); setPlace(S.draft,k,v); S.pick=null; S.pickQ=''; dirty(); render(); return}
   if(d.farm){const a=S.draft; if(a.farmId!==d.farm){a.farmId=d.farm; if(a.place&&!placeInFarm(a))setPlace(a,a.type,''); S.pick=null; dirty(); render()} return}
   if(d.toggle){const r=bindRoot(d.toggle),p=bindPath(d.toggle); setPath(r,p,!getPath(r,p)); if(r===S.draft)dirty(); render(); return}
@@ -644,7 +642,7 @@ $('#content').addEventListener('click',e=>{
   switch(d.act){
     case 'help': openHelp(); break;
     case 'goIdx': toast('Opens IDX Configuration › Farm areas (not part of this prototype).'); break;
-    case 'add': openArea(mkArea({type:''})); break;
+    case 'add': openArea(mkArea({type:'city'})); break;
     case 'saveRow': S.row=null; toast(S.view==='area'?'Section updated. Press Save to keep the area changes.':'Saved. Goes live with the next Publish.'); render(); break;
     case 'back': if(S.dirty) confirmBox('Discard changes?','You have unsaved changes on this area.','Discard',()=>{S.view='home';S.draft=null;S.dirty=false;render()}); else {S.view='home';S.draft=null;render()} break;
     case 'save':
@@ -681,7 +679,7 @@ function openHelp(){
   <p>Editor › SEO Content › <b>Luxury Homes</b>. A separate section, like City Pages and Counties.</p>
   <h4>Built on your farm areas</h4><p>Luxury Homes is <b>SEO configuration only</b>. It does not choose listings. Each area page shows the Active listings in its place that match the farm area covering it in IDX Configuration (places, price range, property types). To change the listings, edit the farm area.</p>
   <h4>1. The /luxury-homes page</h4><p>Hero, Areas section heading, About, FAQ and call to action. Sections can be hidden. The Areas section fills itself with one card per published area.</p>
-  <h4>2. Add an area</h4><ol><li><b>Listings source</b>: one <b>Active</b> farm area. Inactive farm areas are shown but cannot be picked.</li><li><b>Area type</b>: single select, City, County or Community.</li><li><b>Place</b>: single select, one value of that type from the farm area. The page name is the place, the H1 is always “{Place} Luxury Homes for Sale”, the URL is /luxury-homes/{place}.</li><li><b>Page content</b>: Hero (tagline, images, alt), About, Community guide, FAQ, CTA, Section order.</li><li><b>Pinned</b> and <b>Published</b> toggles, then <b>Save</b>.</li></ol>
+  <h4>2. Add an area</h4><ol><li><b>Listings source</b>: one <b>Active</b> farm area. Inactive farm areas are shown but cannot be picked.</li><li><b>Area type</b>: City, County or Community.</li><li><b>Place</b>: search and pick one value of that type from the farm area (single select). The page name is the place, the H1 is always “{Place} Luxury Homes for Sale”, the URL is /luxury-homes/{place}.</li><li><b>Page content</b>: Hero (tagline, images, alt), About, Community guide, FAQ, CTA, Section order.</li><li><b>Pinned</b> and <b>Published</b> toggles, then <b>Save</b>.</li></ol>
   <h4>3. Manage areas</h4><p>⋯ menu: Edit, Pin, Publish or Set as Draft, Duplicate, Delete. Drag cards to set the order. Pinned (max 6) come first and show in the site menu.</p>
   <h4>4. Publish</h4><p>An area can be published only when the checklist is green. A place that is not in an active farm area cannot be published. Fair Housing wording only warns.</p>
   <h4>Field rules</h4><table><tr><th>Field</th><th>Rule</th></tr><tr><td>Listings source</td><td>Required. One Active farm area.</td></tr><tr><td>Area type</td><td>Required. Single select: City, County or Community.</td></tr><tr><td>Place</td><td>Required. Single select: one value of that type from the chosen farm area. One page per place.</td></tr><tr><td>Hero / card image</td><td>Required. 1920×800, 800×500.</td></tr><tr><td>Alt text</td><td>Required, 10+ characters.</td></tr><tr><td>About text</td><td>Required, 60+ characters.</td></tr><tr><td>Guide, FAQ</td><td>Optional. Each item needs both parts.</td></tr></table>
