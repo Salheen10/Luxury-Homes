@@ -28,7 +28,7 @@ Header: **Pinned** and **Published** toggles.
 
 | Field | Rule |
 |---|---|
-| Listings source * | **One farm area**, shown as a list with name, price range, property types and size. Only farm areas set to **Active** can be picked; Inactive ones are shown greyed out with an "Inactive" badge. Changing the farm area clears a place that is not in it. |
+| Listings source * | **One farm area**, shown as a list with name, price range, property types and size. Only farm areas set to **Active** can be picked; Inactive ones are shown greyed out with an "Inactive" badge. On a new area the first Active farm area is selected by default, so the place dropdown has data right away. Changing the farm area clears a place that is not in it. |
 | Area type * | Switch with three options: **City**, **County** or **Community** (default City). Changing the type clears the place. |
 | City / County / Community * | Search field like the IDX Configuration pickers, labelled after the chosen type. It lists only values of that type from the selected farm area. **Single select**: the chosen value shows as one pill with ✕, and picking another value replaces it. One page per place. |
 | Page name, H1, URL | **Automatic, not editable.** Name = the place (counties get "County"). H1 = "{Place} Luxury Homes for Sale". URL = /luxury-homes/{place}. |

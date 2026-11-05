@@ -642,7 +642,7 @@ $('#content').addEventListener('click',e=>{
   switch(d.act){
     case 'help': openHelp(); break;
     case 'goIdx': toast('Opens IDX Configuration › Farm areas (not part of this prototype).'); break;
-    case 'add': openArea(mkArea({type:'city'})); break;
+    case 'add': openArea(mkArea({type:'city',farmId:(FARMS.find(f=>f.active)||{}).id||''})); break;
     case 'saveRow': S.row=null; toast(S.view==='area'?'Section updated. Press Save to keep the area changes.':'Saved. Goes live with the next Publish.'); render(); break;
     case 'back': if(S.dirty) confirmBox('Discard changes?','You have unsaved changes on this area.','Discard',()=>{S.view='home';S.draft=null;S.dirty=false;render()}); else {S.view='home';S.draft=null;render()} break;
     case 'save':
