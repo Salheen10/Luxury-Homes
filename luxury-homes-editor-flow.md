@@ -15,7 +15,7 @@ Placement: **Editor › SEO Content › Luxury Homes**, a separate section like 
 ## Screen 1: Luxury Homes
 
 1. **Disclaimer banner** (always shown): "SEO configuration only. Luxury Homes is built on your farm areas in IDX Configuration. The listings on these pages come from your farm areas: the same places, price range and property types. Here you only set up the pages… To change which listings show, edit your farm areas." Link: **Go to IDX Configuration**.
-2. **Stats**: Area pages, Published, Pinned (of 6), Active farm areas (for example 2 of 3).
+2. **Stats**: Area pages, Published, Pinned (of 6), Active farm area: the name of each farm area set to Active (for example "Central Florida Luxury · $1M+"), or "None active" in red.
 3. **Page content** (/luxury-homes). Rows that expand in place, each with Cancel / Save:
    - Hero: small heading, H1, intro, button text, hero image.
    - Areas section: heading and text. The cards fill themselves from published areas.

@@ -81,6 +81,8 @@ input,textarea,select{font-family:inherit}
 .stat{background:#F5F5F5;border-radius:16px;padding:20px}
 .stat small{display:block;font-size:13px;color:var(--muted);text-transform:uppercase;margin-bottom:6px}
 .stat b{font-size:16px;color:var(--ink2)}
+.stat .fname{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stat .fname+.fname{margin-top:2px}
 .ulink{font-size:12px;color:var(--green);font-weight:600;text-decoration:underline;cursor:pointer;display:inline-block;margin-bottom:26px}
 .sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:12px}
 .sec-h h3{font-size:16px;font-weight:600;color:var(--ink2)}
@@ -467,7 +469,7 @@ function renderHome(){
     <div class="stat"><small>Area pages</small><b>${all.length}</b></div>
     <div class="stat"><small>Published</small><b>${pb.length} of ${all.length}</b></div>
     <div class="stat"><small>Pinned</small><b>${pinnedCount()} of 6</b></div>
-    <div class="stat"><small>Active farm areas</small><b>${activeFarms.length} of ${FARMS.length}</b></div>
+    <div class="stat"><small>Active farm area${activeFarms.length===1?'':'s'}</small>${activeFarms.length?activeFarms.map(x=>`<b class="fname" title="${esc(x.name)}">${esc(x.name)}</b>`).join(''):'<b style="color:var(--red)">None active</b>'}</div>
   </div>
   <span class="ulink" data-act="help">How are luxury pages displayed on my microsite?</span>
 
