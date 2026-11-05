@@ -244,6 +244,17 @@ pre.code{background:#1A1D23;color:#D7F5D6;border-radius:8px;padding:10px;font-si
 .ccard.src p{font-size:12.5px;color:var(--muted);line-height:1.5;margin:6px 0 8px}
 .srcname{font-size:14px;font-weight:600;color:var(--ink2);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .srcline{font-size:11.5px;color:var(--muted3);margin-top:2px}
+.farms{display:flex;flex-direction:column;gap:6px}
+.farmopt{display:flex;align-items:center;gap:10px;text-align:left;border:1px solid var(--line);background:#fff;border-radius:8px;padding:10px 12px}
+.farmopt.on{border-color:var(--green);background:var(--green-soft)}
+.farmopt.off{background:#FAFAFA;cursor:not-allowed}
+.farmopt.off .fn{opacity:.55}
+.farmopt .rd{width:16px;height:16px;border-radius:50%;border:1.5px solid #CFCFCF;flex-shrink:0;position:relative}
+.farmopt.on .rd{border-color:var(--green)}
+.farmopt.on .rd:after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--green)}
+.farmopt .fn{flex:1;min-width:0}
+.farmopt .fn b{display:block;font-size:13px;font-weight:600;color:var(--ink2)}
+.farmopt .fn small{display:block;font-size:11.5px;color:var(--muted3);margin-top:2px}
 /* modal, drawer, toast */
 .ovl{position:fixed;inset:0;background:rgba(15,23,42,.45);display:flex;align-items:center;justify-content:center;z-index:60}
 .modal{background:#fff;border-radius:12px;width:430px;padding:22px}
@@ -319,10 +330,14 @@ pre.code{background:#1A1D23;color:#D7F5D6;border-radius:8px;padding:10px;font-si
 const SITE='listahomes.com';
 // Farm areas as set in IDX Configuration (demo copy of the live one)
 const FARMS=[
-  {name:'Central Florida Luxury · $1M+',active:true,range:'$1M – Any',
+  {id:'f1',name:'Central Florida Luxury · $1M+',active:true,range:'$1M – Any',types:'All residential',
    county:['Orange','Seminole','Lake','Osceola','Polk','Volusia'],
    city:['Windermere','Golden Oak','Winter Garden','Lake Mary','Bella Collina','Winter Park','Celebration','Reunion','Orlando','Montverde','Oakland','Kissimmee'],
    zip:['32789','32792','34756','34747','32836','32746','34786','34787','32819']},
+  {id:'f2',name:'Lake County Estates · $750K+',active:true,range:'$750K – Any',types:'Single Family Residence',
+   county:['Lake'],city:['Clermont','Montverde','Mount Dora','Bella Collina'],zip:['34711','34756','32757']},
+  {id:'f3',name:'Seminole Golf Homes · $600K+',active:false,range:'$600K – $2M',types:'Single Family Residence, Townhouse',
+   county:['Seminole'],city:['Lake Mary','Heathrow','Sanford'],zip:['32746','32771']},
 ];
 // Places that are communities, not cities. In farm areas they are stored in the City field today.
 const COMMUNITIES=['Golden Oak','Bella Collina','Reunion'];
@@ -332,23 +347,15 @@ const DEF_SECTIONS=()=>['hero','about','listings','guide','faq','nearby','cta','
 const FH_WORDS=['family-friendly','family friendly','families','safe neighborhood','safe area','exclusive community','christian','church','young professionals','retirees','empty nesters','kids','children','singles','adult community','perfect for couples','crime-free','no crime','ethnic','hispanic','asian'];
 const GRAD=['linear-gradient(135deg,#5b4a32,#1b1610)','linear-gradient(135deg,#334b3e,#0f1712)','linear-gradient(135deg,#3b4658,#10141b)','linear-gradient(135deg,#5a3d3a,#180f0e)','linear-gradient(135deg,#4f5530,#14160c)','linear-gradient(135deg,#2f4a57,#0d161a)'];
 
-function farmOptions(type){
-  const out={};
-  FARMS.filter(f=>f.active).forEach(f=>{
-    const vals = type==='county'?f.county : type==='city'?f.city.filter(c=>!COMMUNITIES.includes(c)) : f.city.filter(c=>COMMUNITIES.includes(c));
-    vals.forEach(v=>{ if(!out[v]) out[v]=f.name });
-  });
-  return out;
-}
-function farmOf(a){
-  if(!a.place) return null;
-  const field = a.type==='county'?'county':'city';
-  return FARMS.find(f=>f.active && f[field].includes(a.place)) || null;
-}
+function farmById(id){return FARMS.find(f=>f.id===id)||null}
+function farmValues(f,type){return !f?[]:type==='county'?f.county:type==='city'?f.city.filter(c=>!COMMUNITIES.includes(c)):f.city.filter(c=>COMMUNITIES.includes(c))}
+function farmOptions(a){const f=farmById(a.farmId); const out={}; farmValues(f,a.type).forEach(v=>out[v]=f.name); return out}
+function farmOf(a){const f=farmById(a.farmId); return f&&f.active?f:null}
+function placeInFarm(a){const f=farmById(a.farmId); return !!(f&&a.place&&farmValues(f,a.type).includes(a.place))}
 
 let uid=100;
 function mkArea(o){
-  const a=Object.assign({id:++uid,type:'city',place:'',tagline:'',hero:null,card:null,alt:'',
+  const a=Object.assign({id:++uid,farmId:'',type:'city',place:'',tagline:'',hero:null,card:null,alt:'',
     aboutH2:'',aboutBody:'',guideH2:'',guide:[],faq:[],cta:'',sections:DEF_SECTIONS(),published:false,pinned:false},o);
   setPlace(a,a.type,a.place); return a;
 }
@@ -361,12 +368,12 @@ const S={
     cta:{on:true,text:'Looking for a luxury home in Central Florida? Talk to our team.',btn:'Contact us'},
   },
   areas:[
-    mkArea({type:'city',place:'Windermere',published:true,pinned:true,tagline:'Lakefront estates on the Butler Chain of Lakes',hero:{n:'windermere-hero.jpg',g:0},card:{n:'windermere-card.jpg',g:0},alt:'Lakefront estate on the Butler Chain of Lakes in Windermere',aboutH2:'Living in Windermere',aboutBody:'Windermere sits on the Butler Chain of Lakes in southwest Orange County. Homes range from gated lakefront estates with private docks to newer custom builds on wooded lots, about 20 minutes from downtown Orlando.',guideH2:'Windermere community guide',guide:[{h3:'Lakes and boating',body:'The Butler Chain links 11 lakes. Many lakefront homes include boat docks and lifts.'},{h3:'Getting around',body:'SR 429 and the Turnpike connect Windermere to Orlando, Disney and the airport.'}],faq:[{q:'Which county is Windermere in?',a:'Windermere is in Orange County, Florida.'}],cta:'Thinking about a luxury home in Windermere? Talk to our team.'}),
-    mkArea({type:'community',place:'Golden Oak',published:true,pinned:true,tagline:'Private residences inside Walt Disney World',hero:{n:'golden-oak-hero.jpg',g:1},card:{n:'golden-oak-card.jpg',g:1},alt:'Golden Oak estate home with a resort-style pool',aboutH2:'About Golden Oak',aboutBody:'Golden Oak is a gated residential community inside Walt Disney World Resort, with custom estate homes on large lots and a private clubhouse.',guide:[{h3:'Homes',body:'Mostly custom single-family estates from about 3,000 to more than 10,000 square feet.'}],faq:[{q:'Is Golden Oak a city?',a:'No. Golden Oak is a community inside Walt Disney World Resort in Orange County.'}],cta:'Ask us about current Golden Oak homes.'}),
-    mkArea({type:'city',place:'Winter Park',published:true,tagline:'Brick streets, chain of lakes and Park Avenue',hero:{n:'winter-park-hero.jpg',g:2},card:{n:'winter-park-card.jpg',g:2},alt:'Historic home on a brick street in Winter Park',aboutH2:'Living in Winter Park',aboutBody:'Winter Park has tree-lined brick streets, the Winter Park Chain of Lakes and a walkable downtown on Park Avenue.',faq:[{q:'Where are luxury homes in Winter Park?',a:'Many are along the Winter Park Chain of Lakes and near Park Avenue.'}],cta:'Looking in Winter Park? We can help.'}),
-    mkArea({type:'city',place:'Lake Mary',tagline:'Golf course and lakeside homes in Seminole County',aboutBody:'Lake Mary is in Seminole County north of Orlando.'}),
-    mkArea({type:'county',place:'Lake',tagline:'Hills, lakes and estate lots west of Orlando'}),
-    mkArea({type:'city',place:'Clermont',tagline:'Rolling hills and lakes in Lake County'}),
+    mkArea({farmId:'f1',type:'city',place:'Windermere',published:true,pinned:true,tagline:'Lakefront estates on the Butler Chain of Lakes',hero:{n:'windermere-hero.jpg',g:0},card:{n:'windermere-card.jpg',g:0},alt:'Lakefront estate on the Butler Chain of Lakes in Windermere',aboutH2:'Living in Windermere',aboutBody:'Windermere sits on the Butler Chain of Lakes in southwest Orange County. Homes range from gated lakefront estates with private docks to newer custom builds on wooded lots, about 20 minutes from downtown Orlando.',guideH2:'Windermere community guide',guide:[{h3:'Lakes and boating',body:'The Butler Chain links 11 lakes. Many lakefront homes include boat docks and lifts.'},{h3:'Getting around',body:'SR 429 and the Turnpike connect Windermere to Orlando, Disney and the airport.'}],faq:[{q:'Which county is Windermere in?',a:'Windermere is in Orange County, Florida.'}],cta:'Thinking about a luxury home in Windermere? Talk to our team.'}),
+    mkArea({farmId:'f1',type:'community',place:'Golden Oak',published:true,pinned:true,tagline:'Private residences inside Walt Disney World',hero:{n:'golden-oak-hero.jpg',g:1},card:{n:'golden-oak-card.jpg',g:1},alt:'Golden Oak estate home with a resort-style pool',aboutH2:'About Golden Oak',aboutBody:'Golden Oak is a gated residential community inside Walt Disney World Resort, with custom estate homes on large lots and a private clubhouse.',guide:[{h3:'Homes',body:'Mostly custom single-family estates from about 3,000 to more than 10,000 square feet.'}],faq:[{q:'Is Golden Oak a city?',a:'No. Golden Oak is a community inside Walt Disney World Resort in Orange County.'}],cta:'Ask us about current Golden Oak homes.'}),
+    mkArea({farmId:'f1',type:'city',place:'Winter Park',published:true,tagline:'Brick streets, chain of lakes and Park Avenue',hero:{n:'winter-park-hero.jpg',g:2},card:{n:'winter-park-card.jpg',g:2},alt:'Historic home on a brick street in Winter Park',aboutH2:'Living in Winter Park',aboutBody:'Winter Park has tree-lined brick streets, the Winter Park Chain of Lakes and a walkable downtown on Park Avenue.',faq:[{q:'Where are luxury homes in Winter Park?',a:'Many are along the Winter Park Chain of Lakes and near Park Avenue.'}],cta:'Looking in Winter Park? We can help.'}),
+    mkArea({farmId:'f3',type:'city',place:'Lake Mary',tagline:'Golf course and lakeside homes in Seminole County',aboutBody:'Lake Mary is in Seminole County north of Orlando.'}),
+    mkArea({farmId:'f2',type:'county',place:'Lake',tagline:'Hills, lakes and estate lots west of Orlando'}),
+    mkArea({farmId:'f2',type:'city',place:'Clermont',tagline:'Rolling hills and lakes in Lake County',aboutBody:'Clermont sits in the rolling hills of south Lake County, with lakes, trails and estate homes on large lots west of Orlando.',hero:{n:'clermont-hero.jpg',g:4},card:{n:'clermont-card.jpg',g:4},alt:'Estate home on a hill above a lake in Clermont'}),
   ],
   view:'home', draft:null, row:null, filter:'all', menuFor:null, pick:null, pickQ:'', dirty:false,
 };
@@ -392,8 +399,10 @@ function setPath(o,p,v){const ks=p.split('.'); const last=ks.pop(); ks.reduce((x
 /* publish checks */
 function checks(a){
   const r=[],add=(ok,t,lvl='err')=>r.push({ok,t,lvl});
+  add(!!farmById(a.farmId),'Listings source (farm area) is picked');
+  add(!a.farmId||!!farmOf(a),'The farm area is Active');
   add(!!a.place,'A county, city or community is picked');
-  add(!a.place||!!farmOf(a),'The place is in an active farm area');
+  add(!a.place||!a.farmId||placeInFarm(a),'The place is in that farm area');
   add(!dupOf(a),'No other area uses the same place');
   add(!!a.hero&&!!a.card,'Hero and card images');
   add(a.alt.trim().length>=10,'Image alt text');
@@ -450,7 +459,7 @@ function renderHome(){
     <div class="stat"><small>Area pages</small><b>${all.length}</b></div>
     <div class="stat"><small>Published</small><b>${pb.length} of ${all.length}</b></div>
     <div class="stat"><small>Pinned</small><b>${pinnedCount()} of 6</b></div>
-    <div class="stat"><small>Listings source</small><b>${activeFarms.length} farm area${activeFarms.length===1?'':'s'}</b></div>
+    <div class="stat"><small>Active farm areas</small><b>${activeFarms.length} of ${FARMS.length}</b></div>
   </div>
   <span class="ulink" data-act="help">How are luxury pages displayed on my microsite?</span>
 
@@ -483,9 +492,9 @@ function areaCard(a){
         <button data-pubtog="${a.id}">${a.published?'⊘ Set as Draft':'↗ Publish'}</button>
         <button data-dup="${a.id}">⧉ Duplicate</button>
         <button class="rm" data-del="${a.id}">🗑 Delete</button></div>`:''}</div></div>
-    <div class="bdg"><span class="badge ${a.published?'b-pub':'b-draft'}">${a.published?'Published':'Draft'}</span>${a.pinned?'<span class="badge b-pin">📌 Pinned</span>':''}${!farm&&a.place?'<span class="badge b-err">Not in a farm area</span>':(!a.published&&blk?`<span class="badge b-err">${blk} to fix</span>`:'')}</div>
+    <div class="bdg"><span class="badge ${a.published?'b-pub':'b-draft'}">${a.published?'Published':'Draft'}</span>${a.pinned?'<span class="badge b-pin">📌 Pinned</span>':''}${a.farmId&&!farm?'<span class="badge b-err">Farm area inactive</span>':(!a.published&&blk?`<span class="badge b-err">${blk} to fix</span>`:'')}</div>
     <div class="geo">${a.place?GEO_LABEL[a.type]+' · '+esc(a.name):'No place picked'}</div>
-    <div class="farm-l">${farm?'Listings from farm area: <b>'+esc(farm.name)+'</b>':'<span style="color:var(--red)">No farm area covers this place, so it has no listings</span>'}</div>
+    <div class="farm-l">${farm?'Listings source: <b>'+esc(farm.name)+'</b>':a.farmId?'<span style="color:var(--red)">Listings source '+esc(farmById(a.farmId).name)+' is Inactive</span>':'<span style="color:var(--red)">No listings source picked</span>'}</div>
     <div class="url">${SITE}${esc(areaUrl(a))}</div>
   </div>`;
 }
@@ -496,7 +505,7 @@ function picker(key,label,opts,placeholder){
   const items=Object.entries(opts).filter(([v])=>!q||v.toLowerCase().includes(q));
   return `<div class="f pickw" data-pickw="${key}"><label>${label}</label>
     <div class="pick ${open?'open':''}" data-pickopen="${key}"><input data-pickq="${key}" placeholder="${placeholder}" value="${open?esc(S.pickQ):''}" autocomplete="off"><span class="chev">⌄</span></div>
-    ${open?`<div class="plist">${items.length?items.map(([v,farm])=>`<button class="${sel.includes(v)?'on':''}" data-pickval="${key}|${esc(v)}"><span class="ck">${sel.includes(v)?'✓':''}</span>${esc(v)}<span class="c">${esc(farm)}</span></button>`).join(''):`<div class="none">No ${GEO_LABEL[key].toLowerCase()} in your active farm areas${q?' matches':''}. Add it to a farm area in IDX Configuration first.</div>`}</div>`:''}
+    ${open?`<div class="plist">${items.length?items.map(([v,farm])=>`<button class="${sel.includes(v)?'on':''}" data-pickval="${key}|${esc(v)}"><span class="ck">${sel.includes(v)?'✓':''}</span>${esc(v)}<span class="c">${esc(farm)}</span></button>`).join(''):`<div class="none">${S.draft.farmId?`No ${GEO_LABEL[key].toLowerCase()} in this farm area${q?' matches':''}. Add it to the farm area in IDX Configuration first.`:'Pick the listings source (farm area) first.'}</div>`}</div>`:''}
     ${sel.length?`<div class="pills">${sel.map(v=>`<span class="pill">${esc(v)}<button data-unpick="${key}|${esc(v)}" title="Remove">✕</button></span>`).join('')}</div>`:''}
   </div>`;
 }
@@ -511,11 +520,16 @@ function renderArea(){
       <span class="tglw">Pinned <button class="tgl sm ${a.pinned?'on':''}" data-act="pinDraft" ${!a.pinned&&pinnedCount(a.id)>=6?'disabled':''}></button></span>
       <span class="tglw">Published <button class="tgl ${a.published?'on':''}" data-act="pubDraft"></button></span></div>
 
-    <div><div class="g-title">Area</div><div class="g-sub">Pick one county, city or community from your farm areas. The page is named after it.</div>
+    <div><div class="g-title">Listings source</div><div class="g-sub">The farm area this page takes its listings from. Only <b>Active</b> farm areas can be picked.</div>
+      <div class="f"><label>Farm area<span class="req">*</span></label><div class="farms">${FARMS.map(f=>`<button class="farmopt ${a.farmId===f.id?'on':''} ${f.active?'':'off'}" data-farm="${f.id}" ${f.active?'':'disabled'}><span class="rd"></span><span class="fn"><b>${esc(f.name)}</b><small>${esc(f.range)} · ${esc(f.types)} · ${f.county.length} counties, ${f.city.length} cities</small></span><span class="badge ${f.active?'b-pub':'b-off'}">${f.active?'Active':'Inactive'}</span></button>`).join('')}</div>
+        <div class="hint">Inactive farm areas cannot be used. Set a farm area to Active in IDX Configuration to use it here.</div>
+        ${a.farmId&&!farmOf(a)?`<div class="err-t">${esc(farmById(a.farmId).name)} is Inactive, so this page has no listings. Pick an Active farm area or set it to Active in IDX Configuration.</div>`:''}</div></div>
+
+    <div><div class="g-title">Area</div><div class="g-sub">Pick one county, city or community from the selected farm area. The page is named after it.</div>
       <div class="f"><label>Area type<span class="req">*</span></label><div class="segm">${['county','city','community'].map(t=>`<button class="${a.type===t?'on':''}" data-gtype="${t}">${GEO_LABEL[t]}</button>`).join('')}</div></div>
-      ${picker(a.type,GEO_LABEL[a.type]+'<span class="req">*</span>',farmOptions(a.type),{county:'Search counties in your farm areas',city:'Search cities in your farm areas',community:'Search communities in your farm areas'}[a.type])}
+      ${picker(a.type,GEO_LABEL[a.type]+'<span class="req">*</span>',farmOptions(a),{county:'Search counties in this farm area',city:'Search cities in this farm area',community:'Search communities in this farm area'}[a.type])}
       ${dup?`<div class="err-t">${esc(dup.name)} already has a page. One page per place.</div>`:''}
-      ${a.place&&!farm?`<div class="err-t">${esc(a.name)} is not in an active farm area, so this page would have no listings. Add it to a farm area in IDX Configuration, or pick another place.</div>`:''}
+      ${a.place&&a.farmId&&!placeInFarm(a)?`<div class="err-t">${esc(a.name)} is not in ${esc(farmById(a.farmId).name)}. Pick a place from this farm area.</div>`:''}
       <div class="locked" style="margin-top:4px"><span class="badge b-auto">Auto</span> Page title: <b>${esc(h1Of(a))}</b> · URL: ${SITE}${esc(areaUrl(a))}</div></div>
 
     <div><div class="g-title">Page content</div><div class="g-sub">What visitors read on ${SITE}${esc(areaUrl(a))}.</div>
@@ -537,8 +551,8 @@ function renderArea(){
      <div class="ccard src"><h4>Listings source</h4>
        ${farm?`<div class="srcname">${esc(farm.name)} <span class="badge b-pub">Active</span></div>
          <div class="srcline">Farm area in IDX Configuration</div>
-         <p>This page shows the Active listings in <b>${esc(a.name)}</b> that match this farm area: its price range (${esc(farm.range)}) and property types. Nothing about listings is set here.</p>`
-       :`<p>${a.place?`<b style="color:var(--red)">${esc(a.name)} is not in an active farm area.</b> The page would have no listings.`:'Pick a place. The listings will come from the farm area that covers it.'}</p>`}
+         <p>This page shows the Active listings in <b>${esc(a.name||'the place you pick')}</b> that match this farm area: its price range (${esc(farm.range)}) and property types. Nothing about listings is set here.</p>`
+       :`<p>${a.farmId?`<b style="color:var(--red)">${esc(farmById(a.farmId).name)} is Inactive.</b> The page has no listings until it is Active.`:'Pick an Active farm area. The listings on this page come from it.'}</p>`}
        <button class="addlink" data-act="goIdx">Edit farm areas in IDX Configuration</button></div>
      <div class="ccard"><h4>Before you publish ${blk.length?`<span class="badge b-err">${blk.length} to fix</span>`:'<span class="badge b-pub">Ready</span>'}</h4><div class="checklist">${cs.map(c=>`<div class="${c.ok?'ok':c.lvl==='warn'?'wn':'no'}"><i>${c.ok?'✓':c.lvl==='warn'?'⚠':'✕'}</i><span>${esc(c.t)}</span></div>`).join('')}</div></div>
    </aside>
@@ -597,6 +611,7 @@ $('#content').addEventListener('click',e=>{
   if(d.del){const a=find(d.del); S.menuFor=null; confirmBox('Delete '+esc(a.name)+'?',a.published?'This page is live. It will be removed from the site and the sitemap and its URL will redirect to /luxury-homes. This cannot be undone.':'This draft and its content will be deleted. This cannot be undone.','Delete',()=>{S.areas=S.areas.filter(x=>x!==a);toast(a.name+' deleted.');render()}); return}
   if(d.open&&!e.target.closest('.kebab,.handle')){openArea(find(d.open));return}
   if(d.pickval){const [k,v]=d.pickval.split('|'); const a=S.draft; setPlace(a,k,a.place===v?'':v); S.pick=null; S.pickQ=''; dirty(); render(); return}
+  if(d.farm){const a=S.draft; if(a.farmId!==d.farm){a.farmId=d.farm; if(a.place&&!placeInFarm(a))setPlace(a,a.type,''); S.pick=null; dirty(); render()} return}
   if(d.gtype){const a=S.draft; if(a.type!==d.gtype){setPlace(a,d.gtype,''); S.pick=null; dirty(); render()} return}
   if(d.unpick){setPlace(S.draft,S.draft.type,''); dirty(); render(); return}
   if(d.toggle){const r=bindRoot(d.toggle),p=bindPath(d.toggle); setPath(r,p,!getPath(r,p)); if(r===S.draft)dirty(); render(); return}
@@ -615,6 +630,7 @@ $('#content').addEventListener('click',e=>{
     case 'saveRow': S.row=null; toast(S.view==='area'?'Section updated. Press Save to keep the area changes.':'Saved. Goes live with the next Publish.'); render(); break;
     case 'back': if(S.dirty) confirmBox('Discard changes?','You have unsaved changes on this area.','Discard',()=>{S.view='home';S.draft=null;S.dirty=false;render()}); else {S.view='home';S.draft=null;render()} break;
     case 'save':
+      if(!farmOf(a)){toast('Pick an Active farm area as the listings source.');break}
       if(!a.place){toast('Pick a county, city or community.');break}
       if(dupOf(a)){toast(a.name+' already has a page.');break}
       if(a.published&&blocking(a).length){toast('A published page must stay complete: '+blocking(a)[0].t.toLowerCase()+'. Fix it or switch Published off.');break}
@@ -647,10 +663,10 @@ function openHelp(){
   <p>Editor › SEO Content › <b>Luxury Homes</b>. A separate section, like City Pages and Counties.</p>
   <h4>Built on your farm areas</h4><p>Luxury Homes is <b>SEO configuration only</b>. It does not choose listings. Each area page shows the Active listings in its place that match the farm area covering it in IDX Configuration (places, price range, property types). To change the listings, edit the farm area.</p>
   <h4>1. The /luxury-homes page</h4><p>Hero, Areas section heading, About, FAQ and call to action. Sections can be hidden. The Areas section fills itself with one card per published area.</p>
-  <h4>2. Add an area</h4><ol><li><b>Area type</b>: County, City or Community. One only.</li><li><b>Place</b>: one value from your active farm areas. The page name is the place, the H1 is always “{Place} Luxury Homes for Sale”, the URL is /luxury-homes/{place}.</li><li><b>Page content</b>: Hero (tagline, images, alt), About, Community guide, FAQ, CTA, Section order.</li><li><b>Pinned</b> and <b>Published</b> toggles, then <b>Save</b>.</li></ol>
+  <h4>2. Add an area</h4><ol><li><b>Listings source</b>: one <b>Active</b> farm area. Inactive farm areas are shown but cannot be picked.</li><li><b>Area type</b>: County, City or Community. One only.</li><li><b>Place</b>: one value from that farm area. The page name is the place, the H1 is always “{Place} Luxury Homes for Sale”, the URL is /luxury-homes/{place}.</li><li><b>Page content</b>: Hero (tagline, images, alt), About, Community guide, FAQ, CTA, Section order.</li><li><b>Pinned</b> and <b>Published</b> toggles, then <b>Save</b>.</li></ol>
   <h4>3. Manage areas</h4><p>⋯ menu: Edit, Pin, Publish or Set as Draft, Duplicate, Delete. Drag cards to set the order. Pinned (max 6) come first and show in the site menu.</p>
   <h4>4. Publish</h4><p>An area can be published only when the checklist is green. A place that is not in an active farm area cannot be published. Fair Housing wording only warns.</p>
-  <h4>Field rules</h4><table><tr><th>Field</th><th>Rule</th></tr><tr><td>Area type</td><td>Required. County, City or Community.</td></tr><tr><td>Place</td><td>Required. One value from an active farm area. One page per place.</td></tr><tr><td>Hero / card image</td><td>Required. 1920×800, 800×500.</td></tr><tr><td>Alt text</td><td>Required, 10+ characters.</td></tr><tr><td>About text</td><td>Required, 60+ characters.</td></tr><tr><td>Guide, FAQ</td><td>Optional. Each item needs both parts.</td></tr></table>
+  <h4>Field rules</h4><table><tr><th>Field</th><th>Rule</th></tr><tr><td>Listings source</td><td>Required. One Active farm area.</td></tr><tr><td>Area type</td><td>Required. County, City or Community.</td></tr><tr><td>Place</td><td>Required. One value from the chosen farm area. One page per place.</td></tr><tr><td>Hero / card image</td><td>Required. 1920×800, 800×500.</td></tr><tr><td>Alt text</td><td>Required, 10+ characters.</td></tr><tr><td>About text</td><td>Required, 60+ characters.</td></tr><tr><td>Guide, FAQ</td><td>Optional. Each item needs both parts.</td></tr></table>
   <h4>Demo tip</h4><p>Shift-click any Upload button to attach a demo image without choosing a file.</p></div></div>`;
   $('#layer').onclick=e=>{if(e.target.dataset.x==='close')$('#layer').innerHTML=''};
 }

@@ -6,7 +6,7 @@ Prototype: [index.html](index.html) (open in a browser, demo data only).
 
 Luxury Homes is **SEO configuration only**, built on the **farm areas** in IDX Configuration.
 
-- It does **not** choose listings. Each area page shows the Active listings in its place that match the farm area covering that place (its places, price range and property types).
+- It does **not** choose listings. Each area page has a **Listings source**: one farm area that is set to **Active**. The page shows the Active listings in its place that match that farm area (its price range and property types).
 - It sets up the pages: which places get a page, the content of each page, the /luxury-homes page content, and the order and pins.
 - To change which listings show, the agent edits the farm areas in IDX Configuration.
 
@@ -15,12 +15,12 @@ Placement: **Editor › SEO Content › Luxury Homes**, a separate section like 
 ## Screen 1: Luxury Homes
 
 1. **Disclaimer banner** (always shown): "SEO configuration only. Luxury Homes is built on your farm areas in IDX Configuration. The listings on these pages come from your farm areas: the same places, price range and property types. Here you only set up the pages… To change which listings show, edit your farm areas." Link: **Go to IDX Configuration**.
-2. **Stats**: Area pages, Published, Pinned (of 6), Listings source (number of active farm areas).
+2. **Stats**: Area pages, Published, Pinned (of 6), Active farm areas (for example 2 of 3).
 3. **Page content** (/luxury-homes). Rows that expand in place, each with Cancel / Save:
    - Hero: small heading, H1, intro, button text, hero image.
    - Areas section: heading and text. The cards fill themselves from published areas.
    - About (can be hidden), FAQ (can be hidden), Contact call to action (can be hidden).
-4. **Areas**: filters (All, Published, Draft, Pinned) and cards. Each card shows the name, status, Pinned badge, type and place, the farm area its listings come from, and the URL. Drag to reorder. The ⋯ menu has Edit, Pin / Unpin, Publish / Set as Draft, Duplicate and Delete.
+4. **Areas**: filters (All, Published, Draft, Pinned) and cards. Each card shows the name, status, Pinned badge, type and place, its listings source (farm area), and the URL. If that farm area was set to Inactive, the card shows a red "Farm area inactive" badge. Drag to reorder. The ⋯ menu has Edit, Pin / Unpin, Publish / Set as Draft, Duplicate and Delete.
 
 ## Screen 2: New / Edit area
 
@@ -28,15 +28,16 @@ Header: **Pinned** and **Published** toggles.
 
 | Field | Rule |
 |---|---|
+| Listings source * | **One farm area**, shown as a list with name, price range, property types and size. Only farm areas set to **Active** can be picked; Inactive ones are shown greyed out with an "Inactive" badge. Changing the farm area clears a place that is not in it. |
 | Area type * | **One** of County, City or Community. Switching the type clears the place. |
-| Place * | **One** value, picked only from the **active farm areas** (the list shows which farm area each value comes from). One page per place. |
+| Place * | **One** value from the **selected farm area** only. One page per place. |
 | Page name, H1, URL | **Automatic, not editable.** Name = the place (counties get "County"). H1 = "{Place} Luxury Homes for Sale". URL = /luxury-homes/{place}. |
 
 **Page content** rows: Hero (H1 read-only, tagline, hero 1920×800, card 800×500, alt text), About the area (60+ characters, Fair Housing warning), Community guide (H3 topics), FAQ, Contact call to action, Section order (on/off and move; Hero first, disclaimer last, "Homes for sale (from the farm area)" always on).
 
 **Right column**:
-- **Listings source**: the farm area that covers the place, its status and price range, with the text "This page shows the Active listings in {place} that match this farm area… Nothing about listings is set here." Link to IDX Configuration.
-- **Before you publish** checklist: place picked, place in an active farm area, no duplicate place, hero and card images, alt text, about text, FAQ and guide items complete. Fair Housing wording only warns.
+- **Listings source**: the selected farm area, its Active status and price range, with the text "This page shows the Active listings in {place} that match this farm area… Nothing about listings is set here." Link to IDX Configuration.
+- **Before you publish** checklist: listings source picked, farm area is Active, place picked, place is in that farm area, no duplicate place, hero and card images, alt text, about text, FAQ and guide items complete. Fair Housing wording only warns.
 
 Footer: Cancel / Save. Save with Published on makes the page live; with Published off it saves a draft.
 
@@ -49,7 +50,8 @@ Footer: Cancel / Save. Save with Published on makes the page live; with Publishe
 
 ## Edge cases
 
-- **Place not in an active farm area** (for example Clermont in the demo, or a farm area that was set inactive): the card shows "Not in a farm area", the editor explains it, and the page cannot be published. A live page in that state should go back to draft or show the no-results message (decision below).
+- **Farm area set to Inactive after the page was made** (Lake Mary in the demo uses "Seminole Golf Homes", which is Inactive): the card shows "Farm area inactive", the editor explains it, and the page cannot be published until the agent picks an Active farm area or sets it to Active again. What happens to a page that is already live is a decision below.
+- **Place removed from the farm area**: the editor says the place is not in that farm area, and the page cannot be published.
 - **Farm area changes** (price range, property types): the area pages follow automatically. Nothing to update here.
 - **Duplicate place**: blocked, one page per place.
 
@@ -63,5 +65,5 @@ Footer: Cancel / Save. Save with Published on makes the page live; with Publishe
 ## Open decisions
 
 1. **Communities**: farm areas have County, City and ZIP fields, with no Community field. Golden Oak, Bella Collina and Reunion are stored as cities in the live farm area today. Either add a Community (Subdivision) field to farm areas, or keep reading communities from the City field.
-2. **Live page whose place leaves all active farm areas**: switch it to draft automatically, or keep it live with the no-results message.
+2. **Live page whose farm area becomes Inactive, or whose place is removed from it**: switch it to draft automatically, or keep it live with the no-results message.
 3. **Scope vs User Story v2**: v2 limits Luxury Homes to listahomes.com with 11 fixed communities, $1M+ and an SEO sheet. This makes it an editor section for any Microsite with IDX and farm areas, with automatic SEO.
