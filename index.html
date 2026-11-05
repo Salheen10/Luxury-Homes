@@ -235,87 +235,15 @@ pre.code{background:#1A1D23;color:#D7F5D6;border-radius:8px;padding:10px;font-si
 .checklist .ok i{color:#2F8F2E}.checklist .no i{color:var(--red)}.checklist .wn i{color:var(--amber)}
 .checklist i{font-style:normal;width:12px;flex-shrink:0}
 .empty{font-size:13px;color:var(--muted);text-align:center;padding:26px 10px;border:1px dashed #DDD;border-radius:8px}
-/* preview overlay */
-.pvo{position:fixed;inset:0;background:#EEEEEE;z-index:55;display:flex;flex-direction:column}
-.pvo .bar{display:flex;align-items:center;gap:10px;padding:12px 18px;background:#fff;border-bottom:1px solid var(--line)}
-.tabs{display:flex;background:#fff;border:1px solid var(--line);border-radius:8px;padding:4px;gap:2px}
-.tabs button{height:30px;padding:6px 12px;border-radius:4px;font-size:14px;color:var(--muted)}
-.tabs button.on{background:var(--green-bg);color:#1A1D23}
-.pv-url{flex:1;font-size:12px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:8px;height:34px;display:flex;align-items:center;padding:0 10px;gap:8px;min-width:0}
-.pvo .stage{flex:1;overflow:auto;padding:20px}
-.pv-frame{background:var(--site);border-radius:6px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.12);margin:0 auto}
-/* public site */
-.site{font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#fff;background:var(--site)}
-.s-banner{background:var(--gold);font-size:11px;text-align:center;padding:5px 10px}
-.s-head{display:flex;align-items:center;gap:30px;padding:16px 56px;border-bottom:1px solid #1d1b19}
-.s-logo{display:flex;flex-direction:column;line-height:1}
-.s-logo b{font-family:Georgia,serif;font-size:18px;letter-spacing:.5px}
-.s-logo small{font-size:8px;color:var(--gold2);letter-spacing:2px;margin-top:3px}
-.s-nav{display:flex;gap:22px;font-size:13px;font-weight:600;color:rgba(255,255,255,.75);flex:1;justify-content:center}
-.s-nav .dd{position:relative;cursor:pointer;color:#fff}
-.s-nav .ddm{display:none;position:absolute;top:22px;left:-14px;background:#15130f;border:1px solid #2a2722;border-radius:6px;padding:10px 0;min-width:220px;z-index:5}
-.s-nav .dd:hover .ddm{display:block}
-.ddm .h{font-size:10px;letter-spacing:2px;color:var(--gold2);padding:2px 16px 6px}
-.ddm a{display:block;padding:6px 16px;font-weight:500;color:#fff;font-size:13px}
-.ddm a:hover{background:#221f1a}
-.ddm .all{border-top:1px solid #2a2722;margin-top:6px;padding-top:8px;color:var(--gold2)}
-.ddm .none{padding:6px 16px;color:rgba(255,255,255,.45);font-weight:400;font-size:12px}
-.s-auth{display:flex;gap:10px;font-size:12px;font-weight:600}
-.s-auth span:last-child{border:1px solid #fff;padding:4px 10px;border-radius:3px}
-.s-burger{display:none;margin-left:auto;font-size:20px}
-.s-hero{padding:44px 56px 50px;background:#0C0B0A}
-.s-hero.img{min-height:380px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.85)),var(--hero) center/cover}
-.s-bc{font-size:11px;color:rgba(255,255,255,.55);margin-bottom:14px}
-.s-bc b{color:#fff}
-.s-eyebrow{font-size:11px;letter-spacing:3px;color:var(--gold2);margin-bottom:10px;text-transform:uppercase}
-.s-h1{font-size:52px;font-weight:700;letter-spacing:-.5px;line-height:1.05;max-width:900px}
-.s-lead{font-size:15px;color:rgba(255,255,255,.85);max-width:720px;margin-top:14px;line-height:1.55}
-.s-cta{display:inline-block;align-self:flex-start;margin-top:20px;background:var(--gold2);color:#111;font-weight:600;font-size:13px;padding:11px 18px;border-radius:3px}
-.s-sec{padding:44px 56px;border-top:1px solid #1d1b19}
-.s-sec h2{font-size:30px;font-weight:600;margin-bottom:10px;letter-spacing:-.3px}
-.s-sec h3{font-size:19px;font-weight:600;margin:18px 0 6px}
-.s-sec p{color:rgba(255,255,255,.78);line-height:1.65;font-size:14.5px;max-width:860px;white-space:pre-line}
-.s-note{font-size:12.5px;color:rgba(255,255,255,.6);margin-bottom:18px}
-.s-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.s-card{background:#15130f;border:1px solid #24211c;border-radius:6px;overflow:hidden;cursor:pointer}
-.s-card .ph{height:170px;background:#222 center/cover;position:relative}
-.s-card .ph .pin{position:absolute;top:10px;left:10px;font-size:10px;background:var(--gold2);color:#111;padding:3px 7px;border-radius:2px;font-weight:600;letter-spacing:1px}
-.s-card .bd{padding:14px 16px 16px}
-.s-card .bd b{font-size:17px;font-weight:600;display:block}
-.s-card .bd small{display:block;color:rgba(255,255,255,.65);font-size:12.5px;margin-top:4px;line-height:1.45}
-.s-card .bd .pr{color:var(--gold2);font-size:12px;margin-top:8px;font-weight:600}
-.s-card .bd .ex{font-size:12px;margin-top:10px;text-decoration:underline}
-.s-list{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.s-lst{background:#15130f;border:1px solid #24211c;border-radius:6px;overflow:hidden}
-.s-lst .ph{height:160px;background:linear-gradient(135deg,#3b3328,#14110d);position:relative;display:flex;align-items:center;justify-content:center;font-size:11px;color:rgba(255,255,255,.35)}
-.s-lst .ph .st{position:absolute;top:10px;left:10px;font-size:10px;background:#2E7D32;padding:3px 7px;border-radius:2px;color:#fff}
-.s-lst .bd{padding:12px 14px}
-.s-lst .pr{font-size:20px;font-weight:700}
-.s-lst .ad{font-size:13px;margin-top:3px}
-.s-lst .mt{font-size:12px;color:rgba(255,255,255,.6);margin-top:3px}
-.s-lst .cr{font-size:10px;color:rgba(255,255,255,.4);margin-top:8px}
-.s-viewall{display:inline-block;margin-top:20px;border:1px solid var(--gold2);color:var(--gold2);font-size:13px;padding:10px 16px;border-radius:3px;font-weight:600}
-.s-empty{border:1px dashed #3a352d;border-radius:6px;padding:26px;color:rgba(255,255,255,.7);font-size:14px;line-height:1.6}
-.s-faq details{border-bottom:1px solid #24211c;padding:14px 0}
-.s-faq summary{font-size:15px;font-weight:600;cursor:pointer}
-.s-faq details p{margin-top:8px}
-.s-ctab{background:#15130f;border:1px solid #24211c;border-radius:6px;padding:28px;display:flex;align-items:center;gap:20px}
-.s-ctab p{flex:1;color:#fff;font-size:17px}
-.s-disc{padding:22px 56px;font-size:11px;color:rgba(255,255,255,.45);border-top:1px solid #1d1b19;line-height:1.6}
-.s-foot{padding:18px 56px 26px;font-size:11.5px;color:rgba(255,255,255,.6);border-top:1px solid #1d1b19;display:flex;justify-content:space-between}
-.s-ed{margin-top:14px;font-size:12px;color:#E8C77E;background:rgba(232,199,126,.08);border:1px dashed rgba(232,199,126,.35);padding:6px 10px;border-radius:4px;display:inline-block}
-.site.m .s-head{padding:14px 18px}
-.site.m .s-nav,.site.m .s-auth{display:none}
-.site.m .s-burger{display:block}
-.site.m .s-hero{padding:26px 18px 30px}
-.site.m .s-hero.img{min-height:300px}
-.site.m .s-h1{font-size:32px}
-.site.m .s-sec{padding:30px 18px}
-.site.m .s-sec h2{font-size:23px}
-.site.m .s-cards,.site.m .s-list{grid-template-columns:1fr}
-.site.m .s-disc,.site.m .s-foot{padding-left:18px;padding-right:18px}
-.site.m .s-foot{flex-direction:column;gap:6px}
-.site.m .s-ctab{flex-direction:column;align-items:flex-start}
+.disc{background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:8px;padding:12px 16px;font-size:13px;line-height:1.55;display:flex;align-items:flex-start;gap:10px;margin-bottom:16px;color:#5B3A06}
+.disc .di{width:18px;height:18px;border:1.5px solid var(--amber);border-radius:50%;color:var(--amber);font-size:11px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;margin-top:2px}
+.disc a{margin-left:auto;color:var(--amber);font-weight:600;text-decoration:underline;cursor:pointer;font-size:12px;white-space:nowrap;padding-top:2px}
+.farm-l{font-size:12px;color:var(--muted3);margin-top:6px}
+.farm-l b{color:var(--ink3);font-weight:500}
+.segm{display:flex;background:#F3F3F3;border-radius:8px;padding:3px;gap:3px;max-width:420px}
+.ccard.src p{font-size:12.5px;color:var(--muted);line-height:1.5;margin:6px 0 8px}
+.srcname{font-size:14px;font-weight:600;color:var(--ink2);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.srcline{font-size:11.5px;color:var(--muted3);margin-top:2px}
 /* modal, drawer, toast */
 .ovl{position:fixed;inset:0;background:rgba(15,23,42,.45);display:flex;align-items:center;justify-content:center;z-index:60}
 .modal{background:#fff;border-radius:12px;width:430px;padding:22px}
@@ -385,78 +313,79 @@ pre.code{background:#1A1D23;color:#D7F5D6;border-radius:8px;padding:10px;font-si
   </div>
 </div>
 <div id="layer"></div>
-<div id="pvLayer"></div>
 
 <script>
-/* Luxury Homes editor prototype. Demo data only, nothing is sent anywhere. */
+/* Luxury Homes editor prototype: SEO configuration on top of farm areas. Demo data only, nothing is sent anywhere. */
 const SITE='listahomes.com';
-const SUBTYPES={'Single Family Residence':.74,'Condominium':.11,'Townhouse':.06,'Villa':.05,'Half Duplex':.02,'Manufactured Home':.02};
-// Demo values from the MLS feed with demo counts of Active $1M+ listings
-const MLS={
-  county:{'Orange':520,'Seminole':104,'Lake':88,'Osceola':76,'Polk':41,'Volusia':63,'Brevard':38,'Sumter':12},
-  city:{'Windermere':118,'Winter Park':96,'Winter Garden':71,'Lake Mary':38,'Celebration':22,'Montverde':19,'Oakland':12,'Orlando':260,'Clermont':41,'Longwood':16,'Sanford':9,'Kissimmee':27,'Maitland':24,'Apopka':14,'Mount Dora':11,'Heathrow':18},
-  community:{'Golden Oak':34,'Golden Oak Ph 2':9,'Bella Collina':26,'Reunion':31,'Reunion West':6,'Isleworth':21,'Lake Nona Estates':11,'Keenes Pointe':17,'Bay Hill':15,'Alaqua Lakes':13,'Windermere Downs':4,'Dr Phillips':2,'Lake Butler Sound':8},
-};
-const COUNTY_OF={'Windermere':'Orange','Winter Park':'Orange','Winter Garden':'Orange','Lake Mary':'Seminole','Celebration':'Osceola','Montverde':'Lake','Oakland':'Orange','Orlando':'Orange','Clermont':'Lake','Longwood':'Seminole','Sanford':'Seminole','Kissimmee':'Osceola','Maitland':'Orange','Apopka':'Orange','Mount Dora':'Lake','Heathrow':'Seminole','Golden Oak':'Orange','Golden Oak Ph 2':'Orange','Bella Collina':'Lake','Reunion':'Osceola','Reunion West':'Osceola','Isleworth':'Orange','Lake Nona Estates':'Orange','Keenes Pointe':'Orange','Bay Hill':'Orange','Alaqua Lakes':'Seminole','Windermere Downs':'Orange','Dr Phillips':'Orange','Lake Butler Sound':'Orange'};
+// Farm areas as set in IDX Configuration (demo copy of the live one)
+const FARMS=[
+  {name:'Central Florida Luxury · $1M+',active:true,range:'$1M – Any',
+   county:['Orange','Seminole','Lake','Osceola','Polk','Volusia'],
+   city:['Windermere','Golden Oak','Winter Garden','Lake Mary','Bella Collina','Winter Park','Celebration','Reunion','Orlando','Montverde','Oakland','Kissimmee'],
+   zip:['32789','32792','34756','34747','32836','32746','34786','34787','32819']},
+];
+// Places that are communities, not cities. In farm areas they are stored in the City field today.
+const COMMUNITIES=['Golden Oak','Bella Collina','Reunion'];
 const GEO_LABEL={county:'County',city:'City',community:'Community'};
-const SECTION_DEFS={hero:{label:'Hero',lock:'first'},about:{label:'About the area'},listings:{label:'Homes for sale',lock:'required'},guide:{label:'Community guide'},faq:{label:'FAQ'},nearby:{label:'Areas nearby'},cta:{label:'Contact call to action'},disclaimer:{label:'MLS disclaimer and footer',lock:'last'}};
+const SECTION_DEFS={hero:{label:'Hero',lock:'first'},about:{label:'About the area'},listings:{label:'Homes for sale (from the farm area)',lock:'required'},guide:{label:'Community guide'},faq:{label:'FAQ'},nearby:{label:'Areas nearby'},cta:{label:'Contact call to action'},disclaimer:{label:'MLS disclaimer and footer',lock:'last'}};
 const DEF_SECTIONS=()=>['hero','about','listings','guide','faq','nearby','cta','disclaimer'].map(k=>({k,on:true}));
 const FH_WORDS=['family-friendly','family friendly','families','safe neighborhood','safe area','exclusive community','christian','church','young professionals','retirees','empty nesters','kids','children','singles','adult community','perfect for couples','crime-free','no crime','ethnic','hispanic','asian'];
 const GRAD=['linear-gradient(135deg,#5b4a32,#1b1610)','linear-gradient(135deg,#334b3e,#0f1712)','linear-gradient(135deg,#3b4658,#10141b)','linear-gradient(135deg,#5a3d3a,#180f0e)','linear-gradient(135deg,#4f5530,#14160c)','linear-gradient(135deg,#2f4a57,#0d161a)'];
 
+function farmOptions(type){
+  const out={};
+  FARMS.filter(f=>f.active).forEach(f=>{
+    const vals = type==='county'?f.county : type==='city'?f.city.filter(c=>!COMMUNITIES.includes(c)) : f.city.filter(c=>COMMUNITIES.includes(c));
+    vals.forEach(v=>{ if(!out[v]) out[v]=f.name });
+  });
+  return out;
+}
+function farmOf(a){
+  if(!a.place) return null;
+  const field = a.type==='county'?'county':'city';
+  return FARMS.find(f=>f.active && f[field].includes(a.place)) || null;
+}
+
 let uid=100;
 function mkArea(o){
-  const a=Object.assign({id:++uid,type:'city',place:'',min:1000000,max:null,
-    sub:['Single Family Residence','Condominium','Townhouse','Villa'],limit:6,tagline:'',hero:null,card:null,alt:'',
+  const a=Object.assign({id:++uid,type:'city',place:'',tagline:'',hero:null,card:null,alt:'',
     aboutH2:'',aboutBody:'',guideH2:'',guide:[],faq:[],cta:'',sections:DEF_SECTIONS(),published:false,pinned:false},o);
   setPlace(a,a.type,a.place); return a;
 }
 const S={
-  floor:1000000,
   page:{
-    hero:{eyebrow:'Listahomes · Central Florida',h1:'Central Florida Luxury Homes',intro:'Explore $1M+ homes for sale across Central Florida, from lakefront estates in Windermere to resort homes in Golden Oak. Every listing comes live from Stellar MLS.',img:{n:'luxury-homes-hero.jpg',g:5},btn:'Search luxury homes'},
-    areas:{h2:'Featured communities',sub:'Pick a community to see its $1M+ homes for sale and a short local guide.'},
-    about:{on:true,h2:'Luxury living in Central Florida',body:'Central Florida luxury homes range from lakefront estates on the Butler Chain of Lakes to golf course homes and resort communities near the theme parks. Each area page shows only Active listings from Stellar MLS.'},
-    faq:{on:true,items:[{q:'What counts as a luxury home on this page?',a:'Homes listed at $1,000,000 or more. Each area page can set a higher range.'},{q:'How often are listings updated?',a:'Listings come from Stellar MLS and refresh several times a day.'}]},
+    hero:{eyebrow:'Listahomes · Central Florida',h1:'Central Florida Luxury Homes',intro:'Explore luxury homes for sale across Central Florida, from lakefront estates in Windermere to resort homes in Golden Oak.',img:{n:'luxury-homes-hero.jpg',g:5},btn:'Search luxury homes'},
+    areas:{h2:'Featured communities',sub:'Pick a community to see its luxury homes for sale and a short local guide.'},
+    about:{on:true,h2:'Luxury living in Central Florida',body:'Central Florida luxury homes range from lakefront estates on the Butler Chain of Lakes to golf course homes and resort communities near the theme parks.'},
+    faq:{on:true,items:[{q:'Which homes show on these pages?',a:'Active homes for sale that match our luxury search criteria in each area.'},{q:'How often are listings updated?',a:'Listings come from Stellar MLS and refresh several times a day.'}]},
     cta:{on:true,text:'Looking for a luxury home in Central Florida? Talk to our team.',btn:'Contact us'},
-    seo:{metaTitle:'Luxury Homes for Sale in Central Florida | Listahomes',metaDesc:'Browse $1M+ luxury homes for sale in Windermere, Golden Oak, Winter Park and more Central Florida communities. Live MLS listings, updated daily.',og:{n:'luxury-homes-og-1200x630.jpg',g:5}},
   },
   areas:[
-    mkArea({type:'city',place:'Windermere',published:true,pinned:true,tagline:'Lakefront estates on the Butler Chain of Lakes',hero:{n:'windermere-hero.jpg',g:0},card:{n:'windermere-card.jpg',g:0},alt:'Lakefront estate on the Butler Chain of Lakes in Windermere',aboutH2:'Living in Windermere',aboutBody:'Windermere sits on the Butler Chain of Lakes in southwest Orange County. Homes range from gated lakefront estates with private docks to newer custom builds on wooded lots, about 20 minutes from downtown Orlando.',guideH2:'Windermere community guide',guide:[{h3:'Lakes and boating',body:'The Butler Chain links 11 lakes. Many lakefront homes include boat docks and lifts.'},{h3:'Getting around',body:'SR 429 and the Turnpike connect Windermere to Orlando, Disney and the airport.'}],faq:[{q:'What is the price range of luxury homes in Windermere?',a:'Luxury homes on this page start at $1,000,000 and go above $20,000,000 for lakefront estates.'},{q:'Which county is Windermere in?',a:'Windermere is in Orange County, Florida.'}],cta:'Thinking about a luxury home in Windermere? Talk to our team.'}),
-    mkArea({type:'community',place:'Golden Oak',min:2000000,sub:['Single Family Residence'],published:true,pinned:true,tagline:'Private residences inside Walt Disney World',hero:{n:'golden-oak-hero.jpg',g:1},card:{n:'golden-oak-card.jpg',g:1},alt:'Golden Oak estate home with a resort-style pool',aboutH2:'About Golden Oak',aboutBody:'Golden Oak is a gated residential community inside Walt Disney World Resort, with custom estate homes on large lots and a private clubhouse.',guide:[{h3:'Homes',body:'Mostly custom single-family estates from about 3,000 to more than 10,000 square feet.'}],faq:[{q:'Is Golden Oak a city?',a:'No. Golden Oak is a community inside Walt Disney World Resort in Orange County.'}],cta:'Ask us about current Golden Oak homes.'}),
+    mkArea({type:'city',place:'Windermere',published:true,pinned:true,tagline:'Lakefront estates on the Butler Chain of Lakes',hero:{n:'windermere-hero.jpg',g:0},card:{n:'windermere-card.jpg',g:0},alt:'Lakefront estate on the Butler Chain of Lakes in Windermere',aboutH2:'Living in Windermere',aboutBody:'Windermere sits on the Butler Chain of Lakes in southwest Orange County. Homes range from gated lakefront estates with private docks to newer custom builds on wooded lots, about 20 minutes from downtown Orlando.',guideH2:'Windermere community guide',guide:[{h3:'Lakes and boating',body:'The Butler Chain links 11 lakes. Many lakefront homes include boat docks and lifts.'},{h3:'Getting around',body:'SR 429 and the Turnpike connect Windermere to Orlando, Disney and the airport.'}],faq:[{q:'Which county is Windermere in?',a:'Windermere is in Orange County, Florida.'}],cta:'Thinking about a luxury home in Windermere? Talk to our team.'}),
+    mkArea({type:'community',place:'Golden Oak',published:true,pinned:true,tagline:'Private residences inside Walt Disney World',hero:{n:'golden-oak-hero.jpg',g:1},card:{n:'golden-oak-card.jpg',g:1},alt:'Golden Oak estate home with a resort-style pool',aboutH2:'About Golden Oak',aboutBody:'Golden Oak is a gated residential community inside Walt Disney World Resort, with custom estate homes on large lots and a private clubhouse.',guide:[{h3:'Homes',body:'Mostly custom single-family estates from about 3,000 to more than 10,000 square feet.'}],faq:[{q:'Is Golden Oak a city?',a:'No. Golden Oak is a community inside Walt Disney World Resort in Orange County.'}],cta:'Ask us about current Golden Oak homes.'}),
     mkArea({type:'city',place:'Winter Park',published:true,tagline:'Brick streets, chain of lakes and Park Avenue',hero:{n:'winter-park-hero.jpg',g:2},card:{n:'winter-park-card.jpg',g:2},alt:'Historic home on a brick street in Winter Park',aboutH2:'Living in Winter Park',aboutBody:'Winter Park has tree-lined brick streets, the Winter Park Chain of Lakes and a walkable downtown on Park Avenue.',faq:[{q:'Where are luxury homes in Winter Park?',a:'Many are along the Winter Park Chain of Lakes and near Park Avenue.'}],cta:'Looking in Winter Park? We can help.'}),
-    mkArea({type:'city',place:'Lake Mary',max:3000000,tagline:'Golf course and lakeside homes in Seminole County',aboutBody:'Lake Mary is in Seminole County north of Orlando.'}),
+    mkArea({type:'city',place:'Lake Mary',tagline:'Golf course and lakeside homes in Seminole County',aboutBody:'Lake Mary is in Seminole County north of Orlando.'}),
     mkArea({type:'county',place:'Lake',tagline:'Hills, lakes and estate lots west of Orlando'}),
+    mkArea({type:'city',place:'Clermont',tagline:'Rolling hills and lakes in Lake County'}),
   ],
-  view:'home', draft:null, origin:null, row:null, filter:'all', menuFor:null, pick:null, pickQ:'', dirty:false, schema:false,
-  pv:{open:false,mode:'web',page:'category',areaId:null},
+  view:'home', draft:null, row:null, filter:'all', menuFor:null, pick:null, pickQ:'', dirty:false,
 };
 
 /* helpers */
 const $=s=>document.querySelector(s);
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function slugify(s){return String(s||'').toLowerCase().replace(/&/g,' and ').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
-function money(n){if(n==null)return 'Any'; if(n>=1e6){const v=n/1e6; return '$'+(+v.toFixed(2))+'M'} return '$'+Math.round(n/1e3)+'K'}
-function moneyFull(n){return n==null?'':'$'+n.toLocaleString('en-US')}
-function parseMoney(s){s=String(s||'').trim().toLowerCase().replace(/[$,\s]/g,'').replace(/usd/,''); if(!s)return null; let m=1; if(/m(il+ion)?$/.test(s)){m=1e6;s=s.replace(/m(il+ion)?$/,'')} else if(/k$/.test(s)){m=1e3;s=s.slice(0,-1)} const v=parseFloat(s); if(isNaN(v)||!/^[0-9.]+$/.test(s))return NaN; return Math.round(v*m)}
-function rangeLabel(a){return money(a.min)+' – '+(a.max?money(a.max):'Any')}
-function rangeShort(a){return a.max?money(a.min)+'–'+money(a.max):money(a.min)+'+'}
 function placeName(type,place){return !place?'':type==='county'?place+' County':place}
 function setPlace(a,type,place){a.type=type; a.place=place; a.name=placeName(type,place); a.slug=slugify(a.name)}
-function places(a){return a.place?[a.name]:[]}
 function h1Of(a){return (a.name||'{Place}')+' Luxury Homes for Sale'}
-function priceShare(p){return p==null?0:Math.min(1,Math.pow(1e6/Math.max(p,1e6),1.55))}
-function matchCount(a){const n=a.place?(MLS[a.type][a.place]||0):0; const pf=priceShare(a.min)-(a.max?priceShare(a.max):0); const sf=a.sub.reduce((t,s)=>t+(SUBTYPES[s]||0),0); return Math.max(0,Math.round(n*pf*sf))}
-function countyOf(a){return a.type==='county'?a.place:COUNTY_OF[a.place]}
-function areaUrl(a){return '/luxury-homes/'+(a.slug||'…')}
+function areaUrl(a){return '/luxury-homes/'+(a.slug||'{place}')}
 function pub(){return S.areas.filter(a=>a.published)}
 function ordered(list){return [...list].sort((x,y)=>(y.pinned-x.pinned)||(S.areas.indexOf(x)-S.areas.indexOf(y)))}
 function pinnedCount(ex){return S.areas.filter(a=>a.pinned&&a.id!==ex).length}
 function bgOf(img){if(!img)return null; return img.url?`url('${img.url}')`:GRAD[img.g%GRAD.length]}
 function fhHits(t){t=' '+String(t||'').toLowerCase()+' '; return FH_WORDS.filter(w=>t.includes(w))}
 function dupOf(a){return a.place&&S.areas.find(o=>o.id!==a.id&&o.type===a.type&&o.place===a.place)}
-function slugTaken(a){return S.areas.find(o=>o.id!==a.id&&o.slug===a.slug)}
-let toastT; function toast(m){clearTimeout(toastT); let t=$('.toast'); if(!t){t=document.createElement('div');t.className='toast';document.body.appendChild(t)} t.textContent=m; toastT=setTimeout(()=>t.remove(),3400)}
+let toastT; function toast(m){clearTimeout(toastT); let t=$('.toast'); if(!t){t=document.createElement('div');t.className='toast';document.body.appendChild(t)} t.textContent=m; toastT=setTimeout(()=>t.remove(),3600)}
 function getPath(o,p){return p.split('.').reduce((x,k)=>x?.[k],o)}
 function setPath(o,p,v){const ks=p.split('.'); const last=ks.pop(); ks.reduce((x,k)=>x[k],o)[last]=v}
 
@@ -464,14 +393,12 @@ function setPath(o,p,v){const ks=p.split('.'); const last=ks.pop(); ks.reduce((x
 function checks(a){
   const r=[],add=(ok,t,lvl='err')=>r.push({ok,t,lvl});
   add(!!a.place,'A county, city or community is picked');
+  add(!a.place||!!farmOf(a),'The place is in an active farm area');
   add(!dupOf(a),'No other area uses the same place');
-  add(a.min>=S.floor&&(!a.max||a.max>a.min),'Price range valid (min '+money(S.floor)+' or more)');
-  add(a.sub.length>0,'At least one property sub type');
   add(!!a.hero&&!!a.card,'Hero and card images');
   add(a.alt.trim().length>=10,'Image alt text');
   add(a.aboutBody.trim().length>=60,'About text, 60+ characters');
   add(a.faq.every(q=>q.q.trim()&&q.a.trim())&&a.guide.every(g=>g.h3.trim()&&g.body.trim()),'FAQ and guide items complete');
-  if(places(a).length&&matchCount(a)===0) add(false,'No listings match today. The page shows a no-results message.','warn');
   const fh=[...new Set([...fhHits(a.aboutBody),...fhHits(a.tagline),...a.guide.flatMap(g=>fhHits(g.body)),...a.faq.flatMap(q=>fhHits(q.a))])];
   if(fh.length) add(false,'Fair Housing wording to review: '+fh.join(', '),'warn');
   return r;
@@ -481,125 +408,115 @@ const blocking=a=>checks(a).filter(c=>!c.ok&&c.lvl==='err');
 /* nav */
 const NAV=[['IDX Request',[['IDX Request Status']]],['Global Settings',[['Settings'],['Contact Information'],['Meta Pixel'],['Domain'],['IDX Configuration']]],['Color Settings',[['Color Theme']]],['Core Pages',[['Homepage'],['Search & Listing Results','MLS'],['Property Detail','MLS'],['City Detail','MLS'],['Counties Detail','MLS'],['About'],['Agents'],['Contact Us'],['Market Reports']]],['Lead Generation',[['Home Valuation'],['Relocation']]],['Content & Trust',[['Privacy Policy'],['FAQ'],['Terms & Conditions'],['Testimonials'],["Buyer's Guide"],["Seller's Guide"],['Blog / Market Updates']]],['SEO Content',[['Property Types','SEO'],['City Pages','SEO'],['ZIP Codes','SEO'],['Counties','SEO'],['Luxury Homes','NEW']]]];
 $('#enav').innerHTML=NAV.map(([g,it])=>`<div class="g">${g}</div>`+it.map(([n,t])=>`<button class="${n==='Luxury Homes'?'on':''}" data-nav="${esc(n)}"><span class="t">${esc(n)}</span>${t?`<span class="tag ${t==='NEW'?'new':''}">${t==='MLS'?'🔒 MLS':t}</span>`:''}</button>`).join('')).join('');
-$('#enav').onclick=e=>{const b=e.target.closest('[data-nav]'); if(b&&b.dataset.nav!=='Luxury Homes') toast('Only Luxury Homes is clickable in this prototype.')};
+$('#enav').onclick=e=>{const b=e.target.closest('[data-nav]'); if(!b)return; if(b.dataset.nav==='IDX Configuration') toast('Opens IDX Configuration, where farm areas are managed (not part of this prototype).'); else if(b.dataset.nav!=='Luxury Homes') toast('Only Luxury Homes is clickable in this prototype.')};
 
-/* ===== HOME: page content + areas ===== */
+/* shared bits */
 function row(key,title,summary,badge,body){
   const open=S.row===key;
   return `<div class="rowc ${open?'open':''}"><div class="rowc-h" data-row="${key}"><span class="chev">▶</span><b>${title}</b><span class="sum">${open?'':esc(summary)}</span>${badge}</div>${open?`<div class="rowc-b">${body()}</div>`:''}</div>`;
 }
 const ED='<span class="badge b-edit">✎ Editable</span>';
 function onOff(on){return on?ED:'<span class="badge b-off">Hidden</span>'}
-function cnt(n,lo,hi){return `<span class="cnt ${n<lo||n>hi?'bad':'ok'}">${n} / ${lo} to ${hi}</span>`}
-function inp(bind,ph=''){return `<input class="in" data-bind="${bind}" value="${esc(getPath(bindRoot(bind),bindPath(bind)))}" placeholder="${esc(ph)}">`}
-function ta(bind,ph='',h=76){return `<textarea class="ta" style="min-height:${h}px" data-bind="${bind}" placeholder="${esc(ph)}">${esc(getPath(bindRoot(bind),bindPath(bind)))}</textarea>`}
 function bindRoot(b){return b.startsWith('p:')?S.page:S.draft}
 function bindPath(b){return b.slice(2)}
+function inp(bind,ph=''){return `<input class="in" data-bind="${bind}" value="${esc(getPath(bindRoot(bind),bindPath(bind)))}" placeholder="${esc(ph)}">`}
+function ta(bind,ph='',h=76){return `<textarea class="ta" style="min-height:${h}px" data-bind="${bind}" placeholder="${esc(ph)}">${esc(getPath(bindRoot(bind),bindPath(bind)))}</textarea>`}
 function tglRow(bind,label){const on=getPath(bindRoot(bind),bindPath(bind)); return `<div class="tglw" style="margin-bottom:12px"><button class="tgl sm ${on?'on':''}" data-toggle="${bind}"></button>${label}</div>`}
 function rowFoot(){return `<div class="foot"><button class="btn out-red sm" data-row="">Cancel</button><button class="btn dark sm" data-act="saveRow">Save</button></div>`}
 function imgField(bind,label,hint){
   const img=getPath(bindRoot(bind),bindPath(bind));
   return `<div class="f"><label>${label}</label><div class="img-up"><div class="th" style="${img?`background:${bgOf(img)} center/cover`:''}">${img?'':'IMG'}</div><div class="meta">${img?`<b>${esc(img.n)}</b>`:'<b style="color:var(--muted3)">No image yet</b>'}${hint}</div>${img?`<button class="btn ghost" style="color:var(--red)" data-rmimg="${bind}">Remove</button>`:''}<button class="btn white sm" data-upimg="${bind}">Upload</button></div></div>`;
 }
+function repActs(bind,i,n){return `<span class="acts"><button data-mvitem="${bind}:${i}:-1" ${i===0?'disabled':''}>▲</button><button data-mvitem="${bind}:${i}:1" ${i===n-1?'disabled':''}>▼</button><button class="rm" data-rmitem="${bind}:${i}">Remove</button></span>`}
+function fhWarn(t){const h=fhHits(t); return h.length?`<div class="warn-box">⚠ Fair Housing check: “${h.join('”, “')}” can read as describing who should live here. Describe the place and the homes instead. You can still save.</div>`:''}
 function faqEditor(bind){
   const list=getPath(bindRoot(bind),bindPath(bind));
   return list.map((q,i)=>`<div class="rep"><div class="rep-h"><span>Question ${i+1}</span>${repActs(bind,i,list.length)}</div>
     <input class="in ${!q.q.trim()?'err':''}" data-bind="${bind}.${i}.q" value="${esc(q.q)}" placeholder="Question" style="margin-bottom:6px"><textarea class="ta ${!q.a.trim()?'err':''}" data-bind="${bind}.${i}.a" placeholder="Answer">${esc(q.a)}</textarea>${fhWarn(q.a)}</div>`).join('')+`<button class="addlink plus" data-additem="${bind}:faq">Add question</button>`;
 }
-function repActs(bind,i,n){return `<span class="acts"><button data-mvitem="${bind}:${i}:-1" ${i===0?'disabled':''}>▲</button><button data-mvitem="${bind}:${i}:1" ${i===n-1?'disabled':''}>▼</button><button class="rm" data-rmitem="${bind}:${i}">Remove</button></span>`}
-function fhWarn(t){const h=fhHits(t); return h.length?`<div class="warn-box">⚠ Fair Housing check: “${h.join('”, “')}” can read as describing who should live here. Describe the place and the homes instead. You can still save.</div>`:''}
+function farmBanner(){
+  return `<div class="disc"><span class="di">i</span><div><b>SEO configuration only.</b> Luxury Homes is built on your <b>farm areas</b> in IDX Configuration. The listings on these pages come from your farm areas: the same places, price range and property types. Here you only set up the pages: which places get a page, their content and their order. To change which listings show, edit your farm areas.</div><a data-act="goIdx">Go to IDX Configuration</a></div>`;
+}
 
+/* ===== HOME ===== */
 function renderHome(){
-  const P=S.page, all=S.areas, pb=pub(), live=pb.reduce((t,a)=>t+matchCount(a),0);
+  const P=S.page, all=S.areas, pb=pub();
   const f=S.filter; const list=ordered(all.filter(a=>f==='all'||(f==='published'&&a.published)||(f==='draft'&&!a.published)||(f==='pinned'&&a.pinned)));
+  const activeFarms=FARMS.filter(x=>x.active);
   return `
-  <div class="c-title"><h2>Luxury Homes</h2><div class="r"><button class="btn white sm" data-act="pvCat">◎ Preview /luxury-homes</button></div></div>
-  <div class="info"><span class="i">i</span><span>Build your luxury section: edit the <b>/luxury-homes</b> page, then add areas. Each area is a county, city or community with its own price range and gets its own page. Listings come live from Stellar MLS.</span><a data-act="help">Learn more</a></div>
+  <div class="c-title"><h2>Luxury Homes</h2></div>
+  ${farmBanner()}
   <div class="stats">
-    <div class="stat"><small>Areas</small><b>${all.length}</b></div>
+    <div class="stat"><small>Area pages</small><b>${all.length}</b></div>
     <div class="stat"><small>Published</small><b>${pb.length} of ${all.length}</b></div>
     <div class="stat"><small>Pinned</small><b>${pinnedCount()} of 6</b></div>
-    <div class="stat"><small>Live listings</small><b>${live.toLocaleString()} matched</b></div>
+    <div class="stat"><small>Listings source</small><b>${activeFarms.length} farm area${activeFarms.length===1?'':'s'}</b></div>
   </div>
   <span class="ulink" data-act="help">How are luxury pages displayed on my microsite?</span>
 
   <div class="block">
-    <div class="sec-h"><div><h3>Page content</h3><p>The /luxury-homes page. Every section is editable and updates the live page when you publish.</p></div><span class="small-t">${SITE}/luxury-homes</span></div>
+    <div class="sec-h"><div><h3>Page content</h3><p>The /luxury-homes page. Every section is editable and goes live with the next Publish.</p></div><span class="small-t">${SITE}/luxury-homes</span></div>
     ${row('p-hero','Hero',P.hero.h1,ED,()=>`<div class="grid2"><div class="f"><label>Small heading</label>${inp('p:hero.eyebrow')}</div><div class="f"><label>Button text</label>${inp('p:hero.btn')}</div></div>
       <div class="f"><label>Page title (H1)<span class="req">*</span></label>${inp('p:hero.h1')}</div>
       <div class="f"><label>Intro</label>${ta('p:hero.intro')}</div>
       ${imgField('p:hero.img','Hero image','Required. 1920 x 800, JPG or WebP.')}${rowFoot()}`)}
     ${row('p-areas','Areas section',P.areas.h2+' · '+pb.length+' cards',ED,()=>`<div class="f"><label>Heading (H2)</label>${inp('p:areas.h2')}</div><div class="f"><label>Text under the heading</label>${ta('p:areas.sub','',56)}</div>
-      <div class="f"><label>Luxury price floor</label><input class="in" style="max-width:220px" data-floor value="${moneyFull(S.floor)}"><div class="hint">No area can start below this. Default $1,000,000.</div></div>
-      <div class="locked"><span class="badge b-auto">Auto</span> One card per published area, pinned areas first, then the order below. Cards use each area's card image, tagline and price range.</div>${rowFoot()}`)}
+      <div class="locked"><span class="badge b-auto">Auto</span> One card per published area, pinned areas first, then the order of the cards below.</div>${rowFoot()}`)}
     ${row('p-about','About',P.about.on?P.about.h2:'Hidden',onOff(P.about.on),()=>`${tglRow('p:about.on','Show this section')}<div class="f"><label>Heading (H2)</label>${inp('p:about.h2')}</div><div class="f"><label>Text</label>${ta('p:about.body','',100)}${fhWarn(P.about.body)}</div>${rowFoot()}`)}
-    ${row('p-faq','FAQ',P.faq.on?P.faq.items.length+' questions':'Hidden',onOff(P.faq.on),()=>`${tglRow('p:faq.on','Show this section')}<div class="hint" style="margin:-4px 0 10px">Answers are shown on the page and used in FAQPage schema.</div>${faqEditor('p:faq.items')}${rowFoot()}`)}
+    ${row('p-faq','FAQ',P.faq.on?P.faq.items.length+' questions':'Hidden',onOff(P.faq.on),()=>`${tglRow('p:faq.on','Show this section')}${faqEditor('p:faq.items')}${rowFoot()}`)}
     ${row('p-cta','Contact call to action',P.cta.on?P.cta.text:'Hidden',onOff(P.cta.on),()=>`${tglRow('p:cta.on','Show this section')}<div class="f"><label>Text</label>${ta('p:cta.text','',56)}</div><div class="f"><label>Button text</label>${inp('p:cta.btn')}</div>${rowFoot()}`)}
   </div>
 
   <div class="block">
-    <div class="sec-h"><div><h3>Areas</h3><p>Each area gets its own page at /luxury-homes/{area}. Drag cards to set the order, pin up to 6 to show them first and in the site menu.</p></div><button class="btn dark sm" data-act="add">Add Area</button></div>
+    <div class="sec-h"><div><h3>Areas</h3><p>Each area gets its own page at /luxury-homes/{place}. Pick places from your farm areas. Drag cards to set the order, pin up to 6 to show them first and in the site menu.</p></div><button class="btn dark sm" data-act="add">Add Area</button></div>
     <div class="filters">${['all','published','draft','pinned'].map(k=>`<button class="${f===k?'on':''}" data-filter="${k}">${k[0].toUpperCase()+k.slice(1)}</button>`).join('')}<span class="r">${list.length} shown</span></div>
     <div class="cards">${list.map(areaCard).join('')}<div class="addcard" data-act="add"><b>+</b>Add Area</div></div>
   </div>`;
 }
 function areaCard(a){
-  const n=matchCount(a), blk=blocking(a).length;
+  const blk=blocking(a).length, farm=farmOf(a);
   return `<div class="acard" draggable="true" data-drag="${a.id}" data-open="${a.id}">
     <div class="top1"><span class="handle" title="Drag to reorder">⋮⋮</span><span class="nm">${esc(a.name||'Untitled area')}</span>
       <div class="kebab"><button data-menu="${a.id}">⋯</button>${S.menuFor===a.id?`<div class="menu">
         <button data-edit="${a.id}">✎ Edit</button>
         <button data-pin="${a.id}">📌 ${a.pinned?'Unpin':'Pin'}</button>
-        <button data-pvarea="${a.id}">◎ Preview page</button>
         <button data-pubtog="${a.id}">${a.published?'⊘ Set as Draft':'↗ Publish'}</button>
         <button data-dup="${a.id}">⧉ Duplicate</button>
         <button class="rm" data-del="${a.id}">🗑 Delete</button></div>`:''}</div></div>
-    <div class="bdg"><span class="badge ${a.published?'b-pub':'b-draft'}">${a.published?'Published':'Draft'}</span>${a.pinned?'<span class="badge b-pin">📌 Pinned</span>':''}${!a.published&&blk?`<span class="badge b-err">${blk} to fix</span>`:''}</div>
+    <div class="bdg"><span class="badge ${a.published?'b-pub':'b-draft'}">${a.published?'Published':'Draft'}</span>${a.pinned?'<span class="badge b-pin">📌 Pinned</span>':''}${!farm&&a.place?'<span class="badge b-err">Not in a farm area</span>':(!a.published&&blk?`<span class="badge b-err">${blk} to fix</span>`:'')}</div>
     <div class="geo">${a.place?GEO_LABEL[a.type]+' · '+esc(a.name):'No place picked'}</div>
-    <div class="meta"><span>${rangeShort(a)} · ${a.sub.length===Object.keys(SUBTYPES).length?'All sub types':a.sub.length+' sub type'+(a.sub.length===1?'':'s')}</span><span><b>${n}</b> listings</span></div>
+    <div class="farm-l">${farm?'Listings from farm area: <b>'+esc(farm.name)+'</b>':'<span style="color:var(--red)">No farm area covers this place, so it has no listings</span>'}</div>
     <div class="url">${SITE}${esc(areaUrl(a))}</div>
   </div>`;
 }
 
-/* ===== AREA EDITOR (like Edit farm area) ===== */
+/* ===== AREA EDITOR ===== */
 function picker(key,label,opts,placeholder){
-  const a=S.draft, sel=key==='sub'?a.sub:(a.type===key&&a.place?[a.place]:[]), open=S.pick===key, q=open?S.pickQ.toLowerCase():'';
+  const a=S.draft, sel=(a.type===key&&a.place?[a.place]:[]), open=S.pick===key, q=open?S.pickQ.toLowerCase():'';
   const items=Object.entries(opts).filter(([v])=>!q||v.toLowerCase().includes(q));
   return `<div class="f pickw" data-pickw="${key}"><label>${label}</label>
     <div class="pick ${open?'open':''}" data-pickopen="${key}"><input data-pickq="${key}" placeholder="${placeholder}" value="${open?esc(S.pickQ):''}" autocomplete="off"><span class="chev">⌄</span></div>
-    ${open?`<div class="plist">${items.length?items.map(([v,c])=>`<button class="${sel.includes(v)?'on':''}" data-pickval="${key}|${esc(v)}"><span class="ck">${sel.includes(v)?'✓':''}</span>${esc(v)}${key==='sub'?'':`<span class="c">${c} active $1M+</span>`}</button>`).join(''):'<div class="none">No match in your MLS feed.</div>'}</div>`:''}
+    ${open?`<div class="plist">${items.length?items.map(([v,farm])=>`<button class="${sel.includes(v)?'on':''}" data-pickval="${key}|${esc(v)}"><span class="ck">${sel.includes(v)?'✓':''}</span>${esc(v)}<span class="c">${esc(farm)}</span></button>`).join(''):`<div class="none">No ${GEO_LABEL[key].toLowerCase()} in your active farm areas${q?' matches':''}. Add it to a farm area in IDX Configuration first.</div>`}</div>`:''}
     ${sel.length?`<div class="pills">${sel.map(v=>`<span class="pill">${esc(v)}<button data-unpick="${key}|${esc(v)}" title="Remove">✕</button></span>`).join('')}</div>`:''}
   </div>`;
 }
 function renderArea(){
-  const a=S.draft, isNew=!S.areas.some(x=>x.id===a.id), n=matchCount(a), shown=Math.min(n,a.limit), dup=dupOf(a);
-  const pErr=a.min==null||Number.isNaN(a.min)?'Enter a minimum price.':a.min<S.floor?'Min cannot be below the luxury floor of '+money(S.floor)+'.':(a.max&&a.max<=a.min?'Max must be higher than Min.':'');
+  const a=S.draft, isNew=!S.areas.some(x=>x.id===a.id), dup=dupOf(a), farm=farmOf(a);
   const cs=checks(a), blk=cs.filter(c=>!c.ok&&c.lvl==='err');
   return `
-  <div class="c-title"><button class="backbtn" data-act="back">‹</button><h2>Luxury Homes</h2><span class="small-t">/ ${esc(a.name||'New area')}</span><div class="r"><button class="btn white sm" data-act="pvDraft">◎ Preview page</button></div></div>
+  <div class="c-title"><button class="backbtn" data-act="back">‹</button><h2>Luxury Homes</h2><span class="small-t">/ ${esc(a.name||'New area')}</span></div>
   <div class="two">
    <div class="form">
     <div class="form-h"><span class="t">${isNew?'New area':'Edit area'}</span>
       <span class="tglw">Pinned <button class="tgl sm ${a.pinned?'on':''}" data-act="pinDraft" ${!a.pinned&&pinnedCount(a.id)>=6?'disabled':''}></button></span>
       <span class="tglw">Published <button class="tgl ${a.published?'on':''}" data-act="pubDraft"></button></span></div>
 
-    <div><div class="g-title">Area</div><div class="g-sub">Pick one county, city or community. The page is named after it.</div>
-      <div class="f"><label>Area type<span class="req">*</span></label><div class="segm">${['county','city','community'].map(t=>`<button class="${a.type===t?'on':''}" data-gtype="${t}">${GEO_LABEL[t]}</button>`).join('')}</div>
-        <div class="hint">${{county:'One page for the whole county (MLS County field).',city:'One page for one city (MLS City field).',community:'One page for one community or subdivision, like Golden Oak or Bella Collina (MLS Subdivision field).'}[a.type]}</div></div>
-      ${picker(a.type,GEO_LABEL[a.type]+'<span class="req">*</span>',MLS[a.type],{county:'Search counties',city:'Search cities',community:'Search communities'}[a.type])}
+    <div><div class="g-title">Area</div><div class="g-sub">Pick one county, city or community from your farm areas. The page is named after it.</div>
+      <div class="f"><label>Area type<span class="req">*</span></label><div class="segm">${['county','city','community'].map(t=>`<button class="${a.type===t?'on':''}" data-gtype="${t}">${GEO_LABEL[t]}</button>`).join('')}</div></div>
+      ${picker(a.type,GEO_LABEL[a.type]+'<span class="req">*</span>',farmOptions(a.type),{county:'Search counties in your farm areas',city:'Search cities in your farm areas',community:'Search communities in your farm areas'}[a.type])}
       ${dup?`<div class="err-t">${esc(dup.name)} already has a page. One page per place.</div>`:''}
+      ${a.place&&!farm?`<div class="err-t">${esc(a.name)} is not in an active farm area, so this page would have no listings. Add it to a farm area in IDX Configuration, or pick another place.</div>`:''}
       <div class="locked" style="margin-top:4px"><span class="badge b-auto">Auto</span> Page title: <b>${esc(h1Of(a))}</b> · URL: ${SITE}${esc(areaUrl(a))}</div></div>
-
-    <div><div class="lbl-row" style="margin-bottom:12px"><span class="g-title">Price range</span><span class="small-t" style="color:var(--muted3)">${a.min&&!Number.isNaN(a.min)?rangeLabel(a):'–'}</span></div>
-      <div class="range-row"><div><label class="lbl">Min<span class="req">*</span></label><input class="in ${pErr&&!pErr.startsWith('Max')?'err':''}" data-price="min" value="${moneyFull(a.min)}" placeholder="$1,000,000"></div><span class="dash">–</span><div><label class="lbl">Max</label><input class="in ${pErr.startsWith('Max')?'err':''}" data-price="max" value="${moneyFull(a.max)}" placeholder="Any"></div></div>
-      <div class="presets">${[[1e6,null],[2e6,null],[3e6,null],[5e6,null],[1e6,3e6],[3e6,1e7]].map(([mn,mx])=>`<button class="${a.min===mn&&a.max===mx?'on':''}" data-preset="${mn}:${mx||''}">${mx?money(mn)+' – '+money(mx):money(mn)+'+'}</button>`).join('')}</div>
-      <div class="hint">Type any amount: 1250000, $1,250,000, 1.25M or 1250k. Leave Max empty for no upper limit.</div>${pErr?`<div class="err-t">${pErr}</div>`:''}</div>
-
-    <div class="grid2" style="align-items:start">
-      ${picker('sub','Property sub types',SUBTYPES,'Select sub types')}
-      <div class="f"><label>Listings shown on the page</label><select class="in" data-limit>${[3,6,9,12].map(k=>`<option ${a.limit===k?'selected':''} value="${k}">${k}${k===6?' (default)':''}</option>`).join('')}</select><div class="hint">The rest open with “View all”.</div></div>
-    </div>
-    <div class="locked" style="margin-top:-12px">🔒 Residential for sale only, rentals and leases never show. Status Active only. Sorted by price, high to low. MLS display rules, not editable.</div>
 
     <div><div class="g-title">Page content</div><div class="g-sub">What visitors read on ${SITE}${esc(areaUrl(a))}.</div>
       ${row('a-hero','Hero',h1Of(a),(!a.hero||!a.card||a.alt.trim().length<10)?'<span class="badge b-err">Required</span>':ED,()=>`<div class="f"><div class="lbl-row"><label>Page title (H1)</label><span class="badge b-auto">Auto</span></div><input class="in" readonly value="${esc(h1Of(a))}"><div class="hint">Always the place name + “Luxury Homes for Sale”.</div></div>
@@ -608,19 +525,21 @@ function renderArea(){
         <div class="f"><label>Image alt text<span class="req">*</span></label>${inp('d:alt','Describe what the photo shows')}</div>${rowFoot()}`)}
       ${row('a-about','About the area',a.aboutH2||(a.aboutBody?a.aboutBody.slice(0,60):'Empty'),a.aboutBody.trim().length<60?'<span class="badge b-err">Required</span>':ED,()=>`<div class="f"><label>Heading (H2)</label>${inp('d:aboutH2','Living in '+(a.name||'this area'))}</div><div class="f"><div class="lbl-row"><label>Text<span class="req">*</span></label><span class="cnt ${a.aboutBody.length<60?'bad':'ok'}">${a.aboutBody.length} characters</span></div>${ta('d:aboutBody','',110)}<div class="hint">Describe the place and the homes, not who lives there (Fair Housing).</div>${fhWarn(a.aboutBody)}</div>${rowFoot()}`)}
       ${row('a-guide','Community guide',a.guide.length?a.guide.length+' topics':'Optional',ED,()=>`<div class="f"><label>Heading (H2)</label>${inp('d:guideH2',(a.name||'Area')+' community guide')}</div>${a.guide.map((g,i)=>`<div class="rep"><div class="rep-h"><span>Topic ${i+1} (H3)</span>${repActs('d:guide',i,a.guide.length)}</div><input class="in" data-bind="d:guide.${i}.h3" value="${esc(g.h3)}" placeholder="Heading" style="margin-bottom:6px"><textarea class="ta" data-bind="d:guide.${i}.body" placeholder="Text">${esc(g.body)}</textarea>${fhWarn(g.body)}</div>`).join('')}<button class="addlink plus" data-additem="d:guide:guide">Add topic</button>${rowFoot()}`)}
-      ${row('a-faq','FAQ',a.faq.length?a.faq.length+' questions':'Optional',ED,()=>`<div class="hint" style="margin:0 0 10px">Answers are shown on the page and go into FAQPage schema word for word.</div>${faqEditor('d:faq')}${rowFoot()}`)}
+      ${row('a-faq','FAQ',a.faq.length?a.faq.length+' questions':'Optional',ED,()=>`${faqEditor('d:faq')}${rowFoot()}`)}
       ${row('a-cta','Contact call to action',a.cta||'Default text',ED,()=>`<div class="f"><label>Text</label>${ta('d:cta','Thinking about a luxury home in '+(a.name||'this area')+'? Talk to our team.',56)}<div class="hint">The button goes to your Contact Us page.</div></div>${rowFoot()}`)}
       ${row('a-layout','Section order',a.sections.filter(s=>s.on).length+' of 8 on','<span class="badge b-edit">✎ Order</span>',secLayout)}
     </div>
-
 
     <div class="formfoot"><span class="msg">${S.dirty?'Unsaved changes':'No changes'}${a.published?' · Saving updates the live page':' · Drafts are not on the site'}</span><button class="btn out-red sm" data-act="back">Cancel</button><button class="btn dark sm" data-act="save">Save</button></div>
    </div>
 
    <aside class="aside">
-     <div class="mcard"><button class="rf" title="Refresh" data-act="refresh">↻</button><b>${places(a).length?n:'–'}</b><span>active listings match your criteria.</span>${places(a).length?`<small>${shown} shown on the page${n>shown?`, ${n-shown} under “View all”`:''}</small>`:'<small>Pick a county, city or community.</small>'}</div>
-     ${places(a).length&&n===0?'<div class="warn-box" style="margin:0">No listings match today. You can still publish: the page shows the guide, FAQ and a no-results message. The range is never widened.</div>':''}
-     ${places(a).length&&n?`<div><div class="small-t" style="margin-bottom:6px">Sample listings</div><div class="samples">${demoListings(a,4).map(l=>`<div class="smp"><div class="ph">Listing photo</div><div class="bd"><div class="pr">${l.price}</div><div class="ad">${esc(l.addr)}, ${esc(l.city)}</div><div class="st">${l.beds} bd · ${l.baths} ba · ${l.sq} sqft</div></div></div>`).join('')}</div></div>`:''}
+     <div class="ccard src"><h4>Listings source</h4>
+       ${farm?`<div class="srcname">${esc(farm.name)} <span class="badge b-pub">Active</span></div>
+         <div class="srcline">Farm area in IDX Configuration</div>
+         <p>This page shows the Active listings in <b>${esc(a.name)}</b> that match this farm area: its price range (${esc(farm.range)}) and property types. Nothing about listings is set here.</p>`
+       :`<p>${a.place?`<b style="color:var(--red)">${esc(a.name)} is not in an active farm area.</b> The page would have no listings.`:'Pick a place. The listings will come from the farm area that covers it.'}</p>`}
+       <button class="addlink" data-act="goIdx">Edit farm areas in IDX Configuration</button></div>
      <div class="ccard"><h4>Before you publish ${blk.length?`<span class="badge b-err">${blk.length} to fix</span>`:'<span class="badge b-pub">Ready</span>'}</h4><div class="checklist">${cs.map(c=>`<div class="${c.ok?'ok':c.lvl==='warn'?'wn':'no'}"><i>${c.ok?'✓':c.lvl==='warn'?'⚠':'✕'}</i><span>${esc(c.t)}</span></div>`).join('')}</div></div>
    </aside>
   </div>`;
@@ -631,66 +550,6 @@ function secLayout(){
     return `<div class="secrow"><span class="nm">${d.label}${d.lock?` <span class="badge b-lock">${d.lock==='required'?'Always on':d.lock==='first'?'Always first':'Always last'}</span>`:''}</span><span class="mv"><button data-smove="${i}:-1" ${fx||i<=1?'disabled':''}>▲</button><button data-smove="${i}:1" ${fx||i>=s.length-2?'disabled':''}>▼</button></span><button class="tgl sm ${x.on?'on':''}" data-stog="${i}" ${d.lock?'disabled':''}></button></div>`}).join('')+rowFoot();
 }
 
-/* demo listings */
-const STREETS=['Lakeview Dr','Oak Hollow Ln','Heron Pointe Ct','Palm Estate Way','Cypress Shore Dr','Magnolia Ave','Royal Fern Ct','Sandhill Crane Rd','Willow Bend Dr','Bayside Ter','Hidden Lake Ct','Grand Vista Blvd'];
-function demoListings(a,cap){
-  const n=Math.min(cap??a.limit,matchCount(a)), out=[]; let seed=0; for(const ch of places(a).join()||'x') seed=(seed*31+ch.charCodeAt(0))%9973;
-  const hi=a.max||Math.max(a.min*6,8e6);
-  for(let i=0;i<n;i++){const t=n===1?0:i/(n-1); const p=Math.max(a.min,Math.round((hi-(hi-a.min)*Math.pow(t,.7))/5000)*5000); const beds=3+((seed+i)%4);
-    const sub=a.sub[(i+seed)%a.sub.length]||'';
-    out.push({price:'$'+p.toLocaleString('en-US'),addr:(1000+(seed*7+i*131)%8000)+' '+STREETS[(seed+i)%STREETS.length],city:(a.type==='city'?a.place:a.type==='community'?(Object.keys(COUNTY_OF).find(c=>MLS.city[c]&&COUNTY_OF[c]===COUNTY_OF[a.place])||a.place):(Object.keys(MLS.city).filter(c=>COUNTY_OF[c]===a.place)[i%Math.max(1,Object.keys(MLS.city).filter(c=>COUNTY_OF[c]===a.place).length)]||a.place)),beds,baths:beds+(i%2),sq:(Math.round((2600+p/1500+(seed*i)%900)/10)*10).toLocaleString('en-US'),sub,mls:'O'+(6200000+seed*13+i*577)})}
-  return out;
-}
-
-/* ===== public site preview ===== */
-function siteHeader(){const pins=ordered(pub()).filter(a=>a.pinned);
-  return `<div class="s-banner">Preview shows demo MLS listings. Live listings appear only on the published Microsite after IDX approval.</div><div class="s-head"><div class="s-logo"><b>LISTAHOMES.COM</b><small>LUXURY REAL ESTATE</small></div><div class="s-nav"><span>Buy ⌄</span><span>Sell ⌄</span><span class="dd">Luxury Homes ⌄<div class="ddm"><div class="h">PINNED AREAS</div>${pins.length?pins.map(p=>`<a data-goarea="${p.id}">${esc(p.name)}</a>`).join(''):'<div class="none">No pinned published areas</div>'}<a class="all" data-gocat="1">All luxury homes →</a></div></span><span>Find a home ⌄</span><span>About ⌄</span><span>Resources ⌄</span></div><div class="s-auth"><span>Sign In</span><span>Register</span></div><span class="s-burger">☰</span></div>`}
-function siteFooter(){return `<div class="s-disc">Listing data from Stellar MLS. IDX information is provided exclusively for consumers' personal, non-commercial use and may not be used for any purpose other than to identify prospective properties consumers may be interested in purchasing. Information is deemed reliable but not guaranteed. Last updated 11/5/2026 1:15 AM.</div><div class="s-foot"><span>Listahomes · [Licensed brokerage name] · 2295 S Hiawassee Rd STE 409, Orlando, FL 32835</span><span>⌂ Equal Housing Opportunity</span></div>`}
-function categoryPage(){
-  const P=S.page, pb=ordered(pub()), hidden=S.areas.length-pb.length;
-  return `<div class="s-hero ${P.hero.img?'img':''}" style="${P.hero.img?`--hero:${bgOf(P.hero.img)}`:''}"><div class="s-bc">Home / <b>Luxury Homes</b></div><div class="s-eyebrow">${esc(P.hero.eyebrow)}</div><div class="s-h1">${esc(P.hero.h1)}</div><div class="s-lead">${esc(P.hero.intro)}</div>${P.hero.btn?`<span class="s-cta">${esc(P.hero.btn)}</span>`:''}</div>
-  <div class="s-sec"><h2>${esc(P.areas.h2)}</h2><div class="s-note">${esc(P.areas.sub)}</div>${pb.length?`<div class="s-cards">${pb.map(p=>`<div class="s-card" data-goarea="${p.id}"><div class="ph" style="background:${bgOf(p.card)||'#222'} center/cover">${p.pinned?'<span class="pin">FEATURED</span>':''}</div><div class="bd"><b>${esc(p.name)}</b><small>${esc(p.tagline)}</small><div class="pr">${rangeShort(p)} · ${matchCount(p)} homes</div><div class="ex">Explore →</div></div></div>`).join('')}</div>`:`<div class="s-empty">No published areas yet.</div>`}
-  ${hidden?`<div class="s-ed">Editor note, not on the live site: ${hidden} draft area${hidden>1?'s are':' is'} hidden here, from the schema and from the sitemap.</div>`:''}</div>
-  ${P.about.on?`<div class="s-sec"><h2>${esc(P.about.h2)}</h2><p>${esc(P.about.body)}</p></div>`:''}
-  ${P.faq.on&&P.faq.items.length?`<div class="s-sec s-faq"><h2>Luxury homes questions</h2>${P.faq.items.map((q,i)=>`<details ${i?'':'open'}><summary>${esc(q.q)}</summary><p>${esc(q.a)}</p></details>`).join('')}</div>`:''}
-  ${P.cta.on?`<div class="s-sec"><div class="s-ctab"><p>${esc(P.cta.text)}</p><span class="s-cta" style="margin:0">${esc(P.cta.btn)}</span></div></div>`:''}${siteFooter()}`;
-}
-function areaPage(a){
-  const nm=a.name||'New area', n=matchCount(a);
-  const H={
-    hero:()=>`<div class="s-hero ${a.hero?'img':''}" style="${a.hero?`--hero:${bgOf(a.hero)}`:''}"><div class="s-bc">Home / Luxury Homes / <b>${esc(nm)}</b></div><div class="s-eyebrow">${esc(places(a).slice(0,3).join(' · '))} · ${rangeShort(a)}</div><div class="s-h1">${esc(h1Of(a))}</div>${a.tagline?`<div class="s-lead">${esc(a.tagline)}</div>`:''}<span class="s-cta">See homes for sale</span>${!a.hero?'<div class="s-ed">Editor note: hero image missing.</div>':''}</div>`,
-    about:()=>a.aboutBody?`<div class="s-sec"><div class="s-eyebrow">About ${esc(nm)}</div><h2>${esc(a.aboutH2||'Living in '+nm)}</h2><p>${esc(a.aboutBody)}</p></div>`:'',
-    listings:()=>{const L=demoListings(a); return `<div class="s-sec"><div class="s-eyebrow">Homes for sale</div><h2>${esc(nm)} homes for sale</h2><div class="s-note">Showing the highest-priced homes for sale in ${esc(nm)}. Prices and availability can change.</div>${!places(a).length?'<div class="s-empty">Pick the area to see listings.</div>':L.length?`<div class="s-list">${L.map(l=>`<div class="s-lst"><div class="ph"><span class="st">Active</span>Listing photo</div><div class="bd"><div class="pr">${l.price}</div><div class="ad">${esc(l.addr)}</div><div class="mt">${esc(l.city)}, FL · ${l.beds} bd · ${l.baths} ba · ${l.sq} sqft · ${esc(l.sub)}</div><div class="cr">Listing courtesy of [Listing brokerage] · MLS# ${l.mls}</div></div></div>`).join('')}</div>${n>L.length?`<span class="s-viewall">View all ${esc(nm)} listings (${n}) →</span>`:''}`:`<div class="s-empty">No ${rangeShort(a)} homes are listed in ${esc(nm)} right now. View all luxury homes or contact us for upcoming opportunities.</div>`}</div>`},
-    guide:()=>a.guide.length?`<div class="s-sec"><div class="s-eyebrow">Community guide</div><h2>${esc(a.guideH2||nm+' community guide')}</h2>${a.guide.map(g=>`<h3>${esc(g.h3)}</h3><p>${esc(g.body)}</p>`).join('')}</div>`:'',
-    faq:()=>a.faq.length?`<div class="s-sec s-faq"><div class="s-eyebrow">FAQ</div><h2>${esc(nm)} real estate questions</h2>${a.faq.map((q,i)=>`<details ${i?'':'open'}><summary>${esc(q.q||'(question)')}</summary><p>${esc(q.a||'(answer)')}</p></details>`).join('')}</div>`:'',
-    nearby:()=>{const c=countyOf(a),nb=ordered(pub()).filter(o=>o.id!==a.id&&countyOf(o)===c).slice(0,3); return nb.length?`<div class="s-sec"><div class="s-eyebrow">Keep exploring</div><h2>Luxury areas near ${esc(nm)}</h2><div class="s-cards">${nb.map(p=>`<div class="s-card" data-goarea="${p.id}"><div class="ph" style="background:${bgOf(p.card)||'#222'} center/cover"></div><div class="bd"><b>${esc(p.name)}</b><small>${esc(p.tagline)}</small></div></div>`).join('')}</div></div>`:''},
-    cta:()=>`<div class="s-sec"><div class="s-ctab"><p>${esc(a.cta||'Thinking about a luxury home in '+nm+'? Talk to our team.')}</p><span class="s-cta" style="margin:0">Contact us</span></div></div>`,
-    disclaimer:siteFooter,
-  };
-  return a.sections.filter(s=>s.on).map(s=>H[s.k]()).join('');
-}
-function pvTarget(){const p=S.pv; if(p.page==='draft')return S.draft; if(p.page==='area')return S.areas.find(a=>a.id===p.areaId); return null}
-function renderPv(){
-  const L=$('#pvLayer'); if(!S.pv.open){L.innerHTML='';return}
-  const a=pvTarget(), mob=S.pv.mode==='mob', url=a?areaUrl(a):'/luxury-homes', live=a?a.published:true;
-  const st=L.querySelector('.stage')?.scrollTop||0;
-  L.innerHTML=`<div class="pvo"><div class="bar"><b style="font-size:14px">Preview</b><div class="tabs"><button class="${mob?'':'on'}" data-pvmode="web">Website</button><button class="${mob?'on':''}" data-pvmode="mob">Mobile</button></div>
-    <div class="pv-url">🔒 ${SITE}${esc(url)}<span class="badge ${live?'b-pub':'b-draft'}" style="margin-left:auto">${live?'index, follow':'Draft: 404 on the live site'}</span></div>
-    ${a&&S.pv.page==='area'?'<button class="btn white sm" data-gocat="1">← /luxury-homes</button>':''}<button class="btn dark sm" data-pvclose>Close</button></div>
-    <div class="stage"><div class="pv-frame" style="max-width:${mob?390:1280}px"><div class="site ${mob?'m':''}">${siteHeader()}${a?areaPage(a):categoryPage()}</div></div></div></div>`;
-  L.querySelector('.stage').scrollTop=st;
-}
-$('#pvLayer').addEventListener('click',e=>{
-  const t=e.target.closest('[data-pvmode],[data-pvclose],[data-goarea],[data-gocat]'); if(!t)return;
-  if(t.dataset.pvmode){S.pv.mode=t.dataset.pvmode}
-  else if(t.hasAttribute('data-pvclose')){S.pv.open=false}
-  else if(S.pv.page==='draft'){toast('Close the preview to leave this area.');return}
-  else if(t.dataset.goarea){S.pv.page='area';S.pv.areaId=+t.dataset.goarea;renderPv();$('#pvLayer .stage').scrollTop=0;return}
-  else {S.pv.page='category'}
-  renderPv();
-});
-function openPv(page,areaId){S.pv={open:true,mode:S.pv.mode,page,areaId};renderPv()}
-
 /* ===== render ===== */
 function render(){const c=$('#content'),st=c.scrollTop; c.innerHTML=S.view==='home'?renderHome():renderArea(); c.scrollTop=st}
 function rerenderKeep(){
@@ -700,7 +559,7 @@ function rerenderKeep(){
 }
 
 /* ===== actions ===== */
-function openArea(a){S.view='area';S.draft=JSON.parse(JSON.stringify(a));S.dirty=false;S.row=null;S.pick=null;S.menuFor=null;S.schema=false;render();$('#content').scrollTop=0}
+function openArea(a){S.view='area';S.draft=JSON.parse(JSON.stringify(a));S.dirty=false;S.row=null;S.pick=null;S.menuFor=null;render();$('#content').scrollTop=0}
 function commit(){const a=JSON.parse(JSON.stringify(S.draft)); const i=S.areas.findIndex(x=>x.id===a.id); if(i>=0)S.areas[i]=a; else S.areas.push(a); S.dirty=false}
 function dirty(){S.dirty=true}
 function confirmBox(title,msg,ok,fn,danger=true){
@@ -711,43 +570,39 @@ function upload(bind,demo){
   const root=bindRoot(bind),path=bindPath(bind);
   if(demo){setPath(root,path,{n:(S.draft?.slug||'luxury-homes')+'-'+path.split('.').pop()+'.jpg',g:Math.floor(Math.random()*6)}); if(S.draft)dirty(); render(); return}
   const inp=document.createElement('input'); inp.type='file'; inp.accept='image/jpeg,image/webp,image/png';
-  inp.onchange=()=>{const f=inp.files[0]; if(!f)return; const url=URL.createObjectURL(f), im=new Image(); im.onload=()=>{
-    if(/og$/.test(path)&&(im.width!==1200||im.height!==630)){toast(`Social image must be exactly 1200 x 630. This one is ${im.width} x ${im.height}.`);return}
-    setPath(root,path,{n:f.name,url}); if(S.draft)dirty(); render()}; im.src=url};
+  inp.onchange=()=>{const f=inp.files[0]; if(!f)return; setPath(root,path,{n:f.name,url:URL.createObjectURL(f)}); if(S.draft)dirty(); render()};
   inp.click();
 }
 function togglePin(a){if(!a.pinned&&pinnedCount(a.id)>=6){toast('You can pin up to 6 areas. Unpin one first.');return false} a.pinned=!a.pinned; return true}
-function publishArea(a){const b=blocking(a); if(b.length){toast(`${a.name||'This area'} can't be published yet: ${b[0].t.toLowerCase()} is missing or invalid.`);return false} a.published=true; return true}
+function publishArea(a){const b=blocking(a); if(b.length){toast(`${a.name||'This area'} can't be published yet: ${b[0].t.toLowerCase()}.`);return false} a.published=true; return true}
 
-document.addEventListener('click',e=>{ // close picker / menu when clicking outside
+document.addEventListener('click',e=>{
   if(S.pick&&!e.target.closest('.pickw')){S.pick=null;S.pickQ='';render()}
   if(S.menuFor&&!e.target.closest('.kebab')){S.menuFor=null;render()}
 },true);
 
 $('#content').addEventListener('click',e=>{
-  const t=e.target.closest('button,[data-row],[data-act],[data-open],[data-pickopen]'); if(!t)return; const d=t.dataset;
-  if(d.pickopen!==undefined&&d.pickopen){ if(S.pick!==d.pickopen){S.pick=d.pickopen;S.pickQ='';render(); const i=document.querySelector(`[data-pickq="${d.pickopen}"]`); i&&i.focus()} return }
+  const t=e.target.closest('button,a,[data-row],[data-act],[data-open],[data-pickopen]'); if(!t)return; const d=t.dataset;
+  if(d.pickopen){ if(S.pick!==d.pickopen){S.pick=d.pickopen;S.pickQ='';render(); const i=document.querySelector(`[data-pickq="${d.pickopen}"]`); i&&i.focus()} return }
   if(d.row!==undefined&&!t.matches('.btn')||(d.row===''&&t.matches('.btn'))){ S.row=(S.row===d.row||d.row==='')?null:d.row; render(); return }
   if(d.filter){S.filter=d.filter;render();return}
   if(d.menu){e.stopPropagation();S.menuFor=S.menuFor==+d.menu?null:+d.menu;render();return}
   const find=id=>S.areas.find(a=>a.id==id);
   if(d.edit){openArea(find(d.edit));return}
   if(d.pin){const a=find(d.pin); S.menuFor=null; if(togglePin(a))toast(a.pinned?`${a.name} pinned${a.published?'. It now shows first and in the site menu.':'. It shows in the menu once published.'}`:`${a.name} unpinned.`); render(); return}
-  if(d.pvarea){S.menuFor=null; render(); openPv('area',+d.pvarea); return}
   if(d.pubtog){const a=find(d.pubtog); S.menuFor=null;
     if(a.published) confirmBox('Set '+esc(a.name)+' as draft?','The page returns 404 and leaves /luxury-homes, the site menu and the sitemap. The content is kept.','Set as Draft',()=>{a.published=false;toast(a.name+' is now a draft.');render()});
     else if(publishArea(a)){toast(a.name+' is live at '+SITE+areaUrl(a)+'.'); render()} else {openArea(a)} return}
-  if(d.dup){const s=find(d.dup); S.menuFor=null; const c=mkArea(Object.assign(JSON.parse(JSON.stringify(s)),{id:++uid,place:'',published:false,pinned:false})); openArea(c); toast('Content, price range and sub types copied. Pick the place for the new area.'); return}
+  if(d.dup){const s=find(d.dup); S.menuFor=null; const c=mkArea(Object.assign(JSON.parse(JSON.stringify(s)),{id:++uid,place:'',published:false,pinned:false})); openArea(c); toast('Content copied. Pick the place for the new area.'); return}
   if(d.del){const a=find(d.del); S.menuFor=null; confirmBox('Delete '+esc(a.name)+'?',a.published?'This page is live. It will be removed from the site and the sitemap and its URL will redirect to /luxury-homes. This cannot be undone.':'This draft and its content will be deleted. This cannot be undone.','Delete',()=>{S.areas=S.areas.filter(x=>x!==a);toast(a.name+' deleted.');render()}); return}
   if(d.open&&!e.target.closest('.kebab,.handle')){openArea(find(d.open));return}
-  if(d.pickval){const [k,v]=d.pickval.split('|'); const a=S.draft; if(k==='sub'){const i=a.sub.indexOf(v); i>=0?a.sub.splice(i,1):a.sub.push(v); dirty(); rerenderKeep(); const q=document.querySelector(`[data-pickq="${k}"]`); q&&q.focus(); return} setPlace(a,k,a.place===v?'':v); S.pick=null; S.pickQ=''; dirty(); render(); return}
+  if(d.pickval){const [k,v]=d.pickval.split('|'); const a=S.draft; setPlace(a,k,a.place===v?'':v); S.pick=null; S.pickQ=''; dirty(); render(); return}
   if(d.gtype){const a=S.draft; if(a.type!==d.gtype){setPlace(a,d.gtype,''); S.pick=null; dirty(); render()} return}
-  if(d.unpick){const [k,v]=d.unpick.split('|'); const a=S.draft; if(k==='sub')a.sub.splice(a.sub.indexOf(v),1); else setPlace(a,a.type,''); dirty(); render(); return}
-  if(d.preset){const [mn,mx]=d.preset.split(':'); S.draft.min=+mn; S.draft.max=mx?+mx:null; dirty(); render(); return}
+  if(d.unpick){setPlace(S.draft,S.draft.type,''); dirty(); render(); return}
   if(d.toggle){const r=bindRoot(d.toggle),p=bindPath(d.toggle); setPath(r,p,!getPath(r,p)); if(r===S.draft)dirty(); render(); return}
   if(d.upimg){upload(d.upimg,e.shiftKey);return}
   if(d.rmimg){setPath(bindRoot(d.rmimg),bindPath(d.rmimg),null); if(S.draft)dirty(); render(); return}
-  if(d.additem){const [b,kind]=[d.additem.slice(0,d.additem.lastIndexOf(':')),d.additem.split(':').pop()]; getPath(bindRoot(b),bindPath(b)).push(kind==='faq'?{q:'',a:''}:{h3:'',body:''}); if(b.startsWith('d:'))dirty(); render(); return}
+  if(d.additem){const b=d.additem.slice(0,d.additem.lastIndexOf(':')),kind=d.additem.split(':').pop(); getPath(bindRoot(b),bindPath(b)).push(kind==='faq'?{q:'',a:''}:{h3:'',body:''}); if(b.startsWith('d:'))dirty(); render(); return}
   if(d.mvitem){const p=d.mvitem.split(':'); const b=p[0]+':'+p[1],i=+p[2],j=i+ +p[3]; const L=getPath(bindRoot(b),bindPath(b)); [L[i],L[j]]=[L[j],L[i]]; if(p[0]==='d')dirty(); render(); return}
   if(d.rmitem){const p=d.rmitem.split(':'); const b=p[0]+':'+p[1]; getPath(bindRoot(b),bindPath(b)).splice(+p[2],1); if(p[0]==='d')dirty(); render(); return}
   if(d.smove){const [i,dir]=d.smove.split(':').map(Number),s=S.draft.sections; [s[i],s[i+dir]]=[s[i+dir],s[i]]; dirty(); render(); return}
@@ -755,36 +610,25 @@ $('#content').addEventListener('click',e=>{
   const a=S.draft;
   switch(d.act){
     case 'help': openHelp(); break;
+    case 'goIdx': toast('Opens IDX Configuration › Farm areas (not part of this prototype).'); break;
     case 'add': openArea(mkArea({})); break;
-    case 'pvCat': openPv('category'); break;
-    case 'pvDraft': openPv('draft'); break;
-    case 'saveRow': S.row=null; if(S.view==='area'){toast('Section updated. Press Save to keep the area changes.')} else toast('Saved. Goes live with the next Publish.'); render(); break;
+    case 'saveRow': S.row=null; toast(S.view==='area'?'Section updated. Press Save to keep the area changes.':'Saved. Goes live with the next Publish.'); render(); break;
     case 'back': if(S.dirty) confirmBox('Discard changes?','You have unsaved changes on this area.','Discard',()=>{S.view='home';S.draft=null;S.dirty=false;render()}); else {S.view='home';S.draft=null;render()} break;
     case 'save':
       if(!a.place){toast('Pick a county, city or community.');break}
       if(dupOf(a)){toast(a.name+' already has a page.');break}
       if(a.published&&blocking(a).length){toast('A published page must stay complete: '+blocking(a)[0].t.toLowerCase()+'. Fix it or switch Published off.');break}
       commit(); toast(a.published?`Saved. ${a.name} is live at ${SITE}${areaUrl(a)}.`:`${a.name} saved as a draft.`); S.view='home'; S.draft=null; render(); break;
-    case 'pubDraft': if(a.published){a.published=false; dirty(); render()} else { if(publishArea(a)){dirty(); render(); toast('Published is on. Press Save to make the page live.')} } break;
+    case 'pubDraft': if(a.published){a.published=false; dirty(); render()} else if(publishArea(a)){dirty(); render(); toast('Published is on. Press Save to make the page live.')} break;
     case 'pinDraft': if(togglePin(a)){dirty(); render()} break;
-    case 'refresh': toast(matchCount(a)+' active listings match right now.'); break;
   }
 });
 $('#content').addEventListener('input',e=>{
   const t=e.target;
   if(t.dataset.pickq){S.pickQ=t.value; if(S.pick!==t.dataset.pickq)S.pick=t.dataset.pickq; rerenderKeep(); return}
-  if(t.dataset.bind){const b=t.dataset.bind,r=bindRoot(b),p=bindPath(b);
-    if(r===S.draft){ setPath(r,p,t.value); dirty() }
-    else setPath(r,p,t.value);
-    rerenderKeep(); return}
+  if(t.dataset.bind){const b=t.dataset.bind,r=bindRoot(b); setPath(r,bindPath(b),t.value); if(r===S.draft)dirty(); rerenderKeep(); return}
 });
-$('#content').addEventListener('keydown',e=>{ if(e.key==='Escape'&&S.pick){S.pick=null;render()} if(e.key==='Enter'&&e.target.dataset.price)e.target.blur() });
-$('#content').addEventListener('change',e=>{
-  const t=e.target;
-  if(t.dataset.price){const v=parseMoney(t.value); if(Number.isNaN(v)){toast('Use an amount like 1250000, $1,250,000, 1.25M or 1250k.');render();return} if(t.dataset.price==='min')S.draft.min=v; else S.draft.max=v; dirty(); render(); return}
-  if(t.dataset.limit!==undefined){S.draft.limit=+t.value; dirty(); render(); return}
-  if(t.dataset.floor!==undefined){const v=parseMoney(t.value); if(v&&v>0){S.floor=v; toast('Luxury floor set to '+money(v)+'.')} render(); return}
-});
+$('#content').addEventListener('keydown',e=>{ if(e.key==='Escape'&&S.pick){S.pick=null;render()} });
 // drag to reorder area cards
 let dragId=null;
 $('#content').addEventListener('dragstart',e=>{const c=e.target.closest('[data-drag]'); if(c){dragId=+c.dataset.drag; e.dataTransfer.effectAllowed='move'}});
@@ -793,19 +637,20 @@ $('#content').addEventListener('drop',e=>{const c=e.target.closest('[data-drag]'
 $('#content').addEventListener('dragend',()=>{dragId=null;document.querySelectorAll('.drag-over').forEach(x=>x.classList.remove('drag-over'))});
 
 /* header */
-$('#btnPreview').onclick=()=>S.view==='area'?openPv('draft'):openPv('category');
-$('#btnPub').onclick=()=>{const p=pub().length,d=S.areas.length-p; confirmBox('Publish the Microsite?',`All saved changes go live. Luxury Homes: /luxury-homes and ${p} area page${p===1?'':'s'}${d?`; ${d} draft${d>1?'s stay':' stays'} hidden`:''}.`,'Publish',()=>{$('#lastPub').textContent='Last published November 5, 2026 at '+new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'}); toast('Microsite published. Sitemap updated with '+p+' luxury area'+(p===1?'':'s')+'.')},false)};
+$('#btnPreview').onclick=()=>toast('Opens the Microsite preview (not part of this prototype).');
+$('#btnPub').onclick=()=>{const p=pub().length,d=S.areas.length-p; confirmBox('Publish the Microsite?',`All saved changes go live. Luxury Homes: /luxury-homes and ${p} area page${p===1?'':'s'}${d?`; ${d} draft${d>1?'s stay':' stays'} hidden`:''}.`,'Publish',()=>{$('#lastPub').textContent='Last published November 5, 2026 at '+new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'}); toast('Microsite published.')},false)};
 $('#btnUnpub').onclick=()=>toast('Prototype: Unpublish takes the whole Microsite offline. Not simulated.');
 document.querySelector('.back').onclick=()=>toast('Back to Microsites (not part of this prototype).');
 
 function openHelp(){
   $('#layer').innerHTML=`<div class="ovl" data-x="close"></div><div class="drawer"><div class="dh"><b>How Luxury Homes works</b><button class="btn ghost" data-x="close">Close ✕</button></div><div class="db">
-  <p>Editor › SEO Content › <b>Luxury Homes</b>. The page used to be static. Now the agent edits its content and adds areas from here.</p>
-  <h4>1. The /luxury-homes page</h4><p>Hero, Areas section heading and price floor, About, FAQ and call to action. Sections can be hidden. The Areas section fills itself with one card per published area.</p>
-  <h4>2. Add an area</h4><ol><li><b>Area type</b>: County, City or Community. One only.</li><li><b>Place</b>: one value picked from the MLS feed with search. The page name is the place name, the H1 is always “{Place} Luxury Homes for Sale”, and the URL is /luxury-homes/{place}.</li><li><b>Price range</b>: free text Min and Max (1.25M, 1250k, $1,250,000). Max empty = no limit. Min ≥ floor.</li><li><b>Property sub types</b> and <b>listings on the page</b> (3, 6, 9, 12).</li><li><b>Page content</b>: Hero (tagline, images, alt), About, Community guide, FAQ, CTA, Section order.</li><li><b>Pinned</b> and <b>Published</b> toggles, then <b>Save</b>.</li></ol>
-  <h4>3. Manage areas</h4><p>Cards like farm areas. ⋯ menu: Edit, Pin, Preview page, Publish or Set as Draft, Duplicate, Delete. Drag cards to set the order. Pinned (max 6) come first and show in the site menu.</p>
-  <h4>4. Publish</h4><p>An area can be published only when the checklist on the right is green. Warnings (no listings today, Fair Housing wording) do not block. The top Publish button pushes all saved changes live.</p>
-  <h4>Field rules</h4><table><tr><th>Field</th><th>Rule</th></tr><tr><td>Area type</td><td>Required. County, City or Community.</td></tr><tr><td>Place</td><td>Required. One value from the MLS feed. One page per place.</td></tr><tr><td>Min / Max</td><td>Min required, ≥ floor. Max empty or &gt; Min.</td></tr><tr><td>Sub types</td><td>At least one. Residential for sale only.</td></tr><tr><td>Hero / card image</td><td>Required. 1920×800, 800×500.</td></tr><tr><td>Alt text</td><td>Required, 10+ characters.</td></tr><tr><td>About text</td><td>Required, 60+ characters.</td></tr><tr><td>Guide, FAQ</td><td>Optional. Each item needs both parts.</td></tr></table>
+  <p>Editor › SEO Content › <b>Luxury Homes</b>. A separate section, like City Pages and Counties.</p>
+  <h4>Built on your farm areas</h4><p>Luxury Homes is <b>SEO configuration only</b>. It does not choose listings. Each area page shows the Active listings in its place that match the farm area covering it in IDX Configuration (places, price range, property types). To change the listings, edit the farm area.</p>
+  <h4>1. The /luxury-homes page</h4><p>Hero, Areas section heading, About, FAQ and call to action. Sections can be hidden. The Areas section fills itself with one card per published area.</p>
+  <h4>2. Add an area</h4><ol><li><b>Area type</b>: County, City or Community. One only.</li><li><b>Place</b>: one value from your active farm areas. The page name is the place, the H1 is always “{Place} Luxury Homes for Sale”, the URL is /luxury-homes/{place}.</li><li><b>Page content</b>: Hero (tagline, images, alt), About, Community guide, FAQ, CTA, Section order.</li><li><b>Pinned</b> and <b>Published</b> toggles, then <b>Save</b>.</li></ol>
+  <h4>3. Manage areas</h4><p>⋯ menu: Edit, Pin, Publish or Set as Draft, Duplicate, Delete. Drag cards to set the order. Pinned (max 6) come first and show in the site menu.</p>
+  <h4>4. Publish</h4><p>An area can be published only when the checklist is green. A place that is not in an active farm area cannot be published. Fair Housing wording only warns.</p>
+  <h4>Field rules</h4><table><tr><th>Field</th><th>Rule</th></tr><tr><td>Area type</td><td>Required. County, City or Community.</td></tr><tr><td>Place</td><td>Required. One value from an active farm area. One page per place.</td></tr><tr><td>Hero / card image</td><td>Required. 1920×800, 800×500.</td></tr><tr><td>Alt text</td><td>Required, 10+ characters.</td></tr><tr><td>About text</td><td>Required, 60+ characters.</td></tr><tr><td>Guide, FAQ</td><td>Optional. Each item needs both parts.</td></tr></table>
   <h4>Demo tip</h4><p>Shift-click any Upload button to attach a demo image without choosing a file.</p></div></div>`;
   $('#layer').onclick=e=>{if(e.target.dataset.x==='close')$('#layer').innerHTML=''};
 }
